@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO & Metadata -->
+	<title>AstroBasics Diamond Chart Pro | Traditional Vedic Astrology Desktop Suite</title>
+	<meta name="description"
+		content="An offline Vedic Astrology desktop application. Started as an attempt to visualize astrology, featuring optional Swiss Ephemeris or built-in offline calculations, 6-Pillar Matchmaking, Yoga Explorer, and Numerology.">
+	<meta name="keywords"
+		content="Vedic Astrology Software, Jyotish Software, AstroBasics Diamond Chart Pro, Kundali Milan, Matchmaking, Yoga Explorer, Bhanga Cancellation, Vedic Numerology, Lo Shu Grid, North Indian Chart">
+	<meta name="author" content="AstroBasics">
+	<meta name="robots" content="index, follow">
+	<link rel="canonical" href="https://github.com/thefuzzydeveloper/Astrobasics-dist">
+	<link rel="icon" type="image/x-icon"
+		href="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico">
+
+	<!-- Open Graph & Social Cards -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="AstroBasics Diamond Chart Pro - Desktop Jyotish Suite">
+	<meta property="og:description"
+		content="Traditional Vedic Astrology desktop application featuring 6-Pillar Kundali Milan, Yoga & Bhanga Canvas, and Vedic Numerology. 100% offline and private.">
+	<meta property="og:url" content="https://github.com/thefuzzydeveloper/Astrobasics-dist">
+	<meta property="og:image"
+		content="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico">
+
+	<!-- Fonts: Traditional Classical Typography -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
+
+	<!-- Schema.org JSON-LD for Google Rich Results -->
+	<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AstroBasics Diamond Chart Pro",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "EducationalApplication",
+      "inLanguage": ["en", "hi", "sa"],
+      "downloadUrl": "https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "description": "Started as a suite to visualize astrology, AstroBasics Diamond Chart Pro is an offline desktop app offering optional Swiss Ephemeris or built-in offline calculations, English/Hindi/Sanskrit UI, 6-Pillar Kundali Milan, Yoga Explorer with Bhanga graphics, and Vedic Numerology.",
+      "softwareVersion": "2.0.0"
+    }
+    </script>
+
+	<style>
+		/* Dynamic Theme Variables */
+		:root[data-theme="dark"] {
+			--bg-base: #07030A;
+			--bg-surface: #12071B;
+			--bg-card: #1A0D26;
+			--bg-header: rgba(7, 3, 10, 0.94);
+			--border-color: #C59B27;
+			--border-subtle: rgba(197, 155, 39, 0.25);
+			--text-primary: #F4EFEA;
+			--text-secondary: #C8BDD6;
+			--text-accent: #FFE885;
+			--accent-saffron: #E65100;
+			--accent-gold: #DAA520;
+			--accent-red: #C0392B;
+			--accent-green: #27AE60;
+			--code-bg: #040208;
+			--selection-bg: #E65100;
+			--selection-color: #FFFFFF;
+			--shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+			--glow: 0 0 22px rgba(218, 165, 32, 0.3);
+			--note-bg: rgba(218, 165, 32, 0.08);
+			--note-border: #DAA520;
+		}
+
+		:root[data-theme="light"] {
+			--bg-base: #FAF5E8;
+			--bg-surface: #F2E8D5;
+			--bg-card: #EADBC5;
+			--bg-header: rgba(250, 245, 232, 0.94);
+			--border-color: #A37A1E;
+			--border-subtle: rgba(163, 122, 30, 0.3);
+			--text-primary: #2C1A14;
+			--text-secondary: #5A483E;
+			--text-accent: #7A1C1C;
+			--accent-saffron: #B83A00;
+			--accent-gold: #B8860B;
+			--accent-red: #A82424;
+			--accent-green: #1E8449;
+			--code-bg: #201612;
+			--selection-bg: #FFD700;
+			--selection-color: #000000;
+			--shadow: 0 8px 25px rgba(90, 72, 62, 0.15);
+			--glow: 0 0 18px rgba(163, 122, 30, 0.2);
+			--note-bg: rgba(163, 122, 30, 0.08);
+			--note-border: #A37A1E;
+		}
+
+		/* Selection Color Highlight */
+		::selection {
+			background-color: var(--selection-bg);
+			color: var(--selection-color);
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		body {
+			font-family: 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+			background-color: var(--bg-base);
+			color: var(--text-primary);
+			line-height: 1.75;
+			overflow-x: hidden;
+			position: relative;
+		}
+
+		/* Background Particles Canvas */
+		#bgCanvas {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: -1;
+			pointer-events: none;
+		}
+
+		h1,
+		h2,
+		h3,
+		.brand-title {
+			font-family: 'Rozha One', 'Yatra One', serif;
+			letter-spacing: 0.5px;
+		}
+
+		/* Navigation Header */
+		header {
+			background-color: var(--bg-header);
+			border-bottom: 2px solid var(--border-color);
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			box-shadow: var(--shadow);
+			backdrop-filter: blur(12px);
+		}
+
+		.nav-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 12px 20px;
+		}
+
+		.brand-logo {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			text-decoration: none;
+		}
+
+		.brand-logo img {
+			width: 38px;
+			height: 38px;
+			border-radius: 6px;
+			border: 1px solid var(--border-color);
+		}
+
+		.brand-title {
+			font-size: 1.45rem;
+			color: var(--text-accent);
+		}
+
+		nav ul {
+			display: flex;
+			list-style: none;
+			gap: 20px;
+			align-items: center;
+		}
+
+		nav a {
+			color: var(--text-primary);
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.95rem;
+			position: relative;
+		}
+
+		nav a::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 2px;
+			bottom: -4px;
+			left: 0;
+			background-color: var(--accent-gold);
+			transition: width 0.3s ease;
+		}
+
+		nav a:hover::after {
+			width: 100%;
+		}
+
+		nav a:hover {
+			color: var(--accent-gold);
+		}
+
+		/* Buttons & Badges */
+		.theme-toggle-btn {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-color);
+			color: var(--text-primary);
+			padding: 8px 14px;
+			border-radius: 20px;
+			cursor: pointer;
+			font-weight: 600;
+			font-size: 0.88rem;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.theme-toggle-btn:hover {
+			border-color: var(--accent-saffron);
+			color: var(--text-accent);
+		}
+
+		.btn-primary {
+			background: linear-gradient(135deg, var(--accent-saffron), var(--accent-gold));
+			color: #FFFFFF;
+			padding: 12px 26px;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 700;
+			border: 1px solid var(--border-color);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			cursor: pointer;
+			box-shadow: 0 4px 15px rgba(230, 81, 0, 0.3);
+		}
+
+		.btn-primary:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+		}
+
+		.btn-secondary {
+			background: transparent;
+			border: 1px solid var(--border-color);
+			color: var(--text-primary);
+			padding: 11px 22px;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 600;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.btn-secondary:hover {
+			background: var(--bg-surface);
+			color: var(--text-accent);
+			border-color: var(--accent-gold);
+		}
+
+		.golden-divider {
+			height: 3px;
+			background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+			margin: 45px 0;
+			border: none;
+			position: relative;
+		}
+
+		.golden-divider::after {
+			content: "❖";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: var(--bg-base);
+			color: var(--accent-gold);
+			padding: 0 15px;
+			font-size: 1.1rem;
+		}
+
+		/* Hero Section */
+		.hero {
+			padding: 60px 20px 40px;
+			text-align: center;
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+
+		.hero-badges {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			flex-wrap: wrap;
+			margin-bottom: 25px;
+		}
+
+		.badge {
+			background-color: var(--bg-surface);
+			border: 1px solid var(--border-subtle);
+			color: var(--text-accent);
+			padding: 4px 12px;
+			border-radius: 16px;
+			font-size: 0.85rem;
+			font-weight: 600;
+		}
+
+		.hero h1 {
+			font-size: 3rem;
+			color: var(--text-accent);
+			margin-bottom: 20px;
+			line-height: 1.25;
+			text-shadow: var(--glow);
+		}
+
+		.hero p {
+			font-size: 1.15rem;
+			color: var(--text-secondary);
+			margin-bottom: 35px;
+		}
+
+		.hero-stats {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			margin-top: 40px;
+			flex-wrap: wrap;
+		}
+
+		.stat-card {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-subtle);
+			padding: 16px 22px;
+			border-radius: 8px;
+			min-width: 170px;
+			text-align: center;
+		}
+
+		.stat-card:hover {
+			border-color: var(--border-color);
+			box-shadow: var(--glow);
+		}
+
+		.stat-number {
+			font-size: 1.5rem;
+			color: var(--text-accent);
+			font-weight: 700;
+			font-family: 'Rozha One', serif;
+		}
+
+		.stat-label {
+			font-size: 0.82rem;
+			color: var(--text-secondary);
+		}
+
+		/* Section Layouts */
+		.section-container {
+			max-width: 1150px;
+			margin: 0 auto;
+			padding: 40px 20px;
+		}
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.section-header h2 {
+			font-size: 2.1rem;
+			color: var(--text-accent);
+			margin-bottom: 10px;
+		}
+
+		.section-header p {
+			color: var(--text-secondary);
+			max-width: 720px;
+			margin: 0 auto;
+			font-size: 1.02rem;
+		}
+
+		/* ==========================================
+           FEATURE SHOWCASE 1: 6-PILLAR KUNDALI MILAN
+           ========================================== */
+		.milan-spotlight-box {
+			background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-card) 100%);
+			border: 2px solid var(--border-color);
+			border-radius: 12px;
+			padding: 35px;
+			box-shadow: var(--shadow);
+		}
+
+		.milan-pillars-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 20px;
+			margin-top: 25px;
+		}
+
+		.pillar-node {
+			background: var(--bg-base);
+			border: 1px solid var(--border-subtle);
+			border-left: 4px solid var(--accent-saffron);
+			border-radius: 6px;
+			padding: 18px;
+		}
+
+		.pillar-node h4 {
+			color: var(--text-accent);
+			font-size: 1.1rem;
+			margin-bottom: 6px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.pillar-node p {
+			font-size: 0.91rem;
+			color: var(--text-secondary);
+		}
+
+		.pillar-badge {
+			font-family: 'Rozha One', serif;
+			font-size: 0.82rem;
+			color: var(--accent-gold);
+			border: 1px solid var(--border-subtle);
+			padding: 2px 8px;
+			border-radius: 12px;
+		}
+
+		/* ==========================================
+           FEATURE SHOWCASE 2: YOGA EXPLORER & BHANGA
+           ========================================== */
+		.yoga-canvas-box {
+			background: var(--bg-surface);
+			border: 2px solid var(--border-color);
+			border-radius: 12px;
+			padding: 30px;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+			align-items: center;
+			box-shadow: var(--shadow);
+		}
+
+		.yoga-visual-demo {
+			background: var(--bg-base);
+			border: 1px solid var(--border-subtle);
+			border-radius: 8px;
+			padding: 24px;
+			text-align: center;
+		}
+
+		.vector-path-line {
+			height: 2px;
+			background: linear-gradient(90deg, var(--accent-green), var(--accent-gold), var(--accent-red));
+			margin: 15px 0;
+		}
+
+		.shield-indicator {
+			display: inline-block;
+			border: 1px solid var(--accent-green);
+			color: var(--accent-green);
+			background: rgba(39, 174, 96, 0.12);
+			padding: 5px 14px;
+			border-radius: 4px;
+			font-size: 0.88rem;
+			font-weight: 700;
+			margin-top: 10px;
+		}
+
+		/* ==========================================
+           FEATURE SHOWCASE 3: VEDIC & LO SHU NUMEROLOGY
+           ========================================== */
+		.numerology-matrix-box {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-color);
+			border-radius: 12px;
+			padding: 30px;
+			display: grid;
+			grid-template-columns: 280px 1fr;
+			gap: 30px;
+			align-items: center;
+			box-shadow: var(--shadow);
+		}
+
+		.loshu-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 8px;
+			background: var(--bg-card);
+			padding: 12px;
+			border-radius: 8px;
+			border: 1px solid var(--border-subtle);
+		}
+
+		.loshu-cell {
+			background: var(--bg-base);
+			border: 1px solid var(--border-subtle);
+			aspect-ratio: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 4px;
+		}
+
+		.loshu-num {
+			font-family: 'Rozha One', serif;
+			font-size: 1.4rem;
+			color: var(--text-accent);
+		}
+
+		.loshu-plane {
+			font-size: 0.72rem;
+			color: var(--text-secondary);
+		}
+
+		/* FORMAT 1: INTERACTIVE DIAMOND KUNDALI HUB */
+		.kundali-hub-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 30px;
+			align-items: center;
+			background: var(--bg-surface);
+			border: 2px solid var(--border-color);
+			border-radius: 12px;
+			padding: 30px;
+			box-shadow: var(--shadow);
+		}
+
+		.kundali-diagram {
+			position: relative;
+			width: 100%;
+			max-width: 360px;
+			margin: 0 auto;
+			aspect-ratio: 1;
+		}
+
+		.kundali-svg {
+			width: 100%;
+			height: 100%;
+		}
+
+		.node-btn {
+			cursor: pointer;
+			fill: var(--bg-card);
+			stroke: var(--border-color);
+			stroke-width: 1.5;
+			transition: all 0.3s ease;
+		}
+
+		.node-btn:hover,
+		.node-btn.active {
+			fill: var(--accent-saffron);
+			stroke: var(--text-accent);
+		}
+
+		.hub-info-panel {
+			background: var(--bg-base);
+			border: 1px solid var(--border-subtle);
+			border-radius: 8px;
+			padding: 24px;
+			min-height: 260px;
+		}
+
+		.hub-info-panel h3 {
+			color: var(--text-accent);
+			font-size: 1.3rem;
+			margin-bottom: 12px;
+			border-bottom: 1px solid var(--border-subtle);
+			padding-bottom: 6px;
+		}
+
+		.hub-info-panel p {
+			color: var(--text-secondary);
+			font-size: 0.98rem;
+		}
+
+		/* FORMAT 2: SPLIT DIAGNOSTIC DUAL-PANE TERMINAL */
+		.split-terminal-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 24px;
+		}
+
+		.terminal-pane {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-color);
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: var(--shadow);
+		}
+
+		.terminal-header {
+			background: var(--bg-card);
+			padding: 10px 16px;
+			border-bottom: 1px solid var(--border-subtle);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.terminal-title {
+			font-size: 0.95rem;
+			font-weight: 700;
+			color: var(--text-accent);
+		}
+
+		.terminal-body {
+			padding: 20px;
+		}
+
+		.terminal-body ul {
+			list-style: none;
+		}
+
+		.terminal-body li {
+			padding: 8px 0;
+			border-bottom: 1px dashed var(--border-subtle);
+			font-size: 0.92rem;
+			color: var(--text-secondary);
+		}
+
+		.terminal-body li:last-child {
+			border-bottom: none;
+		}
+
+		/* FORMAT 3: HORIZONTAL SEQUENTIAL FLOW TIMELINE */
+		.timeline-flow-container {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+		}
+
+		.timeline-step {
+			display: grid;
+			grid-template-columns: 80px 1fr;
+			gap: 20px;
+			align-items: center;
+			background: var(--bg-surface);
+			border: 1px solid var(--border-subtle);
+			border-left: 4px solid var(--border-color);
+			padding: 18px 24px;
+			border-radius: 6px;
+		}
+
+		.step-number {
+			font-family: 'Rozha One', serif;
+			font-size: 1.8rem;
+			color: var(--text-accent);
+			text-align: center;
+		}
+
+		.step-content h3 {
+			font-size: 1.15rem;
+			color: var(--text-accent);
+			margin-bottom: 4px;
+		}
+
+		.step-content p {
+			font-size: 0.93rem;
+			color: var(--text-secondary);
+		}
+
+		/* FORMAT 4: ACCORDION KNOWLEDGE VAULT */
+		.accordion-vault {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		.accordion-item {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-subtle);
+			border-radius: 6px;
+			overflow: hidden;
+		}
+
+		.accordion-header {
+			padding: 16px 20px;
+			cursor: pointer;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-weight: 700;
+			color: var(--text-accent);
+			font-size: 1.05rem;
+			user-select: none;
+		}
+
+		.accordion-header:hover {
+			background: var(--bg-card);
+		}
+
+		.accordion-content {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.35s ease, padding 0.35s ease;
+			padding: 0 20px;
+			background: var(--bg-base);
+			border-top: 0px solid var(--border-subtle);
+		}
+
+		.accordion-item.active .accordion-content {
+			max-height: 300px;
+			padding: 16px 20px;
+			border-top-width: 1px;
+		}
+
+		.accordion-item.active .accordion-header {
+			border-bottom: 1px solid var(--border-subtle);
+		}
+
+		.accordion-icon {
+			font-family: monospace;
+			font-size: 1.2rem;
+			color: var(--accent-gold);
+		}
+
+		/* FORMAT 5: CLASSICAL SPEC SHEET MATRIX */
+		.custom-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+			background: var(--bg-surface);
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: var(--shadow);
+		}
+
+		.custom-table th,
+		.custom-table td {
+			border: 1px solid var(--border-subtle);
+			padding: 12px 16px;
+			text-align: left;
+			font-size: 0.93rem;
+		}
+
+		.custom-table th {
+			background-color: var(--bg-card);
+			color: var(--text-accent);
+			font-family: 'Rozha One', serif;
+		}
+
+		/* FORMAT 6: COMMUNITY EXPANSION BANNER */
+		.expansion-banner {
+			background: linear-gradient(135deg, var(--bg-surface), var(--bg-card));
+			border: 2px dashed var(--border-color);
+			border-radius: 10px;
+			padding: 35px;
+			text-align: center;
+			margin-top: 40px;
+			box-shadow: var(--shadow);
+		}
+
+		.expansion-banner h2 {
+			color: var(--text-accent);
+			font-size: 1.8rem;
+			margin-bottom: 12px;
+		}
+
+		.expansion-banner p {
+			color: var(--text-secondary);
+			max-width: 650px;
+			margin: 0 auto 24px;
+			font-size: 1rem;
+		}
+
+		.lang-banner {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-color);
+			border-radius: 10px;
+			padding: 30px;
+			box-shadow: var(--shadow);
+		}
+
+		.lang-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 18px;
+			margin-top: 20px;
+		}
+
+		.lang-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-subtle);
+			padding: 18px;
+			border-radius: 8px;
+			text-align: center;
+		}
+
+		.privacy-box {
+			background: var(--bg-surface);
+			border: 1px solid var(--accent-green);
+			padding: 24px;
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			box-shadow: var(--shadow);
+		}
+
+		.closing-note-box {
+			background-color: var(--note-bg);
+			border: 1px solid var(--note-border);
+			border-radius: 8px;
+			padding: 20px 25px;
+			margin: 40px auto 20px;
+			max-width: 900px;
+			text-align: center;
+			box-shadow: var(--shadow);
+		}
+
+		.closing-note-box p {
+			font-size: 1.05rem;
+			font-weight: 600;
+			color: var(--text-accent);
+			line-height: 1.6;
+		}
+
+		footer {
+			background-color: var(--bg-surface);
+			border-top: 2px solid var(--border-color);
+			padding: 35px 20px 25px;
+			text-align: center;
+			color: var(--text-secondary);
+			font-size: 0.88rem;
+		}
+
+		footer a {
+			color: var(--text-accent);
+			text-decoration: none;
+		}
+
+		footer a:hover {
+			text-decoration: underline;
+		}
+
+		/* Mobile Adaptability */
+		@media (max-width: 900px) {
+
+			.kundali-hub-container,
+			.split-terminal-container,
+			.yoga-canvas-box,
+			.numerology-matrix-box {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.hero h1 {
+				font-size: 2.1rem;
+			}
+
+			.hero p {
+				font-size: 1rem;
+			}
+
+			.nav-container {
+				flex-direction: column;
+				gap: 14px;
+				padding: 15px;
+			}
+
+			nav ul {
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 12px;
+			}
+
+			.privacy-box {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.timeline-step {
+				grid-template-columns: 1fr;
+				text-align: center;
+			}
+
+			.btn-primary,
+			.btn-secondary {
+				width: 100%;
+				text-align: center;
+			}
+
+			.hero-stats {
+				gap: 12px;
+			}
+
+			.stat-card {
+				min-width: 140px;
+				padding: 12px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.hero h1 {
+				font-size: 1.8rem;
+			}
+
+			.section-header h2 {
+				font-size: 1.5rem;
+			}
+
+			.custom-table th,
+			.custom-table td {
+				padding: 8px 10px;
+				font-size: 0.82rem;
+			}
+
+			.lang-banner,
+			.expansion-banner,
+			.milan-spotlight-box {
+				padding: 18px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Ambient Particle Canvas (~1% CPU) -->
+	<canvas id="bgCanvas"></canvas>
+
+	<!-- Navigation Header -->
+	<header>
+		<div class="nav-container">
+			<a href="#" class="brand-logo">
+				<img src="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico"
+					alt="AstroBasics Logo">
+				<span class="brand-title">AstroBasics</span>
+			</a>
+			<nav>
+				<ul>
+					<li><a href="#milan-spotlight">Kundali Milan</a></li>
+					<li><a href="#yoga-spotlight">Yoga Canvas</a></li>
+					<li><a href="#numerology-spotlight">Numerology</a></li>
+					<li><a href="#languages">Languages</a></li>
+					<li><a href="#privacy">Privacy</a></li>
+				</ul>
+			</nav>
+			<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+				<button class="theme-toggle-btn" id="themeToggle" onclick="toggleThemeManual()">
+					<span id="themeIcon">❖</span> <span id="themeText">Theme</span>
+				</button>
+				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
+					class="btn-primary" style="padding: 8px 16px; font-size: 0.88rem;">
+					Download (.exe)
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-badges">
+			<span class="badge">English</span>
+			<span class="badge">हिन्दी (Hindi)</span>
+			<span class="badge">संस्कृतम् (Sanskrit)</span>
+			<span class="badge">100% Offline & Private</span>
+		</div>
+
+		<h1>AstroBasics Diamond Chart Pro</h1>
+		<p>Started as an attempt to visualize astrology, AstroBasics Diamond Chart Pro offers flexible
+			astrological analysis. Built with optional Swiss Ephemeris astronomical calculations
+			as well as pure J2 mathematical fallbacks, it features North Indian Diamond
+			chart visualizers, multi-varga analysis, and custom rules analyzer.</p>
+
+		<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
+				class="btn-primary">
+				<span>▸ Download Windows Installer (.exe)</span>
+			</a>
+			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank" rel="noopener"
+				class="btn-secondary">
+				<span>🐈‍⬛ View Source on GitHub</span>
+			</a>
+		</div>
+
+		<div class="hero-stats">
+			<div class="stat-card">
+				<div class="stat-number">D1 - D60</div>
+				<div class="stat-label">Parashari Vargas</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-number">Milan</div>
+				<div class="stat-label">Six Folds Kundali Milan</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-number">Dasha Explorer</div>
+				<div class="stat-label">Hierarchical Five level Vimshottari dasha explorer</div>
+			</div>
+			<div class="stat-card">
+				<div class="stat-number">OS Vault</div>
+				<div class="stat-label">Hardware Key Security</div>
+			</div>
+		</div>
+	</section>
+
+	<hr class="golden-divider">
+
+	<!-- MAJOR SPOTLIGHT 1: 6-PILLAR KUNDALI MILAN -->
+	<section id="milan-spotlight" class="section-container">
+		<div class="milan-spotlight-box">
+			<div class="section-header" style="margin-bottom: 25px;">
+				<h2>Six Pillar Kundali Milan Engine</h2>
+				<p>A comprehensive matchmaking architecture moving far beyond standard moon points to
+					evaluate structural, psychological, and karmic compatibility.</p>
+			</div>
+
+			<div class="milan-pillars-grid">
+				<div class="pillar-node">
+					<h4>Pillar 1: Ashtakoota Matrix <span class="pillar-badge">36 Points</span></h4>
+					<p>Calculates Varna, Vashya, Tara, Yoni, Graha Maitri, Gana, Bhakoot, and Nadi
+						with step-by-step mathematical reasoning.</p>
+				</div>
+
+				<div class="pillar-node">
+					<h4>Pillar 2: Pāpasāmya Matrix <span class="pillar-badge">Kuja
+							Differential</span></h4>
+					<p>Evaluates malefic damage from Mars, Saturn, and Sun across houses 2, 4, 7, 8,
+						and 12 to ensure energetic equilibrium between partners.</p>
+				</div>
+
+				<div class="pillar-node">
+					<h4>Pillar 3: Mutual Synergy <span class="pillar-badge">D1-D9 Synastry</span>
+					</h4>
+					<p>Overlays D1 Ascendant Lords and D9 Relationship Lords across both charts to
+						verify mutual psychological support.</p>
+				</div>
+
+				<div class="pillar-node">
+					<h4>Pillar 4: Navamsha 7th Interplay <span class="pillar-badge">Spouse
+							Projection</span></h4>
+					<p>Analyzes planets occupying the D9 7th house to determine the ultimate,
+						long-term reality of the domestic partnership.</p>
+				</div>
+
+				<div class="pillar-node">
+					<h4>Pillar 5: Birth Dasha Alignment <span class="pillar-badge">Timeline
+							Sync</span></h4>
+					<p>Evaluates birth Mahadasha lords in the partner D9 chart to ensure ongoing
+						life periods support mutual growth.</p>
+				</div>
+
+				<div class="pillar-node">
+					<h4>Pillar 6: D9 8th Lord Overlay <span class="pillar-badge">Transformation
+							Shield</span></h4>
+					<p>Checks placement of the transformation lord in the partner Navamsha to verify
+						protection against sudden crises.</p>
+				</div>
+			</div>
+
+			<div style="margin-top: 25px; text-align: center;">
+				<p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 15px;">
+					Generates full side-by-side D1/D9 chart comparisons and exports structured PDF
+					reports with corner frame artwork.</p>
+				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
+					class="btn-primary">
+					<span>▸ Test Kundali Milan in Software</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<hr class="golden-divider">
+
+	<!-- MAJOR SPOTLIGHT 2: YOGA EXPLORER & BHANGA CANVAS -->
+	<section id="yoga-spotlight" class="section-container">
+		<div class="section-header">
+			<h2>Visual Yoga Explorer Canvas</h2>
+			<p>Interactive Yoga Explorer engine that draws planetary linkages, aspects, exchanges, and
+				cancellation shields directly.</p>
+		</div>
+
+		<div class="yoga-canvas-box">
+			<div>
+				<h3 style="color: var(--text-accent); font-size: 1.4rem; margin-bottom: 12px;">Dynamic
+					Overlay</h3>
+				<p style="color: var(--text-secondary); font-size: 0.96rem; margin-bottom: 16px;">
+					The Yoga Explorer projects lines onto the main chart 
+					layouts itself making it clear what the yoga is all about!
+				</p>
+				<ul
+					style="list-style: none; padding: 0; color: var(--text-secondary); font-size: 0.93rem;">
+					<li style="padding: 6px 0; border-bottom: 1px dashed var(--border-subtle);">
+						<strong>Bhanga Rules:</strong> Detects when a beneif or
+						malefic yoga is neutralized thereby causing bhanga (cancellation) of yogas.</li>
+					<li style="padding: 6px 0;"><strong>Unified D1 & D9 Scanning:</strong> Scans
+						both physical and subconscious vargas simultaneously.</li>
+				</ul>
+			</div>
+
+			<div class="yoga-visual-demo">
+				<div
+					style="font-family: 'Rozha One', serif; color: var(--accent-gold); font-size: 1.2rem;">
+					Gajakesari Yoga Analysis</div>
+				<div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Jupiter
+					in 4th House ❖ Moon in 10th House</div>
+
+				<div class="vector-path-line"></div>
+
+				<div style="font-size: 0.88rem; color: var(--text-primary);">
+					Mutual Kendra Aspect Detected
+				</div>
+				<div class="shield-indicator">
+					✓ Uncancelled & Active (Full Grace) * 
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- MAJOR SPOTLIGHT 3: VEDIC & LO SHU NUMEROLOGY -->
+	<section id="numerology-spotlight" class="section-container">
+		<div class="section-header">
+			<h2>Numerology Engine</h2>
+			<p>Unified numerical calculations merging Parashari planetary friendships with traditional 3x3
+				grid planes.</p>
+		</div>
+
+		<div class="numerology-matrix-box">
+			<div class="loshu-grid">
+				<div class="loshu-cell"><span class="loshu-num">4</span><span
+						class="loshu-plane">Rahu</span></div>
+				<div class="loshu-cell"><span class="loshu-num">9</span><span
+						class="loshu-plane">Mars</span></div>
+				<div class="loshu-cell"><span class="loshu-num">2</span><span
+						class="loshu-plane">Moon</span></div>
+				<div class="loshu-cell"><span class="loshu-num">3</span><span
+						class="loshu-plane">Jupiter</span></div>
+				<div class="loshu-cell"><span class="loshu-num">5</span><span
+						class="loshu-plane">Mercury</span></div>
+				<div class="loshu-cell"><span class="loshu-num">7</span><span
+						class="loshu-plane">Ketu</span></div>
+				<div class="loshu-cell"><span class="loshu-num">8</span><span
+						class="loshu-plane">Saturn</span></div>
+				<div class="loshu-cell"><span class="loshu-num">1</span><span
+						class="loshu-plane">Sun</span></div>
+				<div class="loshu-cell"><span class="loshu-num">6</span><span
+						class="loshu-plane">Venus</span></div>
+			</div>
+
+			<div>
+				<h3 style="color: var(--text-accent); font-size: 1.35rem; margin-bottom: 10px;">
+					Ank and Grid Analysis</h3>
+				<p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 14px;">
+					Calculates Moolank, Bhagyank, and Namank using the standard alphabet grid.
+				</p>
+				<ul
+					style="list-style: none; padding: 0; color: var(--text-secondary); font-size: 0.92rem;">
+					<li style="padding: 5px 0;">❖ <strong>Address & House Compatibility:</strong>
+						Matches house or apartment numbers against your Moolank and
+						Bhagyank.</li>
+					<li style="padding: 5px 0;">❖ <strong>Friendship & Partner compatibility:</strong>
+						Matches your friend or partner's numbers against your Moolank and
+						Bhagyank and gives a verdict.</li>
+					<li style="padding: 5px 0;">❖ <strong>Numerology Dashas:</strong> Generates
+						Mahadasha, Antardasha, and Pratyantar Dasha timelines based on annual
+						birthday shifts.</li>
+					<li style="padding: 5px 0;">❖ <strong>Grid Layouts:</strong> Switch between
+						Standard Lo Shu (4-9-2), Western Pythagorean (3-6-9), and Natural
+						Sequence (1-2-3) grids.</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<hr class="golden-divider">
+
+	<!-- Multilingual Support Banner -->
+	<section id="languages" class="section-container">
+		<div class="lang-banner">
+			<div class="section-header" style="margin-bottom: 20px;">
+				<h2>Trilingual UI Support</h2>
+				<p>Switch menus, chart details, tooltips, and report exports across three
+					supported languages.</p>
+			</div>
+
+			<div class="lang-grid">
+				<div class="lang-card">
+					<h3>English</h3>
+					<p style="color: var(--text-secondary); font-size: 0.9rem;">Standard
+						astrological terminology, degree markers, and script APIs.
+					</p>
+				</div>
+				<div class="lang-card">
+					<h3>हिन्दी (Hindi)</h3>
+					<p style="color: var(--text-secondary); font-size: 0.9rem;">पारंपरिक शब्दावली -
+						नवग्रह, भाव, नक्षत्र स्वामी, पंचांग विवरण एवं योगकारक विश्लेषण.</p>
+				</div>
+				<div class="lang-card">
+					<h3>संस्कृतम् (Sanskrit)</h3>
+					<p style="color: var(--text-secondary); font-size: 0.9rem;">शास्त्रोक्तम् -
+						राशि, वर्ग, बलाबलम्, ग्रहाणाम् दृष्टयः तथा च पंचांगम्.
+					</p>
+				</div>
+			</div>
+
+			<div
+				style="margin-top: 25px; padding: 15px 20px; background: var(--bg-card); border-left: 4px solid var(--accent-saffron); border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+				<div>
+					<strong>Need another language?</strong>
+					<p style="font-size: 0.9rem; color: var(--text-secondary);">Additional language
+						packs can be added upon request or community suggestion.</p>
+				</div>
+				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/issues" target="_blank"
+					rel="noopener" class="btn-secondary"
+					style="font-size: 0.88rem; padding: 8px 16px;">
+					Request Language Extension →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- FORMAT 1: INTERACTIVE DIAMOND KUNDALI HUB -->
+	<section id="visualizer" class="section-container">
+		<div class="section-header">
+			<h2>Interactive Chart Features</h2>
+			<p>Click or hover over diagram sectors to explore core chart features.</p>
+		</div>
+
+		<div class="kundali-hub-container">
+			<div class="kundali-diagram">
+				<svg class="kundali-svg" viewBox="0 0 400 400">
+					<rect x="10" y="10" width="380" height="380" fill="none"
+						stroke="var(--border-color)" stroke-width="2" />
+					<line x1="10" y1="10" x2="390" y2="390" stroke="var(--border-subtle)"
+						stroke-width="1.5" />
+					<line x1="390" y1="10" x2="10" y2="390" stroke="var(--border-subtle)"
+						stroke-width="1.5" />
+					<polygon points="200,10 390,200 200,390 10,200" fill="none"
+						stroke="var(--border-color)" stroke-width="1.5" />
+
+					<!-- House 1 (Lagna) Node -->
+					<polygon class="node-btn active" points="200,10 295,105 200,200 105,105"
+						onclick="selectHubNode('lagna', event)" />
+					<text x="200" y="100" fill="var(--text-accent)" font-family="Rozha One"
+						font-size="14" text-anchor="middle">H1</text>
+
+					<!-- House 4 Node -->
+					<polygon class="node-btn" points="10,200 105,105 200,200 105,295"
+						onclick="selectHubNode('vargas', event)" />
+					<text x="100" y="205" fill="var(--text-accent)" font-family="Rozha One"
+						font-size="14" text-anchor="middle">H4</text>
+
+					<!-- House 7 Node -->
+					<polygon class="node-btn" points="200,390 295,295 200,200 105,295"
+						onclick="selectHubNode('highlights', event)" />
+					<text x="200" y="310" fill="var(--text-accent)" font-family="Rozha One"
+						font-size="14" text-anchor="middle">H7</text>
+
+					<!-- House 10 Node -->
+					<polygon class="node-btn" points="390,200 295,105 200,200 295,295"
+						onclick="selectHubNode('engine', event)" />
+					<text x="300" y="205" fill="var(--text-accent)" font-family="Rozha One"
+						font-size="14" text-anchor="middle">H10</text>
+				</svg>
+			</div>
+
+			<div class="hub-info-panel">
+				<h3 id="hubTitle">Diamond Visualizer</h3>
+				<p id="hubDesc">Renders Diamond (Rashi) charts with smooth line animations.
+					Double-clicking any house instantly rotates the entire chart to treat
+					that house as the temporary Lagna for derivative house analysis.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- FORMAT 2: SPLIT DIAGNOSTIC DUAL-PANE TERMINAL -->
+	<section id="diagnostics" class="section-container">
+		<div class="section-header">
+			<h2>Specialized Workspace</h2>
+			<p>Specialized dual workspace tailored for comparative research and situational analysis.</p>
+		</div>
+
+		<div class="split-terminal-container">
+			<div class="terminal-pane">
+				<div class="terminal-header">
+					<span class="terminal-title">▸ Module A: Horary (Prashna) Studio</span>
+					<span style="font-size: 0.8rem; color: var(--accent-gold);">[Active Mode]</span>
+				</div>
+				<div class="terminal-body">
+					<ul>
+						<li><strong>Natural Language Parser:</strong> Type queries like "Will my
+							brother pass his exam?" to assign significators
+							automatically.</li>
+						<li><strong>Model:</strong> Evaluates applying and
+							separating angular aspects alongside perfection and prohibition
+							checks.</li>
+						<li><strong>Nature of question:</strong> If too complex, make sure to adjust the 
+							houses affected due to question for proper answer.</li>
+						<li><strong>Lost Object Triangulation:</strong> Locates missing items
+							using house derivation, element textures, and compass direction
+							mapping.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="terminal-pane">
+				<div class="terminal-header">
+					<span class="terminal-title">▸ Module B: Research Mode</span>
+					<span style="font-size: 0.8rem; color: var(--accent-gold);">[Active Mode]</span>
+				</div>
+				<div class="terminal-body">
+					<ul>
+						<li><strong>Comparison:</strong> Compare two separate charts,
+							time periods, or vargas side-by-side.</li>
+						<li><strong>Research Session Storage:</strong> Save complete multi-chart
+							research sessions locally.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FORMAT 3: HORIZONTAL SEQUENTIAL FLOW TIMELINE -->
+	<section class="section-container">
+		<div class="section-header">
+			<h2>Time Progression Engines</h2>
+			<p>Unifying static natal promises with dynamic planetary timelines.</p>
+		</div>
+
+		<div class="timeline-flow-container">
+			<div class="timeline-step">
+				<div class="step-number">01</div>
+				<div class="step-content">
+					<h3>Multi-Dasha Engine</h3>
+					<p>Hierarchical tree navigation for Vimshottari, Yogini, Jaimini Chara,
+						Kalachakra, Ashtottari, and BPHS conditional Dashas down to 5 levels
+						deep. Includes radial Chakra visualizers.</p>
+				</div>
+			</div>
+
+			<div class="timeline-step">
+				<div class="step-number">02</div>
+				<div class="step-content">
+					<h3>Gochar & Nadi Transit Overlay</h3>
+					<p>Real-time planetary transits overlaid directly onto D1 and D9 charts.
+						Features D9 Taramsha, Dhruva Nadi trine event indicators, and
+						automatic rashi jump calculations[cite: 17].</p>
+				</div>
+			</div>
+
+			<div class="timeline-step">
+				<div class="step-number">03</div>
+				<div class="step-content">
+					<h3>Life Activity Curve</h3>
+					<p>Graphs lifetime energy fluctuations over time. Tracks peak and low
+						periods, Pushkara Navamsha transits, and Dhruva Nadi trine
+						conjunctions.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FORMAT 4: ACCORDION KNOWLEDGE VAULT -->
+	<section class="section-container">
+		<div class="section-header">
+			<h2>Analytical Engine Modules</h2>
+			<p>Select any item below to review detailed system specification.
+			</p>
+		</div>
+
+		<div class="accordion-vault">
+			<div class="accordion-item">
+				<div class="accordion-header" onclick="toggleAccordion(this)">
+					<span>❖ Custom Rules Engine</span>
+					<span class="accordion-icon">+</span>
+				</div>
+				<div class="accordion-content">
+					<p>Define multi-condition astrological rules using a point-based threshold
+						engine. Evaluates AND, OR, and fuzzy logic across physical D1,
+						Navamsha D9, Career D10, and Karmic D60 charts simultaneously.
+					</p>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<div class="accordion-header" onclick="toggleAccordion(this)">
+					<span>❖ Educational Degree Mapping</span>
+					<span class="accordion-icon">+</span>
+				</div>
+				<div class="accordion-content">
+					<p>Predict educational streams via multi-varga triangulation (D1, D9, D24,
+						D60) along with time-sensitivity tests to measure birth time
+						stability.</p>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<div class="accordion-header" onclick="toggleAccordion(this)">
+					<span>❖ Chart Rectification Engine</span>
+					<span class="accordion-icon">+</span>
+				</div>
+				<div class="accordion-content">
+					<p>Search historical dates to find matching timestamps for hypothetical chart
+						layouts.</p>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<div class="accordion-header" onclick="toggleAccordion(this)">
+					<span>❖ PDF Report Builder</span>
+					<span class="accordion-icon">+</span>
+				</div>
+				<div class="accordion-content">
+					<p>Export multi-page PDF chart reports featuring Panchang, Shadbala tables,
+						Ashtakavarga matrices, Bhava Padas, and Argala
+						summaries.</p>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<div class="accordion-header" onclick="toggleAccordion(this)">
+					<span>❖ Composite Strength Index (CSI)</span>
+					<span class="accordion-icon">+</span>
+				</div>
+				<div class="accordion-content">
+					<p>Unifies Shadbala, Ashtakavarga (SAV) points, and Avasthas into a single
+						overall score, evaluating planetary and house strengths with
+						configurable weight options.</p>
+				</div>
+			</div>
+
+			<div class="accordion-item">
+				<div class="accordion-header" onclick="toggleAccordion(this)">
+					<span>❖ Auto-Updater</span>
+					<span class="accordion-icon">+</span>
+				</div>
+				<div class="accordion-content">
+					<p>Inspect real-time background calculation logs and check for system
+						updates safely without risking local user saves. Includes
+						in-app community voting on upcoming features.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FORMAT 5: CLASSICAL SPEC SHEET MATRIX -->
+	<section id="outlines" class="section-container">
+		<div class="section-header">
+			<h2>House Outlines Matrix</h2>
+			<p>Optionally color-code chart house borders into visual overlays.</p>
+		</div>
+
+		<table class="custom-table">
+			<thead>
+				<tr>
+					<th>Outline Mode</th>
+					<th>Explanation</th>
+					<th>Visual Border Output</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong>Vitality (Lords)</strong></td>
+					<td>Rulership strength, Dusthana placements, combustion, and Kendra/Trine
+						factors.</td>
+					<td><span style="color: var(--accent-green); font-weight: bold;">Green (Strong
+							Lord)</span>, <span
+							style="color: var(--accent-saffron); font-weight: bold;">Orange
+							(Mixed)</span>, or <span
+							style="color: var(--accent-red); font-weight: bold;">Red
+							(Compromised)</span>.</td>
+				</tr>
+				<tr>
+					<td><strong>Pressure (Aspects)</strong></td>
+					<td>Total number of planetary aspects targeting a house.</td>
+					<td><span style="color: var(--accent-red); font-weight: bold;">Red (4+
+							Influences)</span>, <span
+							style="color: var(--accent-gold); font-weight: bold;">Gold (3
+							Influences)</span>, <span
+							style="color: #2980B9; font-weight: bold;">Blue (2
+							Influences)</span>.</td>
+				</tr>
+				<tr>
+					<td><strong>Regime (Forces)</strong></td>
+					<td>Identifies Dispositor Terminals, Aspect Projection Hubs, and Convergence
+						Centers.</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><strong>Argala Interference</strong></td>
+					<td>Calculates intervention houses against obstruction houses.</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+
+	<!-- FORMAT 6: COMMUNITY EXPANSION BANNER -->
+	<section class="section-container">
+		<div class="expansion-banner">
+			<h2>More Features Upcoming</h2>
+			<p>New plugins, extended divisional calculations, and other requested
+				enhancements are under active development. Have a feature request or idea?</p>
+			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/issues" target="_blank"
+				rel="noopener" class="btn-primary">
+				<span>▸ Request New Feature</span>
+			</a>
+		</div>
+	</section>
+
+	<hr class="golden-divider">
+
+	<!-- Privacy Section -->
+	<section id="privacy" class="section-container">
+		<div class="privacy-box">
+			<span style="font-size: 2.2rem; color: var(--accent-green);">❖</span>
+			<div>
+				<h3 style="color: var(--accent-green); margin-bottom: 5px; font-size: 1.2rem;">Local
+					Data Privacy & OS Vault Security</h3>
+				<p style="font-size: 0.94rem; color: var(--text-primary);">
+					All chart profiles, saved sessions, and exported reports remain strictly on your
+					local disk. AstroBasics contains zero telemetry, tracking scripts, or
+					background ads. Saved charts and master keys are encrypted using
+					hardware-backed OS Credential Vault protection for enhanced security.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Closing Callout Note -->
+	<div class="closing-note-box">
+		<p>
+			Note: Astrology helps only those who are genuinely in need, try not to test astrology itself
+			using this software.
+		</p>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div
+			style="margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+			<img src="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico"
+				alt="Logo" style="width: 26px; height: 28px; border-radius: 4px;">
+			<span class="brand-title" style="font-size: 1.4rem; color: var(--text-accent);">AstroBasics
+				Diamond Chart Pro</span>
+		</div>
+		<p>Built with Python, PyQt6, and optional Swiss Ephemeris (`swisseph`) calculations. Available in English, Hindi, and Sanskrit.</p>
+
+		<div style="margin-top: 18px; font-size: 0.85rem;">
+			<p>&copy; 2026 AstroBasics. Released for educational & research purposes. | <a
+					href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe">Download
+					Software (.exe)</a></p>
+		</div>
+	</footer>
+
+	<!-- JavaScript: Particle Engine, Theme Switcher & Interactive Hubs -->
+	<script>
+		/* 1. Low-CPU Particle Engine (~1% CPU footprint) */
+		const canvas = document.getElementById('bgCanvas');
+		const ctx = canvas.getContext('2d');
+		let width, height;
+		let particles = [];
+		const PARTICLE_COUNT = 32;
+
+		function resizeCanvas() {
+			width = canvas.width = window.innerWidth;
+			height = canvas.height = window.innerHeight;
+		}
+		window.addEventListener('resize', resizeCanvas);
+		resizeCanvas();
+
+		class Particle {
+			constructor() {
+				this.reset();
+			}
+			reset() {
+				this.x = Math.random() * width;
+				this.y = Math.random() * height;
+				this.size = Math.random() * 2 + 0.8;
+				this.speedX = (Math.random() - 0.5) * 0.2;
+				this.speedY = -Math.random() * 0.3 - 0.1;
+				this.alpha = Math.random() * 0.5 + 0.15;
+			}
+			update() {
+				this.x += this.speedX;
+				this.y += this.speedY;
+				if (this.y < 0 || this.x < 0 || this.x > width) {
+					this.y = height + 10;
+					this.x = Math.random() * width;
+				}
+			}
+			draw(theme) {
+				ctx.fillStyle = theme === 'dark'
+					? `rgba(218, 165, 32, ${this.alpha})`
+					: `rgba(163, 122, 30, ${this.alpha})`;
+				ctx.beginPath();
+				ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+				ctx.fill();
+			}
+		}
+
+		for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+		let lastTime = 0;
+		const fpsInterval = 1000 / 30; // Cap at 30 FPS for minimal CPU load
+
+		function renderParticles(time) {
+			requestAnimationFrame(renderParticles);
+			const delta = time - lastTime;
+			if (delta < fpsInterval) return;
+			lastTime = time - (delta % fpsInterval);
+
+			ctx.clearRect(0, 0, width, height);
+			const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+			for (let i = 0; i < particles.length; i++) {
+				particles[i].update();
+				particles[i].draw(theme);
+			}
+		}
+		requestAnimationFrame(renderParticles);
+
+		/* 2. System Theme Detection & Toggle */
+		function initTheme() {
+			const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			const initialTheme = systemPrefersDark ? 'dark' : 'light';
+			document.documentElement.setAttribute('data-theme', initialTheme);
+			updateToggleBtnUI(initialTheme);
+		}
+
+		function updateToggleBtnUI(theme) {
+			const icon = document.getElementById('themeIcon');
+			const text = document.getElementById('themeText');
+			if (theme === 'light') {
+				icon.textContent = '❖';
+				text.textContent = 'Dark';
+			} else {
+				icon.textContent = '❖';
+				text.textContent = 'Light';
+			}
+		}
+
+		function toggleThemeManual() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute('data-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+			html.setAttribute('data-theme', newTheme);
+			updateToggleBtnUI(newTheme);
+		}
+
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+			const newTheme = e.matches ? 'dark' : 'light';
+			document.documentElement.setAttribute('data-theme', newTheme);
+			updateToggleBtnUI(newTheme);
+		});
+
+		/* 3. Interactive Kundali Hub Switcher */
+		const hubData = {
+			lagna: {
+				title: "House Rotation & Derived Analysis",
+				desc: "Double-click any house to rotate the chart and treat that house as the temporary Lagna[cite: 1, 2]. Useful for derivative house analysis and viewing natal placements from alternate perspectives[cite: 1, 2]."
+			},
+			vargas: {
+				title: "D1 to D60 Vargas & Custom Builder",
+				desc: "Access all 20 standard Parashari divisional Vargas (D1, D9, D10, D60, etc.) or construct custom mathematical divisional charts using the built-in Varga manager[cite: 3, 4]."
+			},
+			highlights: {
+				title: "Karakamsha & Arudha Lagna Highlights",
+				desc: "Highlights Karakamsha (D9 Atmakaraka's position in D1) and Arudha Lagna overlays. Provides visual indicators for special dignities, retrogrades, and combustions."
+			},
+			engine: {
+				title: "Calculation Options & Fallbacks",
+				desc: "Calculates positions using optional Swiss Ephemeris (`swisseph`) precision, with offline mathematical fallbacks available when running without ephemeris files[cite: 4, 11]."
+			}
+		};
+
+		function selectHubNode(key, event) {
+			document.querySelectorAll('.node-btn').forEach(btn => btn.classList.remove('active'));
+			if (event && event.currentTarget) {
+				event.currentTarget.classList.add('active');
+			}
+
+			const data = hubData[key];
+			if (data) {
+				document.getElementById('hubTitle').textContent = data.title;
+				document.getElementById('hubDesc').textContent = data.desc;
+			}
+		}
+
+		/* 4. Accordion Toggle */
+		function toggleAccordion(header) {
+			const item = header.parentElement;
+			const isActive = item.classList.contains('active');
+
+			document.querySelectorAll('.accordion-item').forEach(el => {
+				el.classList.remove('active');
+				el.querySelector('.accordion-icon').textContent = '+';
+			});
+
+			if (!isActive) {
+				item.classList.add('active');
+				header.querySelector('.accordion-icon').textContent = '−';
+			}
+		}
+
+		// Initialize Theme on Load
+		initTheme();
+	</script>
+</body>
+
+</html>
