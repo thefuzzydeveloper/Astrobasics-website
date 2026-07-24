@@ -1572,10 +1572,23 @@
 		</div>
 		
 		<!-- Visit Counter Badge -->
-		<div style="margin-top: 14px;">
-			<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fthefuzzydeveloper%2FAstrobasics-dist&count_bg=%23E65100&title_bg=%2312071B&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=true"
-				alt="Visit Counter" style="vertical-align: middle;" />
+		<div style="margin-top: 14px; font-size: 0.85rem; color: var(--text-secondary);">
+			<span>❖ Total Visits: </span>
+			<span id="visitCount"
+				style="color: var(--text-accent); font-weight: bold; font-family: 'Rozha One', serif;">...</span>
 		</div>
+		<script>
+			fetch('https://api.counterapi.dev/v1/thefuzzydeveloper-astrobasics/visits/up')
+				.then(res => res.json())
+				.then(data => {
+					if (data && data.count) {
+						document.getElementById('visitCount').textContent = data.count.toLocaleString();
+					}
+				})
+				.catch(() => {
+					document.getElementById('visitCount').textContent = '—';
+				});
+		</script>
 		</footer>
 
 	<!-- JavaScript: Particle Engine, Theme Switcher & Interactive Hubs -->
