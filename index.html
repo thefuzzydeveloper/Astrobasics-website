@@ -959,8 +959,10 @@
 			background: var(--bg-surface);
 			border: 2px solid var(--border-color);
 			border-radius: 12px;
-			max-width: 520px;
+			max-width: 600px;
 			width: 100%;
+			max-height: 88vh;
+			overflow-y: auto;
 			padding: 28px;
 			box-shadow: var(--shadow);
 			position: relative;
@@ -1882,27 +1884,49 @@
 				document.getElementById(id).classList.remove('active');
 			}
 		</script>
-	
-	<!-- Windows EXE Installation Modal -->
+	<!-- Windows EXE Detailed Installation Modal -->
 	<div class="modal-overlay" id="exeModal" onclick="if(event.target===this) closeModal('exeModal')">
 		<div class="modal-card">
 			<button class="modal-close-btn" onclick="closeModal('exeModal')">✕</button>
-			<h3 class="modal-title">🛡️ Windows SmartScreen Notice</h3>
-			<p class="modal-subtitle">Your download has started! If Windows Defender SmartScreen blocks
-				installation, follow these steps:</p>
+			<h3 class="modal-title">🛡️ Windows Installation Guide</h3>
+			<p class="modal-subtitle">Your file <code>astrobasics_installer.exe</code> is downloading. Because this
+				package isn't code-signed with an expensive corporate certificate, Windows might display
+				security warnings:</p>
 	
 			<ul class="modal-steps">
 				<li class="modal-step-item">
 					<span class="modal-step-badge">1</span>
-					<div>When Windows SmartScreen appears, click <strong>"More info"</strong>.</div>
+					<div>
+						<strong>Browser Download Warning:</strong><br>
+						In Edge or Chrome, if flagged as <em>"uncommonly downloaded"</em>, hover over
+						the download item, click the <strong>three dots (...)</strong> ➔ select
+						<strong>"Keep"</strong> ➔ tap <strong>"Keep anyway"</strong>.
+					</div>
 				</li>
 				<li class="modal-step-item">
 					<span class="modal-step-badge">2</span>
-					<div>Click the <strong>"Run anyway"</strong> button that appears at the bottom.</div>
+					<div>
+						<strong>Bypass Windows SmartScreen Popup:</strong><br>
+						When the blue <em>"Windows protected your PC"</em> window appears, click the
+						underlined text link <strong>"More info"</strong> located just below the header.
+					</div>
 				</li>
 				<li class="modal-step-item">
 					<span class="modal-step-badge">3</span>
-					<div>Follow standard installer prompts to complete installation.</div>
+					<div>
+						<strong>Confirm Execution:</strong><br>
+						A button labeled <strong>"Run anyway"</strong> will now show up at the bottom
+						right corner. Click it to initiate setup.
+					</div>
+				</li>
+				<li class="modal-step-item">
+					<span class="modal-step-badge">4</span>
+					<div>
+						<strong>User Account Control (UAC):</strong><br>
+						When asked <em>"Do you want to allow this app from an unknown publisher to make
+							changes to your device?"</em>, click <strong>"Yes"</strong> to complete
+						installation.
+					</div>
 				</li>
 			</ul>
 	
@@ -1910,34 +1934,57 @@
 				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
 					class="btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">Download Again</a>
 				<button class="btn-primary" onclick="closeModal('exeModal')"
-					style="padding: 8px 16px; font-size: 0.88rem;">Got It!</button>
+					style="padding: 8px 16px; font-size: 0.88rem;">Understood!</button>
 			</div>
 		</div>
 	</div>
 	
-	<!-- Android APK Installation Modal -->
+	<!-- Android APK Detailed Installation Modal -->
 	<div class="modal-overlay" id="apkModal" onclick="if(event.target===this) closeModal('apkModal')">
 		<div class="modal-card">
 			<button class="modal-close-btn" onclick="closeModal('apkModal')">✕</button>
-			<h3 class="modal-title">📱 Android Installation Steps</h3>
-			<p class="modal-subtitle">Your download has started! To install the APK on Android, follow these steps:
-			</p>
+			<h3 class="modal-title">📱 Android APK Sideloading Guide</h3>
+			<p class="modal-subtitle">Your download for <code>AstroBasics.apk</code> has started! Since this app is
+				installed directly outside Google Play Store, follow these steps:</p>
 	
 			<ul class="modal-steps">
 				<li class="modal-step-item">
 					<span class="modal-step-badge">1</span>
-					<div>Open your <strong>Downloads</strong> or tap the download notification once
-						complete.</div>
+					<div>
+						<strong>Open Downloaded APK:</strong><br>
+						Swipe down your notification bar and tap <code>AstroBasics.apk</code>, or open
+						your phone's <strong>Files / Downloads</strong> app and tap the package.
+					</div>
 				</li>
 				<li class="modal-step-item">
 					<span class="modal-step-badge">2</span>
-					<div>If prompted with <em>"Install unknown apps"</em>, tap <strong>Settings</strong> and
-						turn on <strong>"Allow from this source"</strong>.</div>
+					<div>
+						<strong>Allow Installation from Unknown Sources:</strong><br>
+						If Android blocks it saying <em>"For security, your phone is not allowed to
+							install unknown apps"</em>:
+						<br>• Tap <strong>Settings</strong> in the prompt popup.
+						<br>• Toggle <strong>ON</strong> <em>"Allow from this source"</em>.
+						<br>• Tap the <strong>Back arrow</strong> to resume setup.
+					</div>
 				</li>
 				<li class="modal-step-item">
 					<span class="modal-step-badge">3</span>
-					<div>If Play Protect warns you, tap <strong>"More details"</strong> ➔ <strong>"Install
-							anyway"</strong>.</div>
+					<div>
+						<strong>Bypass Google Play Protect:</strong><br>
+						If Play Protect displays <em>"Blocked by Play Protect" / "Unrecognized
+							app"</em>:
+						<br>• Tap <strong>"More details"</strong> (or small dropdown arrow).
+						<br>• Tap <strong>"Install anyway"</strong> (do <em>not</em> tap "OK" as that
+						cancels setup).
+					</div>
+				</li>
+				<li class="modal-step-item">
+					<span class="modal-step-badge">4</span>
+					<div>
+						<strong>Finish & Launch:</strong><br>
+						Tap <strong>"Install"</strong>, then tap <strong>"Open"</strong> when finished.
+						You can now launch AstroBasics from your app drawer!
+					</div>
 				</li>
 			</ul>
 	
@@ -1945,7 +1992,7 @@
 				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk"
 					class="btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">Download Again</a>
 				<button class="btn-primary" onclick="closeModal('apkModal')"
-					style="padding: 8px 16px; font-size: 0.88rem;">Got It!</button>
+					style="padding: 8px 16px; font-size: 0.88rem;">Understood!</button>
 			</div>
 		</div>
 	</div>
