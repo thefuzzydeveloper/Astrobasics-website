@@ -930,6 +930,119 @@
 				padding: 18px;
 			}
 		}
+
+		/* Modal Overlay Styles */
+		.modal-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.8);
+			backdrop-filter: blur(8px);
+			z-index: 2000;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.3s ease;
+			padding: 20px;
+		}
+
+		.modal-overlay.active {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		.modal-card {
+			background: var(--bg-surface);
+			border: 2px solid var(--border-color);
+			border-radius: 12px;
+			max-width: 520px;
+			width: 100%;
+			padding: 28px;
+			box-shadow: var(--shadow);
+			position: relative;
+			transform: scale(0.92);
+			transition: transform 0.3s ease;
+		}
+
+		.modal-overlay.active .modal-card {
+			transform: scale(1);
+		}
+
+		.modal-close-btn {
+			position: absolute;
+			top: 14px;
+			right: 18px;
+			background: transparent;
+			border: none;
+			color: var(--text-secondary);
+			font-size: 1.5rem;
+			cursor: pointer;
+			font-weight: bold;
+		}
+
+		.modal-close-btn:hover {
+			color: var(--accent-saffron);
+		}
+
+		.modal-title {
+			color: var(--text-accent);
+			font-size: 1.35rem;
+			margin-bottom: 8px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.modal-subtitle {
+			color: var(--text-secondary);
+			font-size: 0.9rem;
+			margin-bottom: 20px;
+		}
+
+		.modal-steps {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			margin-bottom: 24px;
+		}
+
+		.modal-step-item {
+			background: var(--bg-card);
+			border: 1px solid var(--border-subtle);
+			padding: 12px 16px;
+			border-radius: 6px;
+			font-size: 0.9rem;
+			color: var(--text-primary);
+			display: flex;
+			gap: 12px;
+			align-items: flex-start;
+		}
+
+		.modal-step-badge {
+			background: var(--accent-saffron);
+			color: #ffffff;
+			font-weight: bold;
+			font-size: 0.8rem;
+			width: 22px;
+			height: 22px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			margin-top: 2px;
+		}
+
+		.modal-actions {
+			display: flex;
+			gap: 12px;
+			justify-content: flex-end;
+		}
 	</style>
 </head>
 
@@ -960,11 +1073,11 @@
 					<span id="themeIcon">❖</span> <span id="themeText">Theme</span>
 				</button>
 				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
-					class="btn-primary" style="padding: 8px 16px; font-size: 0.88rem;">
+					onclick="openInstallModal('exe', event)" class="btn-primary" style="padding: 8px 16px; font-size: 0.88rem;">
 					Download (.exe)
 				</a>
 				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk"
-					class="btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">
+					onclick="openInstallModal('apk', event)" class="btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">
 					Download (.apk)
 				</a>
 			</div>
@@ -988,11 +1101,11 @@
 
 		<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
 			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
-				class="btn-primary">
+				onclick="openInstallModal('exe', event)" class="btn-primary">
 				<span>▸ Download Windows Installer (.exe)</span>
 			</a>
 			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk"
-				class="btn-secondary">
+				onclick="openInstallModal('apk', event)" class="btn-secondary">
 				<span>📱 Download Android (.apk)</span>
 			</a>
 			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank" rel="noopener"
@@ -1080,7 +1193,7 @@
 					Generates full side-by-side D1/D9 chart comparisons and exports structured PDF
 					reports with corner frame artwork.</p>
 				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
-					class="btn-primary">
+					onclick="openInstallModal('exe', event)" class="btn-primary">
 					<span>▸ Test Kundali Milan in Software</span>
 				</a>
 			</div>
@@ -1565,9 +1678,11 @@
 
 		<div style="margin-top: 18px; font-size: 0.85rem;">
 			<p>Released for consultation, educational and research purposes. | <a
-					href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe">Download
+					href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
+					onclick="openInstallModal('exe', event)">Download
 					Software (.exe)</a> | <a
-					href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk">Download
+					href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk"
+					onclick="openInstallModal('apk', event)">Download
 					Android (.apk)</a></p>
 		</div>
 		
@@ -1742,8 +1857,98 @@
 		}
 
 		// Initialize Theme on Load
-		initTheme();
-	</script>
-</body>
+			initTheme();
+
+			/* 5. Download Modals Logic */
+			function openInstallModal(type, event) {
+				if (event) event.preventDefault();
+				const modalId = type === 'exe' ? 'exeModal' : 'apkModal';
+				const targetUrl = type === 'exe'
+					? 'https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe'
+					: 'https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk';
+
+				document.getElementById(modalId).classList.add('active');
+
+				// Trigger file download directly
+				const link = document.createElement('a');
+				link.href = targetUrl;
+				link.download = '';
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}
+
+			function closeModal(id) {
+				document.getElementById(id).classList.remove('active');
+			}
+		</script>
+	
+	<!-- Windows EXE Installation Modal -->
+	<div class="modal-overlay" id="exeModal" onclick="if(event.target===this) closeModal('exeModal')">
+		<div class="modal-card">
+			<button class="modal-close-btn" onclick="closeModal('exeModal')">✕</button>
+			<h3 class="modal-title">🛡️ Windows SmartScreen Notice</h3>
+			<p class="modal-subtitle">Your download has started! If Windows Defender SmartScreen blocks
+				installation, follow these steps:</p>
+	
+			<ul class="modal-steps">
+				<li class="modal-step-item">
+					<span class="modal-step-badge">1</span>
+					<div>When Windows SmartScreen appears, click <strong>"More info"</strong>.</div>
+				</li>
+				<li class="modal-step-item">
+					<span class="modal-step-badge">2</span>
+					<div>Click the <strong>"Run anyway"</strong> button that appears at the bottom.</div>
+				</li>
+				<li class="modal-step-item">
+					<span class="modal-step-badge">3</span>
+					<div>Follow standard installer prompts to complete installation.</div>
+				</li>
+			</ul>
+	
+			<div class="modal-actions">
+				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
+					class="btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">Download Again</a>
+				<button class="btn-primary" onclick="closeModal('exeModal')"
+					style="padding: 8px 16px; font-size: 0.88rem;">Got It!</button>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Android APK Installation Modal -->
+	<div class="modal-overlay" id="apkModal" onclick="if(event.target===this) closeModal('apkModal')">
+		<div class="modal-card">
+			<button class="modal-close-btn" onclick="closeModal('apkModal')">✕</button>
+			<h3 class="modal-title">📱 Android Installation Steps</h3>
+			<p class="modal-subtitle">Your download has started! To install the APK on Android, follow these steps:
+			</p>
+	
+			<ul class="modal-steps">
+				<li class="modal-step-item">
+					<span class="modal-step-badge">1</span>
+					<div>Open your <strong>Downloads</strong> or tap the download notification once
+						complete.</div>
+				</li>
+				<li class="modal-step-item">
+					<span class="modal-step-badge">2</span>
+					<div>If prompted with <em>"Install unknown apps"</em>, tap <strong>Settings</strong> and
+						turn on <strong>"Allow from this source"</strong>.</div>
+				</li>
+				<li class="modal-step-item">
+					<span class="modal-step-badge">3</span>
+					<div>If Play Protect warns you, tap <strong>"More details"</strong> ➔ <strong>"Install
+							anyway"</strong>.</div>
+				</li>
+			</ul>
+	
+			<div class="modal-actions">
+				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk"
+					class="btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">Download Again</a>
+				<button class="btn-primary" onclick="closeModal('apkModal')"
+					style="padding: 8px 16px; font-size: 0.88rem;">Got It!</button>
+			</div>
+		</div>
+	</div>
+	</body>
 
 </html>
