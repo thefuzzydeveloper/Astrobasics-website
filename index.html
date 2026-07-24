@@ -1571,22 +1571,23 @@
 					Android (.apk)</a></p>
 		</div>
 		
-		<!-- Visit Counter Badge -->
+		<!-- Visit Counter -->
 		<div style="margin-top: 14px; font-size: 0.85rem; color: var(--text-secondary);">
 			<span>❖ Total Visits: </span>
 			<span id="visitCount"
-				style="color: var(--text-accent); font-weight: bold; font-family: 'Rozha One', serif;">...</span>
+				style="color: var(--text-accent); font-weight: bold; font-family: 'Rozha One', serif;">0</span>
 		</div>
 		<script>
-			fetch('https://api.counterapi.dev/v1/thefuzzydeveloper-astrobasics/visits/up')
+			// Increments on every single visit/page load; starts fresh at 0
+			fetch('https://api.counterapi.dev/v1/astrobasics-v1-live-counter/hits/up?cb=' + Date.now())
 				.then(res => res.json())
 				.then(data => {
-					if (data && data.count) {
+					if (data && typeof data.count !== 'undefined') {
 						document.getElementById('visitCount').textContent = data.count.toLocaleString();
 					}
 				})
 				.catch(() => {
-					document.getElementById('visitCount').textContent = '—';
+					document.getElementById('visitCount').textContent = '1';
 				});
 		</script>
 		</footer>
