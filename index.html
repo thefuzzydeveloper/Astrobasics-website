@@ -1871,31 +1871,624 @@
 		}
 		/* 6. Trilingual Client-Side i18n Engine */
 		const i18nData = {
-			en: {
-				badge_offline: "100% Offline & Private",
-				hero_title: "AstroBasics Diamond Chart Pro",
-				hero_desc: "Started as an attempt to visualize astrology, AstroBasics Diamond Chart Pro offers flexible astrological analysis. Built with optional Swiss Ephemeris astronomical calculations as well as pure J2 mathematical fallbacks, it has Diamond chart visualizer, multi-varga analysis, and custom rules analyzer.",
-				btn_exe: "▸ Download Windows Installer (.exe)",
-				btn_apk: "📱 Download Android (.apk)",
-				btn_github: "🐈‍⬛ View Source on GitHub"
-			},
-			hi: {
-				badge_offline: "100% ऑफ़लाइन और निजी",
-				hero_title: "एस्ट्रोबेसिक डायमंड चार्ट प्रो",
-				hero_desc: "ज्योतिष को दृश्य रूप देने के प्रयास के रूप में शुरू हुआ एस्ट्रोबेसिक डायमंड चार्ट प्रो लचीला ज्योतिषीय विश्लेषण प्रदान करता है। स्विस एफिमेरिस और J2 गणितीय गणनाओं के साथ निर्मित, इसमें डायमंड चार्ट विज़ुअलाइज़र, बहु-वर्ग विश्लेषण और कस्टम नियम विश्लेषक शामिल हैं।",
-				btn_exe: "▸ विंडोज इंस्टॉलर डाउनलोड करें (.exe)",
-				btn_apk: "📱 एंड्रॉइड एपीके डाउनलोड करें (.apk)",
-				btn_github: "🐈‍⬛ गिटहब पर सोर्स कोड देखें"
-			},
-			sa: {
-				badge_offline: "100% अफ़लाइन एवं व्यक्तिगतम्",
-				hero_title: "एस्ट्रोबेसिक्स् डायमण्ड् चार्ट् प्रो",
-				hero_desc: "ज्योतिषस्य दृश्यांकनस्य प्रयासरूपेण आरब्धम्, एस्ट्रोबेसिक्स् डायमण्ड् चार्ट् प्रो आनुकूल्येन ज्योतिषीयविश्लेषणं ददाति। स्विस-एफिमेरिस तथा J2 गणितीयगणनाभिः सह निर्मितम्, एतस्मिन् डायमण्ड-चार्ट-विजुअलैजर्, बहुवर्गविश्लेषणं तथा स्वेच्छिकनियमान् विश्लेषयितुं शक्यते।",
-				btn_exe: "▸ विण्डोज संस्थापकं डाउनलोड् कुर्वन्तु (.exe)",
-				btn_apk: "📱 एण्ड्रॉयड् ऐप डाउनलोड् कुर्वन्तु (.apk)",
-				btn_github: "🐈‍⬛ गिटहब् मध्ये स्रोतः पश्यन्तु"
-			}
-		};
+				en: {
+					// Navigation & Brand
+					brand_title: "AstroBasics",
+					nav_milan: "Kundali Milan",
+					nav_yoga: "Yoga Canvas",
+					nav_numerology: "Numerology",
+					nav_languages: "Languages",
+					nav_privacy: "Privacy",
+					theme_text: "Theme",
+					hdr_download_exe: "Download (.exe)",
+					hdr_download_apk: "Download (.apk)",
+
+					// Hero Section
+					badge_offline: "100% Offline & Private",
+					hero_title: "AstroBasics Diamond Chart Pro",
+					hero_desc: "Started as an attempt to visualize astrology, AstroBasics Diamond Chart Pro offers flexible astrological analysis. Built with optional Swiss Ephemeris astronomical calculations as well as pure J2 mathematical fallbacks, it has Diamond chart visualizer, multi-varga analysis, and custom rules analyzer.",
+					btn_exe: "▸ Download Windows Installer (.exe)",
+					btn_apk: "📱 Download Android (.apk)",
+					btn_github: "🐈‍⬛ View Source on GitHub",
+					stat_vargas_label: "Parashari Vargas",
+					stat_milan_label: "Six Folds Kundali Milan",
+					stat_dasha_label: "Hierarchical Five level Vimshottari dasha explorer",
+					stat_vault_label: "Hardware Key Security",
+
+					// Section 1: 6-Pillar Kundali Milan
+					milan_title: "Six Pillar Kundali Milan Engine",
+					milan_subtitle: "A comprehensive matchmaking architecture moving far beyond standard moon points to evaluate structural, psychological, and karmic compatibility.",
+					p1_title: "Pillar 1: Ashtakoota Matrix",
+					p1_badge: "36 Points",
+					p1_desc: "Calculates Varna, Vashya, Tara, Yoni, Graha Maitri, Gana, Bhakoot, and Nadi with step-by-step mathematical reasoning.",
+					p2_title: "Pillar 2: Pāpasāmya Matrix",
+					p2_badge: "Kuja Differential",
+					p2_desc: "Evaluates malefic damage from Mars, Saturn, and Sun across houses 2, 4, 7, 8, and 12 to ensure energetic equilibrium between partners.",
+					p3_title: "Pillar 3: Mutual Synergy",
+					p3_badge: "D1-D9 Synastry",
+					p3_desc: "Overlays D1 Ascendant Lords and D9 Relationship Lords across both charts to verify mutual psychological support.",
+					p4_title: "Pillar 4: Navamsha 7th Interplay",
+					p4_badge: "Spouse Projection",
+					p4_desc: "Analyzes planets occupying the D9 7th house to determine the ultimate, long-term reality of the domestic partnership.",
+					p5_title: "Pillar 5: Birth Dasha Alignment",
+					p5_badge: "Timeline Sync",
+					p5_desc: "Evaluates birth Mahadasha lords in the partner D9 chart to ensure ongoing life periods support mutual growth.",
+					p6_title: "Pillar 6: D9 8th Lord Overlay",
+					p6_badge: "Transformation Shield",
+					p6_desc: "Checks placement of the transformation lord in the partner Navamsha to verify protection against sudden crises.",
+					milan_foot: "Generates full side-by-side D1/D9 chart comparisons and exports structured PDF reports with corner frame artwork.",
+					milan_btn: "▸ Test Kundali Milan in Software",
+
+					// Section 2: Yoga Explorer
+					yoga_title: "Visual Yoga Explorer Canvas",
+					yoga_subtitle: "Interactive Yoga Explorer engine that draws planetary linkages, aspects, exchanges, and cancellation shields directly.",
+					yoga_overlay_title: "Dynamic Overlay",
+					yoga_overlay_desc: "The Yoga Explorer projects lines onto the main chart layouts itself making it clear what the yoga is all about!",
+					yoga_bhanga_rules: "Bhanga Rules: Detects when a beneficial or malefic yoga is neutralized thereby causing bhanga (cancellation) of yogas.",
+					yoga_varga_scan: "Unified D1 & D9 Scanning: Scans both physical and subconscious vargas simultaneously.",
+					yoga_demo_title: "Gajakesari Yoga Analysis",
+					yoga_demo_sub: "Jupiter in 4th House ❖ Moon in 10th House",
+					yoga_demo_aspect: "Mutual Kendra Aspect Detected",
+					yoga_demo_shield: "✓ Uncancelled & Active (Full Grace) *",
+
+					// Section 3: Numerology Engine
+					num_title: "Numerology Engine",
+					num_subtitle: "Unified numerical calculations merging Parashari planetary friendships with traditional 3x3 grid planes.",
+					plane_rahu: "Rahu",
+					plane_mars: "Mars",
+					plane_moon: "Moon",
+					plane_jupiter: "Jupiter",
+					plane_mercury: "Mercury",
+					plane_ketu: "Ketu",
+					plane_saturn: "Saturn",
+					plane_sun: "Sun",
+					plane_venus: "Venus",
+					num_analysis_title: "Ank and Grid Analysis",
+					num_analysis_desc: "Calculates Moolank, Bhagyank, and Namank using the standard alphabet grid.",
+					num_feature_1: "Address & House Compatibility: Matches house or apartment numbers against your Moolank and Bhagyank.",
+					num_feature_2: "Friendship & Partner compatibility: Matches your friend or partner's numbers against your Moolank and Bhagyank and gives a verdict.",
+					num_feature_3: "Numerology Dashas: Generates Mahadasha, Antardasha, and Pratyantar Dasha timelines based on annual birthday shifts.",
+					num_feature_4: "Grid Layouts: Switch between Standard Lo Shu (4-9-2), Western Pythagorean (3-6-9), and Natural Sequence (1-2-3) grids.",
+
+					// Section 4: Multilingual Support
+					lang_title: "Trilingual UI Support",
+					lang_subtitle: "Switch menus, chart details, tooltips, and report exports across three supported languages.",
+					lang_card_en_title: "English",
+					lang_card_en_desc: "Standard astrological terminology, degree markers, and script APIs.",
+					lang_card_hi_title: "हिन्दी (Hindi)",
+					lang_card_hi_desc: "पारंपरिक शब्दावली - नवग्रह, भाव, नक्षत्र स्वामी, पंचांग विवरण एवं योगकारक विश्लेषण.",
+					lang_card_sa_title: "संस्कृतम् (Sanskrit)",
+					lang_card_sa_desc: "शास्त्रोक्तम् - राशि, वर्ग, बलाबलम्, ग्रहाणाम् दृष्टयः तथा च पंचांगम्.",
+					lang_need_another: "Need another language?",
+					lang_need_desc: "Additional language packs can be added upon request or community suggestion.",
+					lang_btn_request: "Request Language Extension →",
+
+					// Section 5: Interactive Hub
+					hub_sec_title: "Interactive Chart Features",
+					hub_sec_subtitle: "Click or hover over diagram sectors to explore core chart features.",
+					hub_lagna_title: "House Rotation & Derived Analysis",
+					hub_lagna_desc: "Double-click any house to rotate the chart and treat that house as the temporary Lagna. Useful for derivative house analysis and viewing natal placements from alternate perspectives.",
+					hub_vargas_title: "D1 to D60 Vargas & Custom Builder",
+					hub_vargas_desc: "Access all 20 standard Parashari divisional Vargas (D1, D9, D10, D60, etc.) or construct custom mathematical divisional charts using the built-in Varga manager.",
+					hub_highlights_title: "Karakamsha & Arudha Lagna Highlights",
+					hub_highlights_desc: "Highlights Karakamsha (D9 Atmakaraka's position in D1) and Arudha Lagna overlays. Provides visual indicators for special dignities, retrogrades, and combustions.",
+					hub_engine_title: "Calculation Options & Fallbacks",
+					hub_engine_desc: "Calculates positions using optional Swiss Ephemeris (`swisseph`) precision, with offline mathematical fallbacks available when running without ephemeris files.",
+
+					// Section 6: Workspace / Diagnostics
+					diag_title: "Specialized Workspace",
+					diag_subtitle: "Specialized dual workspace tailored for comparative research and situational analysis.",
+					mod_a_title: "▸ Module A: Horary (Prashna) Studio",
+					mod_a_status: "[Active Mode]",
+					mod_a_p1: "Natural Language Parser: Type queries like \"Will my brother pass his exam?\" to assign significators automatically.",
+					mod_a_p2: "Model: Evaluates applying and separating angular aspects alongside perfection and prohibition checks.",
+					mod_a_p3: "Nature of question: If too complex, make sure to adjust the houses affected due to question for proper answer.",
+					mod_a_p4: "Lost Object Triangulation: Locates missing items using house derivation, element textures, and compass direction mapping.",
+					mod_b_title: "▸ Module B: Research Mode",
+					mod_b_status: "[Active Mode]",
+					mod_b_p1: "Comparison: Compare two separate charts, time periods, or vargas side-by-side.",
+					mod_b_p2: "Research Session Storage: Save complete multi-chart research sessions locally.",
+
+					// Section 7: Time Progression
+					time_title: "Time Progression Engines",
+					time_subtitle: "Unifying static natal promises with dynamic planetary timelines.",
+					step1_title: "Multi-Dasha Engine",
+					step1_desc: "Hierarchical tree navigation for Vimshottari, Yogini, Jaimini Chara, Kalachakra, Ashtottari, and BPHS conditional Dashas down to 5 levels deep. Includes radial Chakra visualizers.",
+					step2_title: "Gochar & Nadi Transit Overlay",
+					step2_desc: "Real-time planetary transits overlaid directly onto D1 and D9 charts. Features D9 Taramsha, Dhruva Nadi trine event indicators, and automatic rashi jump calculations.",
+					step3_title: "Life Activity Curve",
+					step3_desc: "Graphs lifetime energy fluctuations over time. Tracks peak and low periods, Pushkara Navamsha transits, and Dhruva Nadi trine conjunctions.",
+
+					// Section 8: Accordion Modules
+					accordion_title: "Analytical Engine Modules",
+					accordion_subtitle: "Select any item below to review detailed system specification.",
+					acc_rule_title: "❖ Custom Rules Engine",
+					acc_rule_desc: "Define multi-condition astrological rules using a point-based threshold engine. Evaluates AND, OR, and fuzzy logic across physical D1, Navamsha D9, Career D10, and Karmic D60 charts simultaneously.",
+					acc_edu_title: "❖ Educational Degree Mapping",
+					acc_edu_desc: "Predict educational streams via multi-varga triangulation (D1, D9, D24, D60) along with time-sensitivity tests to measure birth time stability.",
+					acc_rect_title: "❖ Chart Rectification Engine",
+					acc_rect_desc: "Search historical dates to find matching timestamps for hypothetical chart layouts.",
+					acc_pdf_title: "❖ PDF Report Builder",
+					acc_pdf_desc: "Export multi-page PDF chart reports featuring Panchang, Shadbala tables, Ashtakavarga matrices, Bhava Padas, and Argala summaries.",
+					acc_csi_title: "❖ Composite Strength Index (CSI)",
+					acc_csi_desc: "Unifies Shadbala, Ashtakavarga (SAV) points, and Avasthas into a single overall score, evaluating planetary and house strengths with configurable weight options.",
+					acc_updater_title: "❖ Auto-Updater",
+					acc_updater_desc: "Inspect real-time background calculation logs and check for system updates safely without risking local user saves. Includes in-app community voting on upcoming features.",
+
+					// Section 9: House Outlines Matrix
+					outlines_title: "House Outlines Matrix",
+					outlines_subtitle: "Optionally color-code chart house borders into visual overlays.",
+					tbl_col_mode: "Outline Mode",
+					tbl_col_exp: "Explanation",
+					tbl_col_border: "Visual Border Output",
+					tbl_r1_mode: "Vitality (Lords)",
+					tbl_r1_exp: "Rulership strength, Dusthana placements, combustion, and Kendra/Trine factors.",
+					tbl_r1_out: "Green (Strong Lord), Orange (Mixed), or Red (Compromised).",
+					tbl_r2_mode: "Pressure (Aspects)",
+					tbl_r2_exp: "Total number of planetary aspects targeting a house.",
+					tbl_r2_out: "Red (4+ Influences), Gold (3 Influences), Blue (2 Influences).",
+					tbl_r3_mode: "Regime (Forces)",
+					tbl_r3_exp: "Identifies Dispositor Terminals, Aspect Projection Hubs, and Convergence Centers.",
+					tbl_r4_mode: "Argala Interference",
+					tbl_r4_exp: "Calculates intervention houses against obstruction houses.",
+
+					// Section 10: Community Banner
+					banner_title: "More Features Upcoming",
+					banner_desc: "New plugins, extended divisional calculations, and other requested enhancements are under active development. Have a feature request or idea?",
+					banner_btn: "▸ Request New Feature",
+
+					// Privacy & Notes
+					privacy_title: "Local Data Privacy & OS Vault Security",
+					privacy_desc: "All chart profiles, saved sessions, and exported reports remain strictly on your local disk. AstroBasics contains zero telemetry, tracking scripts, or background ads. Saved charts and master keys are encrypted using hardware-backed OS Credential Vault protection for enhanced security.",
+					note_text: "Note: Astrology helps only those who are genuinely in need, try not to test astrology itself using this software.",
+
+					// Footer
+					footer_title: "AstroBasics Diamond Chart Pro",
+					footer_built: "Built with Python, PyQt6, and optional Swiss Ephemeris (`swisseph`) calculations. Available in English, Hindi, and Sanskrit.",
+					footer_disclaimer: "Released for consultation, educational and research purposes.",
+					footer_dl_exe: "Download Software (.exe)",
+					footer_dl_apk: "Download Android (.apk)",
+					footer_visits: "Total Visits:",
+
+					// Modals
+					exe_modal_title: "🛡️ Windows Installation Guide",
+					exe_modal_sub: "Your file astrobasics_installer.exe is downloading. Because this package isn't code-signed with an expensive corporate certificate, Windows might display security warnings:",
+					exe_s1_title: "Browser Download Warning:",
+					exe_s1_desc: "In Edge or Chrome, if flagged as \"uncommonly downloaded\", hover over the download item, click the three dots (...) ➔ select \"Keep\" ➔ tap \"Keep anyway\".",
+					exe_s2_title: "Bypass Windows SmartScreen Popup:",
+					exe_s2_desc: "When the blue \"Windows protected your PC\" window appears, click the underlined text link \"More info\" located just below the header.",
+					exe_s3_title: "Confirm Execution:",
+					exe_s3_desc: "A button labeled \"Run anyway\" will now show up at the bottom right corner. Click it to initiate setup.",
+					exe_s4_title: "User Account Control (UAC):",
+					exe_s4_desc: "When asked \"Do you want to allow this app from an unknown publisher to make changes to your device?\", click \"Yes\" to complete installation.",
+
+					apk_modal_title: "📱 Android APK Sideloading Guide",
+					apk_modal_sub: "Your download for AstroBasics.apk has started! Since this app is installed directly outside Google Play Store, follow these steps:",
+					apk_s1_title: "Open Downloaded APK:",
+					apk_s1_desc: "Swipe down your notification bar and tap AstroBasics.apk, or open your phone's Files / Downloads app and tap the package.",
+					apk_s2_title: "Allow Installation from Unknown Sources:",
+					apk_s2_desc: "If Android blocks it saying \"For security, your phone is not allowed to install unknown apps\": • Tap Settings in the prompt popup. • Toggle ON \"Allow from this source\". • Tap the Back arrow to resume setup.",
+					apk_s3_title: "Bypass Google Play Protect:",
+					apk_s3_desc: "If Play Protect displays \"Blocked by Play Protect\" / \"Unrecognized app\": • Tap \"More details\" (or small dropdown arrow). • Tap \"Install anyway\" (do not tap \"OK\" as that cancels setup).",
+					apk_s4_title: "Finish & Launch:",
+					apk_s4_desc: "Tap \"Install\", then tap \"Open\" when finished. You can now launch AstroBasics from your app drawer!",
+
+					modal_btn_dl_again: "Download Again",
+					modal_btn_understood: "Understood!"
+				},
+
+				hi: {
+					// Navigation & Brand
+					brand_title: "एस्ट्रोबेसिक",
+					nav_milan: "कुंडली मिलान",
+					nav_yoga: "योग कैनवास",
+					nav_numerology: "अंक ज्योतिष",
+					nav_languages: "भाषाएं",
+					nav_privacy: "गोपनीयता",
+					theme_text: "थीम",
+					hdr_download_exe: "डाउनलोड (.exe)",
+					hdr_download_apk: "डाउनलोड (.apk)",
+
+					// Hero Section
+					badge_offline: "100% ऑफ़लाइन और निजी",
+					hero_title: "एस्ट्रोबेसिक डायमंड चार्ट प्रो",
+					hero_desc: "ज्योतिष को दृश्य रूप देने के प्रयास के रूप में शुरू हुआ एस्ट्रोबेसिक डायमंड चार्ट प्रो लचीला ज्योतिषीय विश्लेषण प्रदान करता है। स्विस एफिमेरिस और J2 गणितीय गणनाओं के साथ निर्मित, इसमें डायमंड चार्ट विज़ुअलाइज़र, बहु-वर्ग विश्लेषण और कस्टम नियम विश्लेषक शामिल हैं।",
+					btn_exe: "▸ विंडोज इंस्टॉलर डाउनलोड करें (.exe)",
+					btn_apk: "📱 एंड्रॉइड एपीके डाउनलोड करें (.apk)",
+					btn_github: "🐈‍⬛ गिटहब पर सोर्स कोड देखें",
+					stat_vargas_label: "पराशरी वर्ग",
+					stat_milan_label: "षट्-स्तंभ कुंडली मिलान",
+					stat_dasha_label: "पदानुक्रमित 5-स्तरीय विंशोत्तरी दशा एक्सप्लोरर",
+					stat_vault_label: "हार्डवेयर कुंजी सुरक्षा",
+
+					// Section 1: 6-Pillar Kundali Milan
+					milan_title: "षट्-स्तंभ कुंडली मिलान इंजन",
+					milan_subtitle: "संरचनात्मक, मनोवैज्ञानिक और कर्मिक अनुकूलता का मूल्यांकन करने के लिए चंद्रमा अंकों से परे एक व्यापक मिलान ढांचा।",
+					p1_title: "स्तंभ 1: अष्टकूट मैट्रिक्स",
+					p1_badge: "36 गुण (अंक)",
+					p1_desc: "वर्ण, वश्य, तारा, योनि, ग्रह मैत्री, गण, भकूट और नाड़ी की चरण-दर-चरण गणितीय गणना।",
+					p2_title: "स्तंभ 2: पापसाम्य मैट्रिक्स",
+					p2_badge: "मंगल अंतर / साम्य",
+					p2_desc: "भाव 2, 4, 7, 8 और 12 में मंगल, शनि और सूर्य के प्रतिकूल प्रभावों का संतुलन मूल्यांकन।",
+					p3_title: "स्तंभ 3: परस्पर अनुकूलता",
+					p3_badge: "D1-D9 सिनैस्ट्री",
+					p3_desc: "मानसिक और भावनात्मक सहयोग सत्यापित करने हेतु दोनों कुंडलियों के लग्न व नवमांश स्वामियों का विश्लेषण।",
+					p4_title: "स्तंभ 4: नवमांश 7वां भाव प्रभाव",
+					p4_badge: "जीवनसाथी स्थिति",
+					p4_desc: "वैवाहिक जीवन की वास्तविक दीर्घकालिक स्थिति निर्धारित करने हेतु D9 के 7वें भाव का विश्लेषण।",
+					p5_title: "स्तंभ 5: जन्म दशा सामंजस्य",
+					p5_badge: "समय-चक्र तालमेल",
+					p5_desc: "जीवन के विभिन्न कालों में परस्पर विकास सुनिश्चित करने हेतु साथी के नवमांश में जन्म महादशानाथ का विश्लेषण।",
+					p6_title: "स्तंभ 6: D9 अष्टमेश आवरण",
+					p6_badge: "संकट सुरक्षा कवच",
+					p6_desc: "अचानक आने वाले संकटों से सुरक्षा हेतु साथी के नवमांश में अष्टमेश की स्थिति की जांच।",
+					milan_foot: "पूर्ण D1/D9 तुलनात्मक दृश्य उत्पन्न करता है और सुंदर फ्रेम आर्टवर्क के साथ संरचित पीडीएफ रिपोर्ट निर्यात करता है।",
+					milan_btn: "▸ सॉफ्टवेयर में कुंडली मिलान का परीक्षण करें",
+
+					// Section 2: Yoga Explorer
+					yoga_title: "विज़ुअल योग एक्सप्लोरर कैनवास",
+					yoga_subtitle: "इंटरैक्टिव योग विश्लेषक जो ग्रहों के संबंध, दृष्टि, परिवर्तन योग और भंग सुरक्षा को सीधे आरेखित करता है।",
+					yoga_overlay_title: "डायनामिक ओवरले",
+					yoga_overlay_desc: "योग एक्सप्लोरर मुख्य चार्ट पर रेखाएं खींचता है, जिससे योग की स्थिति स्पष्ट रूप से समझ आती है!",
+					yoga_bhanga_rules: "भंग नियम: शुभ या अशुभ योगों के निष्प्रभावी (योग भंग) होने का पता लगाता है।",
+					yoga_varga_scan: "एकीकृत D1 और D9 स्कैनिंग: भौतिक और अवचेतन दोनों वर्गों का एक साथ विश्लेषण करता है।",
+					yoga_demo_title: "गजकेसरी योग विश्लेषण",
+					yoga_demo_sub: "बृहस्पति चतुर्थ भाव में ❖ चंद्रमा दशम भाव में",
+					yoga_demo_aspect: "परस्पर केंद्र दृष्टि पाई गई",
+					yoga_demo_shield: "✓ अभंग और सक्रिय (पूर्ण प्रभाव) *",
+
+					// Section 3: Numerology Engine
+					num_title: "अंक ज्योतिष इंजन",
+					num_subtitle: "पराशरी ग्रह मैत्री और पारंपरिक 3x3 ग्रिड विमानों का एकीकृत अंक गणितीय विश्लेषण।",
+					plane_rahu: "राहु",
+					plane_mars: "मंगल",
+					plane_moon: "चंद्रमा",
+					plane_jupiter: "गुरु",
+					plane_mercury: "बुध",
+					plane_ketu: "केतु",
+					plane_saturn: "शनि",
+					plane_sun: "सूर्य",
+					plane_venus: "शुक्र",
+					num_analysis_title: "अंक और ग्रिड विश्लेषण",
+					num_analysis_desc: "मानक वर्णमाला ग्रिड का उपयोग करके मूलांक, भाग्यांक और नामांक की गणना करता है।",
+					num_feature_1: "पता और मकान अनुकूलता: आपके मूलांक और भाग्यांक के साथ मकान या अपार्टमेंट संख्या का मिलान करता है।",
+					num_feature_2: "मित्रता और साथी अनुकूलता: मित्र या साथी के अंकों का आपके मूलांक/भाग्यांक से मिलान कर परिणाम देता है।",
+					num_feature_3: "न्यूमरोलॉजी दशाएं: वार्षिक जन्मदिन चक्र के आधार पर महादशा, अंतर्दशा और प्रत्यंतर दशा समयसीमा उत्पन्न करता है।",
+					num_feature_4: "ग्रिड लेआउट: मानक लो शू (4-9-2), पश्चिमी पाइथागोरियन (3-6-9), और प्राकृतिक अनुक्रम (1-2-3) ग्रिड के बीच स्विच करें।",
+
+					// Section 4: Multilingual Support
+					lang_title: "त्रिभाषी यूआई समर्थन",
+					lang_subtitle: "तीन समर्थित भाषाओं में मेनू, चार्ट विवरण, टूलटिप और रिपोर्ट एक्सपोर्ट स्विच करें।",
+					lang_card_en_title: "English",
+					lang_card_en_desc: "मानक ज्योतिषीय शब्दावली, अंश मार्कर और स्क्रिप्ट एपीआई।",
+					lang_card_hi_title: "हिन्दी (Hindi)",
+					lang_card_hi_desc: "पारंपरिक शब्दावली - नवग्रह, भाव, नक्षत्र स्वामी, पंचांग विवरण एवं योगकारक विश्लेषण.",
+					lang_card_sa_title: "संस्कृतम् (Sanskrit)",
+					lang_card_sa_desc: "शास्त्रोक्तम् - राशि, वर्ग, बलाबलम्, ग्रहाणाम् दृष्टयः तथा च पंचांगम्.",
+					lang_need_another: "अन्य भाषा की आवश्यकता है?",
+					lang_need_desc: "अनुरोध या समुदाय के सुझाव पर अतिरिक्त भाषा पैक जोड़े जा सकते हैं।",
+					lang_btn_request: "भाषा विस्तार का अनुरोध करें →",
+
+					// Section 5: Interactive Hub
+					hub_sec_title: "इंटरैक्टिव चार्ट विशेषताएं",
+					hub_sec_subtitle: "मुख्य चार्ट विशेषताओं का अन्वेषण करने के लिए आरेख अनुभागों पर क्लिक करें या होवर करें।",
+					hub_lagna_title: "भाव घूर्णन और व्युत्पन्न विश्लेषण",
+					hub_lagna_desc: "चार्ट को घुमाने और उस भाव को अस्थायी लग्न मानने के लिए किसी भी भाव पर डबल-क्लिक करें। व्युत्पन्न भाव विश्लेषण के लिए उपयोगी।",
+					hub_vargas_title: "D1 से D60 वर्ग और कस्टम बिल्डर",
+					hub_vargas_desc: "सभी 20 मानक पराशरी विभागीय वर्गों (D1, D9, D10, D60 आदि) तक पहुंचें या अंतर्निहित वर्ग प्रबंधक का उपयोग करके गणितीय वर्ग बनाएं।",
+					hub_highlights_title: "कारकांश और आरूढ़ लग्न हाईलाइट्स",
+					hub_highlights_desc: "कारकांश और आरूढ़ लग्न ओवरले को प्रदर्शित करता है। विशेष उच्चता, वक्रता और अस्त स्थितियों के संकेत प्रदान करता है।",
+					hub_engine_title: "गणना विकल्प और फ़ॉलबैक",
+					hub_engine_desc: "स्विस एफिमेरिस (`swisseph`) की सटीकता या एफिमेरिस फाइलों के बिना ऑफ़लाइन गणितीय फ़ॉलबैक द्वारा स्थिति की गणना करता है।",
+
+					// Section 6: Workspace / Diagnostics
+					diag_title: "विशेषज्ञ कार्यस्थान",
+					diag_subtitle: "तुलनात्मक शोध और स्थितिजन्य विश्लेषण के लिए तैयार किया गया दोहरा कार्यस्थान।",
+					mod_a_title: "▸ मॉड्यूल A: प्रश्न ज्योतिष (Horary) स्टूडियो",
+					mod_a_status: "[सक्रिय मोड]",
+					mod_a_p1: "प्राकृतिक भाषा पार्सर: कारक स्वतः निर्धारित करने के लिए \"क्या मेरे भाई की परीक्षा पास होगी?\" जैसे प्रश्न टाइप करें।",
+					mod_a_p2: "मॉडल: पूर्णता और निषेध जांच के साथ-साथ कोणीय दृष्टियों का मूल्यांकन करता है।",
+					mod_a_p3: "प्रश्न की प्रकृति: यदि प्रश्न जटिल है, तो सही उत्तर के लिए प्रश्न से प्रभावित भावों को समायोजित करें।",
+					mod_a_p4: "खोई वस्तु त्रिकोणन: भाव व्युत्पत्ति, तत्व बनावट और दिशा मानचित्रण का उपयोग करके खोई वस्तुओं का पता लगाता है।",
+					mod_b_title: "▸ मॉड्यूल B: अनुसंधान मोड",
+					mod_b_status: "[सक्रिय मोड]",
+					mod_b_p1: "तुलना: दो अलग-अलग कुंडलियों, समय अवधि या वर्गों की अगल-बगल तुलना करें।",
+					mod_b_p2: "अनुसंधान सत्र भंडारण: पूर्ण बहु-चार्ट अनुसंधान सत्रों को स्थानीय रूप से सहेजें।",
+
+					// Section 7: Time Progression
+					time_title: "समय प्रगति इंजन",
+					time_subtitle: "स्थैतिक जन्म वादों को गतिशील ग्रहीय समय-सीमा के साथ एकीकृत करना।",
+					step1_title: "बहु-दशा इंजन",
+					step1_desc: "विंशोत्तरी, योगिनी, जैमिनी चर, कालचक्र, अष्टोत्तरी और BPHS सशर्त दशाओं के लिए 5 स्तरों तक पदानुक्रमित वृक्ष नेविगेशन।",
+					step2_title: "गोचर और नाड़ी ट्रांजिट ओवरले",
+					step2_desc: "D1 और D9 चार्ट पर सीधे गोचर ग्रह। इसमें D9 तारामंश, ध्रुव नाड़ी त्रिकोण घटना संकेतक और स्वचालित राशि परिवर्तन गणना शामिल हैं।",
+					step3_title: "जीवन गतिविधि वक्र",
+					step3_desc: "समय के साथ जीवनकाल की ऊर्जा के उतार-चढ़ाव को आरेखित करता है। शिखर व निम्न काल, पुष्कर नवमांश गोचर और ध्रुव नाड़ी त्रिकोण युति को ट्रैक करता है।",
+
+					// Section 8: Accordion Modules
+					accordion_title: "विश्लेषणात्मक इंजन मॉड्यूल",
+					accordion_subtitle: "विस्तृत प्रणाली विवरण की समीक्षा करने के लिए नीचे दिए गए किसी भी आइटम का चयन करें।",
+					acc_rule_title: "❖ कस्टम नियम इंजन",
+					acc_rule_desc: "अंक-आधारित थ्रेशोल्ड इंजन का उपयोग करके बहु-शर्त नियम परिभाषित करें। D1, D9, D24 और D60 चार्टों पर AND, OR और फ़ज़ी लॉजिक का मूल्यांकन करता है।",
+					acc_edu_title: "❖ शैक्षिक डिग्री मैपिंग",
+					acc_edu_desc: "जन्म समय की स्थिरता मापने के लिए बहु-वर्ग त्रिगुणन (D1, D9, D24, D60) के माध्यम से शैक्षिक क्षेत्रों का अनुमान लगाएं।",
+					acc_rect_title: "❖ जन्म समय शोधन इंजन",
+					acc_rect_desc: "काल्पनिक चार्ट लेआउट के लिए मिलान समय की खोज हेतु ऐतिहासिक तिथियों का अन्वेषण करें।",
+					acc_pdf_title: "❖ पीडीएफ रिपोर्ट बिल्डर",
+					acc_pdf_desc: "पंचांग, षड्बल सारणी, अष्टकवर्ग, भाव पद और अर्गला सारांश वाली बहु-पृष्ठ पीडीएफ रिपोर्ट निर्यात करें।",
+					acc_csi_title: "❖ समग्र शक्ति सूचकांक (CSI)",
+					acc_csi_desc: "षड्बल, अष्टकवर्ग (SAV) और अवस्थाओं को एक कुल स्कोर में एकीकृत करता है, जिसमें विन्यास योग्य भार विकल्प होते हैं।",
+					acc_updater_title: "❖ ऑटो-अपडेटर",
+					acc_updater_desc: "वास्तविक समय की गणना लॉग का निरीक्षण करें और स्थानीय सहेजे गए डेटा को जोखिम में डाले बिना सिस्टम अपडेट की जांच करें।",
+
+					// Section 9: House Outlines Matrix
+					outlines_title: "भाव रूपरेखा मैट्रिक्स",
+					outlines_subtitle: "वैकल्पिक रूप से चार्ट भाव सीमाओं को दृश्य ओवरले में रंग-कोडित करें।",
+					tbl_col_mode: "रूपरेखा मोड",
+					tbl_col_exp: "स्पष्टीकरण",
+					tbl_col_border: "दृश्य सीमा आउटपुट",
+					tbl_r1_mode: "सामर्थ्य (स्वामी)",
+					tbl_r1_exp: "स्वामित्व बल, दुस्थान स्थिति, अस्तता और केंद्र/त्रिकोण कारक।",
+					tbl_r1_out: "हरा (बली स्वामी), नारंगी (मिश्रित), या लाल (दुर्बल)।",
+					tbl_r2_mode: "दबाव (दृष्टियां)",
+					tbl_r2_exp: "किसी भाव को लक्षित करने वाली ग्रहीय दृष्टियों की कुल संख्या।",
+					tbl_r2_out: "लाल (4+ प्रभाव), स्वर्ण (3 प्रभाव), नीला (2 प्रभाव)।",
+					tbl_r3_mode: "शासन (बल)",
+					tbl_r3_exp: "डिस्पोजिटर टर्मिनल, दृष्टि प्रक्षेपण केंद्र और अभिसरण केंद्रों की पहचान करता है।",
+					tbl_r4_mode: "अर्गला बाधा",
+					tbl_r4_exp: "बाधा भावों के विरुद्ध हस्तक्षेप भावों की गणना करता है।",
+
+					// Section 10: Community Banner
+					banner_title: "अधिक आगामी विशेषताएं",
+					banner_desc: "नए प्लगइन्स, विस्तारित विभागीय गणनाएं और अन्य अनुरोधित सुधार सक्रिय विकास के तहत हैं। क्या आपके पास कोई विचार है?",
+					banner_btn: "▸ नई सुविधा का अनुरोध करें",
+
+					// Privacy & Notes
+					privacy_title: "स्थानीय डेटा गोपनीयता और OS वॉल्ट सुरक्षा",
+					privacy_desc: "सभी चार्ट प्रोफ़ाइल, सहेजे गए सत्र और निर्यात की गई रिपोर्ट केवल आपकी स्थानीय डिस्क पर रहती हैं। एस्ट्रोबेसिक में कोई टेलीमेट्री या विज्ञापन नहीं हैं। सहेजे गए चार्ट हार्डवेयर-समर्थित OS क्रेडेंशियल वॉल्ट सुरक्षा द्वारा एन्क्रिप्ट किए गए हैं।",
+					note_text: "नोट: ज्योतिष केवल उन्हीं की सहायता करता है जिन्हें वास्तव में आवश्यकता है, इस सॉफ्टवेयर का उपयोग करके स्वयं ज्योतिष का परीक्षण करने का प्रयास न करें।",
+
+					// Footer
+					footer_title: "एस्ट्रोबेसिक डायमंड चार्ट प्रो",
+					footer_built: "पायथन, PyQt6, और वैकल्पिक स्विस एफिमेरिस (`swisseph`) द्वारा निर्मित। अंग्रेजी, हिंदी और संस्कृत में उपलब्ध।",
+					footer_disclaimer: "परामर्श, शैक्षिक और शोध उद्देश्यों के लिए जारी किया गया।",
+					footer_dl_exe: "सॉफ्टवेयर डाउनलोड करें (.exe)",
+					footer_dl_apk: "एंड्रॉइड एपीके डाउनलोड करें (.apk)",
+					footer_visits: "कुल विज़िट:",
+
+					// Modals
+					exe_modal_title: "🛡️ विंडोज संस्थापन मार्गदर्शिका",
+					exe_modal_sub: "आपकी फ़ाइल astrobasics_installer.exe डाउनलोड हो रही है। चूकि यह कोड-हस्ताक्षरित नहीं है, विंडोज सुरक्षा चेतावनियां दिखा सकता है:",
+					exe_s1_title: "ब्राउज़र डाउनलोड चेतावनी:",
+					exe_s1_desc: "In Edge या Chrome में, यदि \"असामान्य डाउनलोड\" के रूप में चिह्नित किया गया है, तो तीन बिंदुओं (...) पर क्लिक करें ➔ \"Keep\" चुनें ➔ \"Keep anyway\" पर टैप करें।",
+					exe_s2_title: "विंडोज स्मार्टस्क्रीन पॉपअप बायपास करें:",
+					exe_s2_desc: "जब \"Windows protected your PC\" विंडो दिखाई दे, तो शीर्षलेख के ठीक नीचे \"More info\" लिंक पर क्लिक करें।",
+					exe_s3_title: "निष्पादित करने की पुष्टि करें:",
+					exe_s3_desc: "नीचे दाएं कोने में \"Run anyway\" बटन दिखाई देगा। सेटअप शुरू करने के लिए उस पर क्लिक करें।",
+					exe_s4_title: "उपयोगकर्ता खाता नियंत्रण (UAC):",
+					exe_s4_desc: "पूछे जाने पर \"Yes\" पर क्लिक करके संस्थापन पूर्ण करें।",
+
+					apk_modal_title: "📱 एंड्रॉइड एपीके इंस्टॉलेशन मार्गदर्शिका",
+					apk_modal_sub: "AstroBasics.apk के लिए आपका डाउनलोड शुरू हो गया है! Google Play Store के बाहर स्थापित करने के लिए इन चरणों का पालन करें:",
+					apk_s1_title: "डाउनलोड की गई एपीके खोलें:",
+					apk_s1_desc: "अधिसूचना बार नीचे खींचें और AstroBasics.apk पर टैप करें, या अपने फोन के फ़ाइल मैनेजर/डाउनलोड ऐप में पैकेज पर टैप करें।",
+					apk_s2_title: "अज्ञात स्रोतों से स्थापना की अनुमति दें:",
+					apk_s2_desc: "यदि एंड्रॉइड इसे रोकता है: • सेटिंग्स पर टैप करें। • \"Allow from this source\" को ऑन करें। • सेटअप फिर से शुरू करने के लिए बैक तीर दबाएं।",
+					apk_s3_title: "गूगल प्ले प्रोटेक्ट बायपास करें:",
+					apk_s3_desc: "यदि Play Protect \"Blocked by Play Protect\" दिखाता है: • \"More details\" पर टैप करें। • \"Install anyway\" पर टैप करें।",
+					apk_s4_title: "समाप्त करें और प्रारंभ करें:",
+					apk_s4_desc: "\"Install\" पर टैप करें, फिर पूरा होने पर \"Open\" पर टैप करें।",
+
+					modal_btn_dl_again: "पुनः डाउनलोड करें",
+					modal_btn_understood: "समझ गया!"
+				},
+
+				sa: {
+					// Navigation & Brand
+					brand_title: "एस्ट्रोबेसिक्स्",
+					nav_milan: "कुण्डली-मेलनम्",
+					nav_yoga: "योग-पटः",
+					nav_numerology: "अङ्क-ज्योतिषम्",
+					nav_languages: "भाषाः",
+					nav_privacy: "गोपनीयता",
+					theme_text: "रूपम्",
+					hdr_download_exe: "डाउनलोड् (.exe)",
+					hdr_download_apk: "डाउनलोड् (.apk)",
+
+					// Hero Section
+					badge_offline: "100% अफ़लाइन एवं व्यक्तिगतम्",
+					hero_title: "एस्ट्रोबेसिक्स् डायमण्ड् चार्ट् प्रो",
+					hero_desc: "ज्योतिषस्य दृश्यांकनस्य प्रयासरूपेण आरब्धम्, एस्ट्रोबेसिक्स् डायमण्ड् चार्ट् प्रो आनुकूल्येन ज्योतिषीयविश्लेषणं ददाति। स्विस-एफिमेरिस तथा J2 गणितीयगणनाभिः सह निर्मितम्, एतस्मिन् डायमण्ड-चार्ट-विजुअलैजर्, बहुवर्गविश्लेषणं तथा स्वेच्छिकनियमान् विश्लेषयितुं शक्यते।",
+					btn_exe: "▸ विण्डोज संस्थापकं डाउनलोड् कुर्वन्तु (.exe)",
+					btn_apk: "📱 एण्ड्रॉयड् ऐप डाउनलोड् कुर्वन्तु (.apk)",
+					btn_github: "🐈‍⬛ गिटहब् मध्ये स्रोतः पश्यन्तु",
+					stat_vargas_label: "पराशरोक्ताः वर्गाः",
+					stat_milan_label: "षट्-स्तम्भ कुण्डली-मेलनम्",
+					stat_dasha_label: "पञ्चस्तरीय विंशोत्तरी-दशा-अन्वेषकम्",
+					stat_vault_label: "हार्डवेयर-कुञ्चिका-सुरक्षा",
+
+					// Section 1: 6-Pillar Kundali Milan
+					milan_title: "षट्-स्तम्भ कुण्डली-मेलन-यन्त्रम्",
+					milan_subtitle: "केवलचन्द्रबिन्दुभ्यः अग्रे गत्वा संरचनात्मक-मानसिक-कार्मिकाणुकूलतानां पूर्णं मेलन-विधानम्।",
+					p1_title: "स्तम्भः १: अष्टकूट-कोष्ठकम्",
+					p1_badge: "३६ गुणाः",
+					p1_desc: "वर्ण-वश्य-तारा-योनि-ग्रहमैत्री-गण-भकूट-नाडीनां सोपानक्रमेण गणितीयगणना।",
+					p2_title: "स्तम्भः २: पापसाम्य-कोष्ठकम्",
+					p2_badge: "कुज-अन्तरम्",
+					p2_desc: "द्वितीये, चतुर्थे, सप्तमे, अष्टमे, द्वादशे च भावे मङ्गल-शनि-सूर्याणां पापप्रभावस्य साम्य-मूल्याङ्कनम्।",
+					p3_title: "स्तम्भः ३: परस्पर-सामरस्यम्",
+					p3_badge: "D1-D9 मेलनम्",
+					p3_desc: "मानसिकसहयोगपरीक्षणाय उभयोः कुण्डल्योः D1 लग्नेशस्य D9 सम्बन्धेशस्य च परस्परं विश्लेषणम्।",
+					p4_title: "स्तम्भः ४: नवमांश-सप्तमेश-विचारः",
+					p4_badge: "कलत्र-स्थितिः",
+					p4_desc: "गार्हस्थ्यजीवनस्य वास्तविकदीर्घकालिकस्थितेः निर्णयाय D9 सप्तमभावस्याश्रितग्रहाणां विश्लेषणम्।",
+					p5_title: "स्तम्भः ५: जन्मदशा-सामञ्जस्यम्",
+					p5_badge: "कालचक्र-तालमेलः",
+					p5_desc: "परस्परविकासप्रदानाय सहचरस्य नवमांशे जन्ममहादशानाथस्य प्रभावपरीक्षणम्।",
+					p6_title: "स्तम्भः ६: D9 अष्टमेश-आवरणम्",
+					p6_badge: "सङ्कट-रक्षण-कवचम्",
+					p6_desc: "आकस्मिकसङ्कटेभ्यः रक्षणाय सहचरस्य नवमांशाष्टमेशस्य स्थानपरीक्षणम्।",
+					milan_foot: "उभयोः D1/D9 चक्रयोः पूर्णतुलनां जनयति तथा च सुशोभितां PDF निवेदनपत्रिकाम् निर्यातीयति।",
+					milan_btn: "▸ तन्त्रांशे कुण्डली-मेलनस्य परीक्षणं कुर्वन्तु",
+
+					// Section 2: Yoga Explorer
+					yoga_title: "दृश्य-योग-अन्वेषण-पटः",
+					yoga_subtitle: "ग्रहसम्बन्धान्, दृष्टीः, परिवर्तनयोगान्, योगभङ्ग-कवचं च साक्षाद् आलेखयितुम् योग-अन्वेषकम्।",
+					yoga_overlay_title: "गतिशील-आवरणम्",
+					yoga_overlay_desc: "योग-अन्वेषकम् मुख्यचक्रेषु रेखाः आलेखयति येन योगस्य स्वरूपं स्पष्टं भवति!",
+					yoga_bhanga_rules: "भङ्ग-नियमाः: योगस्य निष्प्रभावीकरणं (योगभङ्गः) अभिजानाति।",
+					yoga_varga_scan: "एकीकृत D1 एवं D9 सूक्ष्मपरीक्षणम्: स्थूल-सूक्ष्म-वर्गयोः युगपद् विश्लेषणं करोति।",
+					yoga_demo_title: "गजकेसरीयोग-विश्लेषणम्",
+					yoga_demo_sub: "चतुर्थभावे गुरुः ❖ दशमभावे चन्द्रः",
+					yoga_demo_aspect: "परस्पर-केन्द्र-दृष्टिः दृष्टा",
+					yoga_demo_shield: "✓ अभङ्गः एवं सक्रियः (पूर्ण-प्रभावः) *",
+
+					// Section 3: Numerology Engine
+					num_title: "अङ्क-ज्योतिष-यन्त्रम्",
+					num_subtitle: "पराशरोक्त-ग्रहमैत्र्याः पारम्परिक-३x३-कोष्ठकैः सह एकीकृत-अङ्कगणना।",
+					plane_rahu: "राहुः",
+					plane_mars: "मङ्गलः",
+					plane_moon: "चन्द्रः",
+					plane_jupiter: "गुरुः",
+					plane_mercury: "बुधः",
+					plane_ketu: "केतुः",
+					plane_saturn: "शनिः",
+					plane_sun: "सूर्यः",
+					plane_venus: "शुक्रः",
+					num_analysis_title: "अङ्क एवं कोष्ठक-विश्लेषणम्",
+					num_analysis_desc: "मानक-वर्णमाला-कोष्ठकस्य उपयोगेन मूलाङ्क-भाग्याङ्क-नामाङ्कानां गणनां करोति।",
+					num_feature_1: "गृह-सङ्ख्या-अनुकूलता: भवतः मूलाङ्क-भाग्याङ्काभ्यां सह गृहसङ्ख्यायाः मेलनं करोति।",
+					num_feature_2: "मित्रता-अनुकूलता: मित्रस्य अङ्कान् भवतः मूलाङ्क-भाग्याङ्काभ्यां सह मेलयित्वा परिणामं ददाति।",
+					num_feature_3: "अङ्क-दशाः: वार्षिक-जन्माहोरात्र-परिवर्तनाधारेण महादशा-अन्तर्दशा-प्रत्यन्तर्दशाः जनयति।",
+					num_feature_4: "कोष्ठक-विन्यासाः: लो-शू (४-९-२), पाइथागोरियन् (३-६-९), तथा प्राकृतिक-क्रम (१-२-३) कोष्ठकेषु परिवर्तनं कुर्वन्तु।",
+
+					// Section 4: Multilingual Support
+					lang_title: "त्रिभाषीय-यूआई-समर्थनम्",
+					lang_subtitle: "सूचीः, चक्रविवरणानि, उपकरणसूचनाः, निवेदनपत्राणि च भाषात्रये परिवर्त्तयन्तु।",
+					lang_card_en_title: "English",
+					lang_card_en_desc: "आङ्ग्लभाषायां मानक-ज्योतिष-पारिभाषिकशब्दाः।",
+					lang_card_hi_title: "हिन्दी (Hindi)",
+					lang_card_hi_desc: "पारंपरिक शब्दावली - नवग्रह, भाव, नक्षत्र स्वामी, पंचांग विवरण एवं योगकारक विश्लेषण.",
+					lang_card_sa_title: "संस्कृतम् (Sanskrit)",
+					lang_card_sa_desc: "शास्त्रोक्तम् - राशि, वर्ग, बलाबलम्, ग्रहाणाम् दृष्टयः तथा च पंचांगम्.",
+					lang_need_another: "अन्या भाषा आवश्यकी वा?",
+					lang_need_desc: "प्रार्थनानुसारम् अथवा समुदायस्य सुझाव अनुसारम् अतिरिक्ता भाषा सं योजयितुं शक्यते।",
+					lang_btn_request: "भाषा-विस्तारस्य अभ्यर्थनां कुर्वन्तु →",
+
+					// Section 5: Interactive Hub
+					hub_sec_title: "अन्तर्क्रियात्मक-चक्र-विशेषताः",
+					hub_sec_subtitle: "मुख्यचक्रविशेषाणाम् अन्वेषणाय आरेखविभागेषु क्लिक् कुर्वन्तु।",
+					hub_lagna_title: "भाव-भ्रमणम् एवं व्युत्पन्न-विश्लेषणम्",
+					hub_lagna_desc: "चक्रं भ्रामयित्वा तं भावं कल्पितलग्नं कर्तुं कस्मिंश्चिद् भावे द्विवारं क्लिक् कुर्वन्तु।",
+					hub_vargas_title: "D1 तः D60 वर्गाः एवं स्वेच्छिक-निर्माता",
+					hub_vargas_desc: "सर्वेषां २० पराशरोक्त-विभागीयवर्गाणां प्रयोगं कुर्वन्तु अथवा गणितीयवर्गप्रबन्धकेन नूतनवर्गाणां निर्माणं कुर्वन्तु।",
+					hub_highlights_title: "कारकांश एवं आरूढलग्न-विशेषाः",
+					hub_highlights_desc: "कारकांशस्य आरूढलग्नस्य च स्थानं दर्शयति। उच्चता-वक्रता-अस्तङ्गत-स्थितीनां सूचकान् ददाति।",
+					hub_engine_title: "गणना-विकल्पाः एवं विकल्पाभावे गणितीय-आधारः",
+					hub_engine_desc: "स्विस-एफिमेरिस-सूक्ष्मतया अथवा एफिमेरिस-अभावे अफ़लाइन-गणितीय-सूत्रेण ग्रहाणां स्थानं गणयति।",
+
+					// Section 6: Workspace / Diagnostics
+					diag_title: "विशिष्ट-कार्यक्षेत्रम्",
+					diag_subtitle: "तुलनात्मक-शोधाय एवं स्थिति-विश्लेषणाय निर्मितं द्विधा-कार्यक्षेत्रम्।",
+					mod_a_title: "▸ भागः A: प्रश्न-ज्योतिष (Horary) अध्ययनशाला",
+					mod_a_status: "[सक्रिय-रूपम्]",
+					mod_a_p1: "प्राकृतिक-भाषा-विश्लेषकम्: कारकग्रहाणां स्वायत्तीकरणाय \"किं मम भ्राता परीक्षायामुत्तीर्णः भविष्यति?\" इति प्रश्नं लिखन्तु।",
+					mod_a_p2: "प्रतिमानम्: इत्थशाल-मुथशिल-योगैः सह पूर्णता-निषेध-परीक्षणं करोति।",
+					mod_a_p3: "प्रश्नस्य स्वरूपम्: यदि प्रश्नः जटिलः अस्ति, तर्हि समीचीनउत्तराय प्रभावितभावान् समायोजयन्तु।",
+					mod_a_p4: "नष्टद्रव्य-अन्वेषणम्: भावव्युत्पत्त्या दिशादिज्ञानेन च नष्टवस्तूनां स्थानं प्राप्नोति।",
+					mod_b_title: "▸ भागः B: अनुसञ्चार-रूपम् (Research Mode)",
+					mod_b_status: "[सक्रिय-रूपम्]",
+					mod_b_p1: "तुलना: द्वयोः पृथक्-कुण्डल्योः, समययोः अथवा वर्गयोः पार्श्वस्थ-तुलनां कुर्वन्तु।",
+					mod_b_p2: "अनुसञ्चार-सत्र-सङ्ग्रहः: बहु-चक्र-शोधसत्राणि स्थानिकाभ्यन्तरे सुरक्षितानि कुर्वन्तु।",
+
+					// Section 7: Time Progression
+					time_title: "काल-प्रगति-यन्त्राणि",
+					time_subtitle: "स्थिर-जन्मानुमानैः सह गतिशील-ग्रहमार्गाणाम् एकीकरणम्।",
+					step1_title: "बहु-दशा-यन्त्रम्",
+					step1_desc: "विंशोत्तरी-योगिनी-जैमिनीचर-कालचक्र-अष्टोत्तरी-दशानां पञ्चस्तराभ्यन्तरं वृक्षवत् अन्वेषणम्।",
+					step2_title: "गोचर एवं नाडी-सङ्क्रमण-आवरणम्",
+					step2_desc: "D1 एवं D9 चक्रेषु साक्षाद् गोचरग्रहाः। D9 तारामंश-ध्रुवनाडी-त्रिकोणसूचकाः अस्मिन् सन्ति।",
+					step3_title: "जीवन-गतिविधि-वक्रम्",
+					step3_desc: "कालेन सह जीवनस्य ऊर्जापरिवर्तनम् आलेखयति। शिखर-निम्न-कालान् पुष्कर-नवमांश-गोचरं च अनुगच्छति।",
+
+					// Section 8: Accordion Modules
+					accordion_title: "विश्लेषणात्मक-यन्त्र-विभागाः",
+					accordion_subtitle: "विस्तृत-प्रणाली-विवरणाय अधस्तनेषु कस्मिंश्चिद् क्लिक् कुर्वन्तु।",
+					acc_rule_title: "❖ स्वेच्छिक-नियम-यन्त्रम्",
+					acc_rule_desc: "अङ्काधारित-प्रणाल्या बहु-शर्त-नियमान् निर्धारयन्तु। D1, D9, D10, D60 चक्रेषु तर्क-मूल्याङ्कनं करोति।",
+					acc_edu_title: "❖ शैक्षणिक-उपाधि-मानचित्रणम्",
+					acc_edu_desc: "बहुवर्ग-त्रिगुणनेन (D1, D9, D24, D60) विद्याक्षेत्रस्य अनुमानं करोति।",
+					acc_rect_title: "❖ जन्मसमय-शोधन-यन्त्रम्",
+					acc_rect_desc: "काल्पनिक-चक्र-विन्यासाय ऐतिहासिक-दिनाङ्कानां शोधनं करोति।",
+					acc_pdf_title: "❖ PDF निवेदन-निर्माता",
+					acc_pdf_desc: "पञ्चाङ्ग-षड्बल-अष्टकवर्ग-भावपद-अर्गला-विवरणैः युक्तां बहुपृष्ठां PDF रिपोर्ट् निर्यातीयति।",
+					acc_csi_title: "❖ समग्र-बल-सूचकाङ्कः (CSI)",
+					acc_csi_desc: "षड्बल-अष्टकवर्ग-अवस्थाः एकेनैव समग्र-अङ्केन एकीकृत्य मूल्याङ्कनं करोति।",
+					acc_updater_title: "❖ स्वचालित-नवीकरणम्",
+					acc_updater_desc: "स्थानिक-दत्तांशस्य सुरक्षया सह गणना-सञ्चिकाः पश्यन्तु नवीन-प्रणाली-अद्यतनं च लभन्ताम्।",
+
+					// Section 9: House Outlines Matrix
+					outlines_title: "भाव-रूपरेखा-कोष्ठकम्",
+					outlines_subtitle: "विकल्पेन चक्रभावसीमाः वर्णसंकेतैः दर्शयन्तु।",
+					tbl_col_mode: "रूपरेखा-प्रकारः",
+					tbl_col_exp: "स्पष्टीकरणम्",
+					tbl_col_border: "दृश्य-सीमा-फलम्",
+					tbl_r1_mode: "सामर्थ्यम् (स्वामिनः)",
+					tbl_r1_exp: "आधिपत्यबलम्, दुस्थानस्थितिः, अस्तङ्गतत्वम्, केन्द्र-त्रिकोण-कारकाः।",
+					tbl_r1_out: "हरितम् (बली स्वामी), नारङ्गम् (मिश्रितम्), अथवा रक्तम् (दुर्बलम्)।",
+					tbl_r2_mode: "दबावः (दृष्टयः)",
+					tbl_r2_exp: "भावं प्रति समागच्छन्तीनां ग्रहाणां दृष्टीनां सर्वसङ्ख्या।",
+					tbl_r2_out: "रक्तम् (४+ प्रभावाः), स्वर्णम् (३ प्रभावाः), नीलम् (२ प्रभावाः)।",
+					tbl_r3_mode: "शासनम् (बलानि)",
+					tbl_r3_exp: "भावेश-टर्मिनल्-प्रक्षेपणानां सङ्गमकेन्द्राणां परिज्ञानम्।",
+					tbl_r4_mode: "अर्गला-बाधा",
+					tbl_r4_exp: "बाधाभावानां विरुद्धम् हस्तक्षेपभावानां गणनां करोति।",
+
+					// Section 10: Community Banner
+					banner_title: "आगामी-सुविधाः",
+					banner_desc: "नूतन-प्लगिन्-विभागाः, वर्गाणां विस्तृताः गणनाः अन्ये चाभ्यर्थिताः विषयाः प्रगतौ सन्ति। विचारः अस्ति वा?",
+					banner_btn: "▸ नूतन-सुविधायाः अभ्यर्थनां कुर्वन्तु",
+
+					// Privacy & Notes
+					privacy_title: "स्थानिक-दत्तांश-गोपनीयता एवं OS वॉल्ट सुरक्षा",
+					privacy_desc: "सर्वे कुण्डली-सङ्ग्रहाः केवलं भवतः यन्त्रे एव तिष्ठन्ति। एतस्मिन् कोऽपि विज्ञापनः वा ट्रैकिङ्ग्-सञ्चिका नास्ति। सर्वे सङ्ग्रहाः OS Credential Vault द्वारा गुप्ताः क्रियन्ते।",
+					note_text: "टिप्पणी: ज्योतिषं तेषामेव सहायतां करोति ये वास्तविकाः अर्थिनः सन्ति, अस्य तन्त्रांशस्य प्रयोगेन ज्योतिषस्यैव परीक्षां कर्तुं मा प्रयतध्वम्।",
+
+					// Footer
+					footer_title: "एस्ट्रोबेसिक्स् डायमण्ड् चार्ट् प्रो",
+					footer_built: "Python, PyQt6 तथा स्विस-एफिमेरिस (`swisseph`) द्वारा निर्मितम्। आङ्ग्ल-हिन्दी-संस्कृतभाषामु उपलब्धम्।",
+					footer_disclaimer: "परामर्शाय, शैक्षणिकाय, अनुसञ्चाराय च प्रकाशितम्।",
+					footer_dl_exe: "तन्त्रांशं डाउनलोड् कुर्वन्तु (.exe)",
+					footer_dl_apk: "एण्ड्रॉयड् ऐप डाउनलोड् कुर्वन्तु (.apk)",
+					footer_visits: "आहत्य अभ्यागताः:",
+
+					// Modals
+					exe_modal_title: "🛡️ विण्डोज-संस्थापन-मार्गदर्शिका",
+					exe_modal_sub: "भवतः सञ्चिका astrobasics_installer.exe डाउनलोड् भवन्ती अस्ति। प्रमाणपत्राभावात् विण्डोज-सुरक्षा-चेतावनीं दर्शयितुं शक्यते:",
+					exe_s1_title: "ब्राउज़र-डाउनलोड्-चेतावनी:",
+					exe_s1_desc: "Edge अथवा Chrome मध्ये चेतावनीकाले त्रिबिन्दुपु (...) क्लिक् कृत्वा \"Keep\" ➔ \"Keep anyway\" इति नुदन्तु।",
+					exe_s2_title: "विण्डोज-स्मार्टस्क्रीन-उल्लङ्घनम्:",
+					exe_s2_desc: "यदा नीलं \"Windows protected your PC\" दृश्यते, तदा \"More info\" इति पाठे क्लिक् कुर्वन्तु।",
+					exe_s3_title: "स्वीकृतिः:",
+					exe_s3_desc: "अधः \"Run anyway\" इति बटन् दृश्यते, तस्मिन् क्लिक् कृत्वा संस्थापनं प्रारभन्तु।",
+					exe_s4_title: "उपयोक्तृ-लेखा-नियन्त्रणम् (UAC):",
+					exe_s4_desc: "पृष्टे सति \"Yes\" इति नुदत्वा संस्थापनं पूर्णं कुर्वन्तु।",
+
+					apk_modal_title: "📱 एण्ड्रॉयड् APK संस्थापन-मार्गदर्शिका",
+					apk_modal_sub: "AstroBasics.apk इत्यस्य डाउनलोड् आरब्धम्! गूगल-प्ले-स्टोर्-बहिः संस्थापनाय एतान् सोपानान् अनुसरन्तु:",
+					apk_s1_title: "डाउनलोड्-सञ्चिकां उद्घाटयन्तु:",
+					apk_s1_desc: "अधः आकर्ष्या सूचनापट्टिकायां AstroBasics.apk नुदन्तु, अथवा Files / Downloads मध्ये सञ्चिकां उद्घाटयन्तु।",
+					apk_s2_title: "अज्ञात-स्रोतोभ्यः अनुमतिं यच्छन्तु:",
+					apk_s2_desc: "यदि एण्ड्रॉयड् अवरोधं करोति: • Settings नुदन्तु। • \"Allow from this source\" इति चालू (ON) कुर्वन्तु। • पुनः आगन्तुं पश्चात्-तीरं नुदन्तु।",
+					apk_s3_title: "गूगल-प्ले-प्रोटेक्ट्-उल्लङ्घनम्:",
+					apk_s3_desc: "यदि Play Protect अवरोधं दर्शयति: • \"More details\" नुदन्तु। • \"Install anyway\" नुदन्तु।",
+					apk_s4_title: "समाप्य प्रारभन्तु:",
+					apk_s4_desc: "\"Install\" नुदन्तु, ततः पूर्णतायां \"Open\" नुदन्तु।",
+
+					modal_btn_dl_again: "पुनः डाउनलोड् कुर्वन्तु",
+					modal_btn_understood: "अवगतम्!"
+				}
+			};
 
 		function setLanguage(lang) {
 			// Update Pill Active States
@@ -1949,10 +2542,9 @@
 	<div class="modal-overlay" id="exeModal" onclick="if(event.target===this) closeModal('exeModal')">
 		<div class="modal-card">
 			<button class="modal-close-btn" onclick="closeModal('exeModal')">✕</button>
-			<h3 class="modal-title">🛡️ Windows Installation Guide</h3>
-			<p class="modal-subtitle">Your file <code>astrobasics_installer.exe</code> is downloading. Because this
-				package isn't code-signed with an expensive corporate certificate, Windows might display
-				security warnings:</p>
+			<h3 class="modal-title">Windows Installation Guide</h3>
+			<p class="modal-subtitle">Your file <code>astrobasics_installer.exe</code> is downloading. Windows might display
+				security warnings for newly compiled apps:</p>
 	
 			<ul class="modal-steps">
 				<li class="modal-step-item">
@@ -2004,7 +2596,7 @@
 	<div class="modal-overlay" id="apkModal" onclick="if(event.target===this) closeModal('apkModal')">
 		<div class="modal-card">
 			<button class="modal-close-btn" onclick="closeModal('apkModal')">✕</button>
-			<h3 class="modal-title">📱 Android APK Sideloading Guide</h3>
+			<h3 class="modal-title">Android Installation Guide</h3>
 			<p class="modal-subtitle">Your download for <code>AstroBasics.apk</code> has started! Since this app is
 				installed directly outside Google Play Store, follow these steps:</p>
 	
