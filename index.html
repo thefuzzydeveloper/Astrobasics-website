@@ -158,41 +158,52 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			padding: 12px 20px;
+			padding: 6px 14px;
+			gap: 12px;
 		}
 
 		.brand-logo {
 			display: flex;
 			align-items: center;
-			gap: 12px;
+			gap: 8px;
 			text-decoration: none;
+			flex-shrink: 0;
 		}
 
 		.brand-logo img {
-			width: 38px;
-			height: 38px;
+			width: 30px;
+			height: 30px;
 			border-radius: 6px;
 			border: 1px solid var(--border-color);
 		}
 
 		.brand-title {
-			font-size: 1.45rem;
+			font-size: 1.2rem;
 			color: var(--text-accent);
 		}
 
 		nav ul {
 			display: flex;
 			list-style: none;
-			gap: 20px;
+			gap: 12px;
 			align-items: center;
+			margin: 0;
+			padding: 0;
 		}
 
 		nav a {
 			color: var(--text-primary);
 			text-decoration: none;
 			font-weight: 600;
-			font-size: 0.95rem;
+			font-size: 0.82rem;
 			position: relative;
+			white-space: nowrap;
+		}
+
+		@media (max-width: 992px) {
+			nav {
+				display: none; /* Hide non-essential links on medium/small screens to preserve bar compactness */
+			}
 		}
 
 		nav a::after {
@@ -1134,39 +1145,43 @@
 <body>
 	<!-- Ambient Particle Canvas (~1% CPU) -->
 	<canvas id="bgCanvas"></canvas>
-
-	<!-- Navigation Header -->
-	<header>
-		<div class="nav-container">
-			<a href="#" class="brand-logo">
-				<img src="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico"
-					alt="AstroBasics Logo">
-				<span class="brand-title">AstroBasics</span>
+<!-- Navigation Header -->
+<header>
+	<div class="nav-container">
+		<a href="#" class="brand-logo">
+			<img src="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico"
+				alt="AstroBasics Logo">
+			<span class="brand-title">AstroBasics</span>
+		</a>
+		<nav>
+			<ul>
+				<li><a href="#milan-spotlight">Kundali Milan</a></li>
+				<li><a href="#yoga-spotlight">Yoga Canvas</a></li>
+				<li><a href="#numerology-spotlight">Numerology</a></li>
+			</ul>
+		</nav>
+		<div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+			<button class="theme-toggle-btn" id="themeToggle" onclick="toggleThemeManual()"
+				style="padding: 5px 10px; font-size: 0.8rem;">
+				<span id="themeIcon">❖</span>
+			</button>
+			<a href="portal.html" class="btn-secondary"
+				style="padding: 5px 10px; font-size: 0.8rem; border-color: var(--accent-gold); color: var(--text-accent); white-space: nowrap;">
+				🔑 Portal
 			</a>
-			<nav>
-				<ul>
-					<li><a href="#milan-spotlight">Kundali Milan</a></li>
-					<li><a href="#yoga-spotlight">Yoga Canvas</a></li>
-					<li><a href="#numerology-spotlight">Numerology</a></li>
-					<li><a href="#languages">Languages</a></li>
-					<li><a href="#privacy">Privacy</a></li>
-				</ul>
-			</nav>
-			<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-				<button class="theme-toggle-btn" id="themeToggle" onclick="toggleThemeManual()">
-					<span id="themeIcon">❖</span> <span id="themeText">Theme</span>
-				</button>
-				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
-					onclick="openInstallModal('exe', event)" class="btn-primary" style="padding: 8px 16px; font-size: 0.88rem;">
-					Download (.exe)
-				</a>
-				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk"
-					onclick="openInstallModal('apk', event)" class="btn-secondary" style="padding: 8px 16px; font-size: 0.88rem;">
-					Download (.apk)
-				</a>
-			</div>
+			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/astrobasics_installer.exe"
+				onclick="openInstallModal('exe', event)" class="btn-primary"
+				style="padding: 5px 10px; font-size: 0.8rem; white-space: nowrap;">
+				.exe
+			</a>
+			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist/releases/download/v-final-installer/AstroBasics.apk"
+				onclick="openInstallModal('apk', event)" class="btn-secondary"
+				style="padding: 5px 10px; font-size: 0.8rem; white-space: nowrap;">
+				.apk
+			</a>
 		</div>
-	</header>
+	</div>
+</header>
 
 	<!-- Hero Section -->
 	<section class="hero">

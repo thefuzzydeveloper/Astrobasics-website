@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>License Portal | AstroBasics</title>
+	<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Noto+Sans:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
+	<style>
+		:root {
+			--bg-base: #07030A;
+			--bg-surface: #12071B;
+			--bg-card: #1A0D26;
+			--border-color: #C59B27;
+			--border-subtle: rgba(197, 155, 39, 0.25);
+			--text-primary: #F4EFEA;
+			--text-secondary: #C8BDD6;
+			--text-accent: #FFE885;
+			--accent-gold: #DAA520;
+			--accent-red: #C0392B;
+			--accent-green: #27AE60;
+		}
+
+		body {
+			font-family: 'Noto Sans', sans-serif;
+			background-color: var(--bg-base);
+			color: var(--text-primary);
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		.container {
+			background: var(--bg-surface);
+			border: 2px solid var(--border-color);
+			border-radius: 12px;
+			padding: 40px;
+			width: 100%;
+			max-width: 480px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+		}
+
+		h2 {
+			color: var(--text-accent);
+			font-family: 'Rozha One', serif;
+			margin-top: 0;
+			text-align: center;
+			font-size: 2rem;
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+		}
+
+		label {
+			display: block;
+			font-size: 0.85rem;
+			color: var(--text-secondary);
+			margin-bottom: 8px;
+		}
+
+		input,
+		select {
+			width: 100%;
+			padding: 12px;
+			border-radius: 6px;
+			border: 1px solid var(--border-color);
+			background: var(--bg-card);
+			color: var(--text-primary);
+			font-size: 1rem;
+			box-sizing: border-box;
+		}
+
+		button {
+			width: 100%;
+			padding: 14px;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			border: 1px solid var(--border-color);
+		}
+
+		.btn-primary {
+			background: linear-gradient(135deg, #E65100, var(--accent-gold));
+			color: #FFF;
+			border: none;
+		}
+
+		.btn-primary:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+		}
+
+		.btn-secondary {
+			background: transparent;
+			color: var(--text-primary);
+			margin-top: 10px;
+		}
+
+		.btn-secondary:hover {
+			background: var(--bg-card);
+			color: var(--text-accent);
+			border-color: var(--accent-gold);
+		}
+
+		.error-msg {
+			color: #ff6b6b;
+			font-size: 0.85rem;
+			margin-top: 5px;
+			display: none;
+			text-align: center;
+		}
+
+		.success-msg {
+			color: var(--accent-green);
+			font-size: 0.85rem;
+			margin-top: 5px;
+			display: none;
+			text-align: center;
+		}
+
+		.hidden {
+			display: none !important;
+		}
+
+		/* Dashboard Specifics */
+		.dash-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border-subtle);
+			padding: 20px;
+			border-radius: 8px;
+			margin-bottom: 20px;
+		}
+
+		.key-display {
+			font-family: monospace;
+			font-size: 1.2rem;
+			color: var(--accent-gold);
+			background: var(--bg-base);
+			padding: 10px;
+			border-radius: 4px;
+			text-align: center;
+			letter-spacing: 2px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- AUTHENTICATION VIEW -->
+	<div class="container" id="authView">
+		<h2 id="authTitle">Sign In</h2>
+		<p id="authSubtitle" style="text-align: center; color: var(--text-secondary); margin-bottom: 30px;">
+			Access your AstroBasics License Portal
+		</p>
+
+		<form id="authForm">
+			<div class="form-group">
+				<label>Email Address</label>
+				<input type="email" id="email" required placeholder="name@example.com">
+			</div>
+
+			<div class="form-group" id="passwordGroup">
+				<div
+					style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+					<label style="margin-bottom: 0;">Password</label>
+					<a href="#" id="forgotPasswordBtn"
+						style="color: var(--text-secondary); font-size: 0.8rem; text-decoration: none;">Forgot
+						Password?</a>
+				</div>
+				<input type="password" id="password" required minlength="6" placeholder="••••••••">
+			</div>
+
+			<div id="authError" class="error-msg"></div>
+			<div id="authSuccess" class="success-msg"></div>
+
+			<button type="submit" class="btn-primary" id="submitBtn">Sign In</button>
+		</form>
+
+		<div style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+			<span id="toggleText" style="color: var(--text-secondary);">Don't have an account?</span>
+			<a href="#" id="toggleModeBtn"
+				style="color: var(--accent-gold); font-weight: bold; text-decoration: none;">Register
+				Now</a>
+		</div>
+		<div style="text-align: center; margin-top: 20px;">
+			<a href="index.html"
+				style="color: var(--text-secondary); font-size: 0.85rem; text-decoration: none;">← Back
+				to Website</a>
+		</div>
+	</div>
+
+	<!-- DASHBOARD VIEW -->
+	<div class="container hidden" id="dashboardView" style="max-width: 600px;">
+		<h2>License Portal</h2>
+		<p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">Logged in as: <strong
+				id="userEmailDisplay" style="color: var(--text-accent);"></strong></p>
+
+		<!-- Email Verification Banner Card -->
+		<div id="verifyBannerCard" class="dash-card hidden"
+			style="border-color: #E65100; background: rgba(230, 81, 0, 0.08); text-align: center;">
+			<p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 15px;">
+				Your email address is not verified yet. Please check your inbox or spam folder or
+				request a verification link.
+			</p>
+			<div style="display: flex; gap: 10px; justify-content: center;">
+				<button id="sendVerifyBtn" class="btn-primary"
+					style="padding: 8px 16px; font-size: 0.85rem; width: auto;">Resend Verification
+					Link</button>
+				<button id="checkVerifyBtn" class="btn-secondary"
+					style="padding: 8px 16px; font-size: 0.85rem; width: auto; margin-top: 0;">Check
+					Status</button>
+			</div>
+			<div id="verifyAlertMsg" class="success-msg" style="margin-top: 10px; display: none;"></div>
+		</div>
+
+		<div class="dash-card">
+			<h3 style="margin-top: 0; color: var(--text-accent);">Your Active License</h3>
+			<div id="licenseStatus" style="font-size: 0.9rem; color: var(--text-secondary);">Loading...
+			</div>
+		</div>
+
+		<div class="dash-card">
+			<h3 style="margin-top: 0; color: var(--text-accent);">Generate New Key</h3>
+			<div class="form-group">
+				<label>Select License Tier</label>
+				<select id="tierSelect">
+					<option value="TRIAL">7-Day Free Trial</option>
+					<option value="ULTIMATE">Ultimate Lifetime (Contact developer at Github)</option>
+				</select>
+			</div>
+			<div id="genError" class="error-msg"></div>
+			<div id="genSuccess" class="success-msg"></div>
+			<button class="btn-primary" id="generateBtn">Generate License Key</button>
+		</div>
+
+		<button class="btn-secondary" id="signOutBtn">Sign Out</button>
+	</div>
+
+	<!-- Firebase SDKs -->
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+	<script>
+		// Firebase Config
+		const firebaseConfig = {
+			apiKey: "AIzaSyDkQZcqpm7a9zPIFEtCqrmghX2QPk_ebyo",
+			authDomain: "astrobasics-license.firebaseapp.com",
+			projectId: "astrobasics-license",
+			storageBucket: "astrobasics-license.firebasestorage.app",
+			messagingSenderId: "192715809671",
+			appId: "1:192715809671:web:6539f0bfc752913a876922"
+		};
+
+		firebase.initializeApp(firebaseConfig);
+		const auth = firebase.auth();
+		const db = firebase.firestore();
+
+		// Date Formatting Helper (DD/MM/YYYY, HH:MM:SS AM/PM)
+			function formatDateTimeDDMMYYYY(epochSeconds) {
+				if (!epochSeconds) return 'N/A';
+				const d = new Date(epochSeconds * 1000);
+				const day = String(d.getDate()).padStart(2, '0');
+				const month = String(d.getMonth() + 1).padStart(2, '0');
+				const year = d.getFullYear();
+
+				let hours = d.getHours();
+				const minutes = String(d.getMinutes()).padStart(2, '0');
+				const seconds = String(d.getSeconds()).padStart(2, '0');
+				const ampm = hours >= 12 ? 'PM' : 'AM';
+
+				hours = hours % 12;
+				hours = hours ? hours : 12; // '0' becomes '12'
+				const hoursStr = String(hours).padStart(2, '0');
+
+				return `${day}/${month}/${year}, ${hoursStr}:${minutes}:${seconds} ${ampm}`;
+			}
+
+			// UI Elements
+			const authView = document.getElementById('authView');
+		const dashboardView = document.getElementById('dashboardView');
+		const authForm = document.getElementById('authForm');
+		const authError = document.getElementById('authError');
+		const authSuccess = document.getElementById('authSuccess');
+		const toggleModeBtn = document.getElementById('toggleModeBtn');
+		const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+		const passwordGroup = document.getElementById('passwordGroup');
+
+		let isRegisterMode = false;
+		let isResetMode = false;
+		let currentUser = null;
+
+		// 1. Navigation / Mode Toggle Logic
+		toggleModeBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			if (isResetMode) {
+				isResetMode = false;
+				isRegisterMode = false;
+			} else {
+				isRegisterMode = !isRegisterMode;
+			}
+			updateAuthUI();
+		});
+
+		forgotPasswordBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			isResetMode = true;
+			isRegisterMode = false;
+			updateAuthUI();
+		});
+
+		function updateAuthUI() {
+			authError.style.display = 'none';
+			authSuccess.style.display = 'none';
+
+			if (isResetMode) {
+				document.getElementById('authTitle').textContent = 'Reset Password';
+				document.getElementById('authSubtitle').textContent = 'Enter your email to receive a password reset link';
+				passwordGroup.style.display = 'none';
+				document.getElementById('password').required = false;
+				document.getElementById('submitBtn').textContent = 'Send Reset Link';
+				document.getElementById('toggleText').textContent = 'Remembered your password?';
+				toggleModeBtn.textContent = 'Sign In';
+			} else if (isRegisterMode) {
+				document.getElementById('authTitle').textContent = 'Create Account';
+				document.getElementById('authSubtitle').textContent = 'Register for your AstroBasics Portal account';
+				passwordGroup.style.display = 'block';
+				forgotPasswordBtn.style.display = 'none';
+				document.getElementById('password').required = true;
+				document.getElementById('submitBtn').textContent = 'Register';
+				document.getElementById('toggleText').textContent = 'Already have an account?';
+				toggleModeBtn.textContent = 'Sign In';
+			} else {
+				document.getElementById('authTitle').textContent = 'Sign In';
+				document.getElementById('authSubtitle').textContent = 'Access your AstroBasics License Portal';
+				passwordGroup.style.display = 'block';
+				forgotPasswordBtn.style.display = 'inline';
+				document.getElementById('password').required = true;
+				document.getElementById('submitBtn').textContent = 'Sign In';
+				document.getElementById('toggleText').textContent = "Don't have an account?";
+				toggleModeBtn.textContent = 'Register Now';
+			}
+		}
+
+		// Domain & Keyboard-Mash Validation
+		const ALLOWED_EMAIL_DOMAINS = [
+			'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com',
+			'icloud.com', 'proton.me', 'protonmail.com', 'live.com',
+			'aol.com', 'zoho.com', 'gmx.com', 'yandex.com', 'mail.com'
+		];
+
+		const MASH_PATTERNS = [/asdf/i, /sdfg/i, /dfgh/i, /fghj/i, /qwerty/i, /zxcv/i, /abcd/i, /aace/i];
+
+		function validateEmailAddress(email) {
+			const parts = email.toLowerCase().split('@');
+			if (parts.length !== 2) return { valid: false, reason: "Invalid email format." };
+
+			const [username, domain] = parts.map(p => p.trim());
+
+			if (!ALLOWED_EMAIL_DOMAINS.includes(domain)) {
+				return { valid: false, reason: "Please use a recognized email provider (e.g., gmail.com, yahoo.com, outlook.com)." };
+			}
+
+			if (username.length < 5) {
+				return { valid: false, reason: "Email username must be at least 5 characters long." };
+			}
+
+			for (let pattern of MASH_PATTERNS) {
+				if (pattern.test(username)) {
+					return { valid: false, reason: "Random or keyboard-mash email addresses are not permitted." };
+				}
+			}
+
+			if (/[bcdfghjklmnpqrstvwxyz]{5,}/.test(username)) {
+				return { valid: false, reason: "Email prefix appears to be random or invalid." };
+			}
+
+			if (/(.)\1{3,}/.test(username)) {
+				return { valid: false, reason: "Invalid email prefix with repeated characters." };
+			}
+
+			return { valid: true };
+		}
+
+		// 2. Handle Authentication, Registration & Password Reset Submissions
+		authForm.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			authError.style.display = 'none';
+			authSuccess.style.display = 'none';
+
+			const email = document.getElementById('email').value.trim();
+			const password = document.getElementById('password').value.trim();
+			const submitBtn = document.getElementById('submitBtn');
+
+			const emailCheck = validateEmailAddress(email);
+			if (!emailCheck.valid) {
+				authError.style.display = 'block';
+				authError.textContent = emailCheck.reason;
+				return;
+			}
+
+			submitBtn.disabled = true;
+			const originalBtnText = submitBtn.textContent;
+			submitBtn.textContent = 'Processing...';
+
+			try {
+				if (isResetMode) {
+					await auth.sendPasswordResetEmail(email);
+					authSuccess.style.display = 'block';
+					authSuccess.textContent = 'Password reset link sent! Please check your inbox or spam folder.';
+				} else if (isRegisterMode) {
+					const cred = await auth.createUserWithEmailAndPassword(email, password);
+					await cred.user.sendEmailVerification();
+				} else {
+					await auth.signInWithEmailAndPassword(email, password);
+				}
+			} catch (err) {
+				authError.style.display = 'block';
+				if (err.code === 'auth/invalid-email') {
+					authError.textContent = "The email address format is invalid.";
+				} else if (err.code === 'auth/user-not-found' || err.code === 'auth/invalid-credential') {
+					authError.textContent = "Invalid email or password. Please check your credentials or register.";
+				} else if (err.code === 'auth/email-already-in-use') {
+					authError.textContent = "This email is already registered. Please sign in instead.";
+				} else {
+					authError.textContent = err.message;
+				}
+			} finally {
+				submitBtn.disabled = false;
+				submitBtn.textContent = originalBtnText;
+			}
+		});
+
+		// 3. Auth State Observer & Email Verification UI Handler
+		auth.onAuthStateChanged(user => {
+			if (user) {
+				currentUser = user;
+				authView.classList.add('hidden');
+				dashboardView.classList.remove('hidden');
+				document.getElementById('userEmailDisplay').textContent = user.email;
+
+				updateVerificationUI();
+				loadActiveLicense();
+			} else {
+				currentUser = null;
+				authView.classList.remove('hidden');
+				dashboardView.classList.add('hidden');
+			}
+		});
+
+		function updateVerificationUI() {
+			const banner = document.getElementById('verifyBannerCard');
+			if (currentUser && !currentUser.emailVerified) {
+				banner.classList.remove('hidden');
+			} else {
+				banner.classList.add('hidden');
+			}
+		}
+
+		// Email Verification Button Actions
+		document.getElementById('sendVerifyBtn').addEventListener('click', async () => {
+			const alertMsg = document.getElementById('verifyAlertMsg');
+			try {
+				if (currentUser) {
+					await currentUser.sendEmailVerification();
+					alertMsg.style.display = 'block';
+					alertMsg.textContent = 'Verification email sent! Check your inbox.';
+				}
+			} catch (err) {
+				alertMsg.style.display = 'block';
+				alertMsg.style.color = 'var(--accent-red)';
+				alertMsg.textContent = 'Please wait before requesting another email.';
+			}
+		});
+
+		document.getElementById('checkVerifyBtn').addEventListener('click', async () => {
+			if (currentUser) {
+				await currentUser.reload();
+				currentUser = auth.currentUser;
+				updateVerificationUI();
+				const alertMsg = document.getElementById('verifyAlertMsg');
+				alertMsg.style.display = 'block';
+				if (currentUser.emailVerified) {
+					alertMsg.style.color = 'var(--accent-green)';
+					alertMsg.textContent = 'Email verified successfully!';
+				} else {
+					alertMsg.style.color = '#ff6b6b';
+					alertMsg.textContent = 'Email is not verified yet. Please check your inbox.';
+				}
+			}
+		});
+
+		document.getElementById('signOutBtn').addEventListener('click', () => auth.signOut());
+
+		// 4. Generate License Logic (Enforces Email Verification, 6-Day Cooldown, and MAX 6 Generations)
+			const SIX_DAYS_IN_SECONDS = 6 * 24 * 60 * 60; // 518,400 seconds
+			const MAX_GENERATIONS = 6;
+
+			document.getElementById('generateBtn').addEventListener('click', async () => {
+				const tier = document.getElementById('tierSelect').value;
+				const errBox = document.getElementById('genError');
+				const sucBox = document.getElementById('genSuccess');
+				errBox.style.display = 'none';
+				sucBox.style.display = 'none';
+
+				// Check 1: Email Verification
+				await currentUser.reload();
+				currentUser = auth.currentUser;
+				if (!currentUser.emailVerified) {
+					errBox.textContent = "Email address unverified. Please verify your email using the banner above before generating a license.";
+					errBox.style.display = 'block';
+					return;
+				}
+
+				// Check 2: Tier Check
+				if (tier === 'ULTIMATE') {
+					errBox.textContent = "Please contact developer for Ultimate lifetime version!";
+					errBox.style.display = 'block';
+					return;
+				}
+
+				try {
+					document.getElementById('generateBtn').disabled = true;
+					const currentEpoch = Math.floor(Date.now() / 1000);
+
+					const docRef = await db.collection('licenses').doc(currentUser.uid).get();
+					let currentGenCount = 0;
+
+					if (docRef.exists) {
+						const data = docRef.data();
+						currentGenCount = data.generation_count || (data.issued_at ? 1 : 0);
+						const lastIssued = data.issued_at || 0;
+						const elapsed = currentEpoch - lastIssued;
+
+						// Check 3: Maximum 6 Generations Hard Cap
+						if (currentGenCount >= MAX_GENERATIONS) {
+							errBox.textContent = `Maximum Generation Limit Reached: You have already generated all ${MAX_GENERATIONS} allowed trial licenses. Please contact the developer for an Ultimate license.`;
+							errBox.style.display = 'block';
+							document.getElementById('generateBtn').disabled = false;
+							return;
+						}
+
+						// Check 4: Rate Limiting (One license per 6 days)
+						if (elapsed < SIX_DAYS_IN_SECONDS) {
+							const remainingSec = SIX_DAYS_IN_SECONDS - elapsed;
+							const remainingDays = Math.floor(remainingSec / 86400);
+							const remainingHours = Math.floor((remainingSec % 86400) / 3600);
+
+							errBox.textContent = `Rate Limit Reached: You can generate only 1 license every 6 days. Please wait ${remainingDays} day(s) and ${remainingHours} hour(s) before generating a new license. (${currentGenCount}/${MAX_GENERATIONS} generations used)`;
+							errBox.style.display = 'block';
+							document.getElementById('generateBtn').disabled = false;
+							return;
+						}
+					}
+
+					// Generate License (Valid for 7 days)
+					const newGenCount = currentGenCount + 1;
+					const expiryEpoch = currentEpoch + (7 * 24 * 60 * 60);
+					const newKey = 'LIC-TRIAL-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+
+					await db.collection('licenses').doc(currentUser.uid).set({
+						email: currentUser.email,
+						tier: "PRO_TRIAL",
+						expires_at: expiryEpoch,
+						license_key: newKey,
+						issued_at: currentEpoch,
+						generation_count: newGenCount
+					});
+
+					sucBox.textContent = `7-Day License Key Generated Successfully! (Generation ${newGenCount} of ${MAX_GENERATIONS})`;
+					sucBox.style.display = 'block';
+					loadActiveLicense();
+				} catch (err) {
+					errBox.textContent = "Error generating license: " + err.message;
+					errBox.style.display = 'block';
+				} finally {
+					document.getElementById('generateBtn').disabled = false;
+				}
+			});
+		// 5. Load the current active license
+			async function loadActiveLicense() {
+				const statusDiv = document.getElementById('licenseStatus');
+				try {
+					const doc = await db.collection('licenses').doc(currentUser.uid).get();
+					if (doc.exists) {
+						const data = doc.data();
+						const formattedExpiry = formatDateTimeDDMMYYYY(data.expires_at);
+						const isExpired = (Date.now() / 1000) > data.expires_at;
+						const genCount = data.generation_count || 1;
+
+						let html = `
+						<div class="key-display">${data.license_key}</div>
+						<div style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+							<div><strong>Tier:</strong> ${data.tier}</div>
+							<div><strong>Status:</strong> <span style="color: ${isExpired ? 'var(--accent-red)' : 'var(--accent-green)'}">${isExpired ? 'EXPIRED' : 'ACTIVE'}</span></div>
+							<div><strong>Generations Used:</strong> ${genCount} / 6</div>
+							<div><strong>Expires On:</strong> ${formattedExpiry}</div>
+						</div>
+					`;
+						statusDiv.innerHTML = html;
+					} else {
+						statusDiv.innerHTML = "No active license found. Generate a 7-Day trial below (you can renew the license every sixth day for up to six times).";
+					}
+				} catch (err) {
+					statusDiv.innerHTML = `<span style="color: #ff6b6b;">Error loading license: ${err.message}</span>`;
+				}
+			}
+	</script>
+</body>
+
+</html>
