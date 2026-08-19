@@ -487,26 +487,25 @@
 			<!-- SECTION 0: QUICK START -->
 			<section id="quickstart" class="doc-section">
 				<h2>0. Quick Start Guide: Build Your First Plugin</h2>
-				<p>You do not need to install complex build tools or write Qt GUI code[cite: 2, 3]. Let us write a
-					working plugin starting with literally <strong>one single line of Python code</strong>[cite: 2,
-					3].</p>
+				<p>You do not need to install complex build tools or write Qt GUI code. Let us write a
+					working plugin starting with literally <strong>one single line of Python code</strong>.</p>
 		
 				<h3>Step 1: Where to save your file</h3>
 				<p>Create a new text file named <code>my_tool.py</code> and save it in the <code>my_plugins</code>
-					folder next to your application executable[cite: 2]:</p>
+					folder next to your application executable:</p>
 				<pre><code>AstroBasics/
 		  ├── AstroBasics.exe
 		  └── my_plugins/
 		        └── my_tool.py   <-- Save your file here</code></pre>
 		
 				<h3>Step 2: The absolute simplest 1-line plugin</h3>
-				<p>Open <code>my_tool.py</code> and type this single line[cite: 2, 3]:</p>
+				<p>Open <code>my_tool.py</code> and type this single line:</p>
 				<pre><code>def render(ui, chart): ui.text("Hello World!")</code></pre>
 				<p>Save the file and switch to AstroBasics. Your plugin will appear in the sidebar with the text "Hello
-					World!"[cite: 2, 3].</p>
+					World!".</p>
 		
 				<h3>Step 3: Expanding line by line</h3>
-				<p>Now let us expand it line-by-line so you understand exactly what each line does[cite: 2, 3]:</p>
+				<p>Now let us expand it line-by-line so you understand exactly what each line does:</p>
 		
 				<pre><code># Line 1: Import the astrological engine library
 		import astro_engine
@@ -548,8 +547,8 @@
 		
 				<div class="callout">
 					<strong>❖ Live Auto-Reloading:</strong> Keep the AstroBasics app running on your screen while
-					you edit <code>my_tool.py</code>[cite: 2]. Every time you press <code>Ctrl + S</code> to save
-					your script, the app refreshes your plugin within 500 milliseconds[cite: 2].
+					you edit <code>my_tool.py</code>. Every time you press <code>Ctrl + S</code> to save
+					your script, the app refreshes your plugin within 500 milliseconds.
 				</div>
 			</section>
 		
@@ -557,12 +556,12 @@
 			<section id="discovery" class="doc-section">
 				<h2>1. How to Discover All APIs (Even Unmentioned Ones)</h2>
 				<p>You never have to guess what methods or properties exist on <code>chart</code>, <code>planet</code>,
-					or <code>ui</code>. You can discover everything dynamically right from inside Python[cite: 3].
+					or <code>ui</code>. You can discover everything dynamically right from inside Python.
 				</p>
 		
 				<h3>Method A: Print all available methods to the terminal</h3>
 				<p>Add a temporary <code>print()</code> statement inside your <code>render</code> function to inspect
-					any object in your console[cite: 2, 3]:</p>
+					any object in your console:</p>
 				<pre><code>def render(ui, chart):
 		    # Print every available method on the chart context
 		    print("--- CHART METHODS ---")
@@ -578,7 +577,7 @@
 		
 				<h3>Method B: Display all methods live inside the software UI</h3>
 				<p>If you are running the packaged executable without a terminal, you can render all available
-					properties into a scrollable table directly inside the application interface[cite: 2, 3]:</p>
+					properties into a scrollable table directly inside the application interface:</p>
 				<pre><code>def render(ui, chart):
 		    ui.heading("API Explorer: chart.sun Properties", level=2)
 		    
@@ -642,14 +641,14 @@
 			<section id="metadata" class="doc-section">
 				<h2>3. Plugin Metadata & Navigation Hierarchy</h2>
 				<p>Declare top-level module constants to configure your plugin's title, group classification, and sorting
-					priority[cite: 2]:</p>
+					priority:</p>
 				<pre><code>PLUGIN_NAME = "Classical Yoga Scanner"    # Title displayed on the container box
 			PLUGIN_GROUP = "Strengths"               # Category group for sidebar & rail filtering
 			PLUGIN_INDEX = 10                        # Sort priority (lower integers load first)</code></pre>
 			
 				<h3>Side Rail Category Bindings</h3>
 				<p>Clicking icons on the left-hand Side Rail Bar automatically filters the sidebar to display matching
-					tools[cite: 2]:</p>
+					tools:</p>
 				<div class="table-responsive">
 					<table class="custom-table">
 						<thead>
@@ -664,29 +663,28 @@
 								<td>📍</td>
 								<td><code>location</code></td>
 								<td>Location, Date Time, Divisional Charts, Transit Constraints, BASIC
-									TOOLS[cite: 2]</td>
+									TOOLS</td>
 							</tr>
 							<tr>
 								<td>💪</td>
 								<td><code>strengths</code></td>
-								<td>Strengths, Yogas Visualizer, Detailed Report[cite: 2]</td>
+								<td>Strengths, Yogas Visualizer, Detailed Report</td>
 							</tr>
 							<tr>
 								<td>🔮</td>
 								<td><code>tools</code></td>
-								<td>Kundali Milan, Horary Studio, Numerology, Muhurta, Dasha, Medical[cite: 2]
+								<td>Kundali Milan, Horary Studio, Numerology, Muhurta, Dasha, Medical
 								</td>
 							</tr>
 							<tr>
 								<td>🧩</td>
 								<td><code>analysis</code></td>
-								<td>Analysis Engine, Custom Analysis Engine, Rectify Time, RECTIFICATION[cite:
-									2]</td>
+								<td>Analysis Engine, Custom Analysis Engine, Rectify Time, RECTIFICATION</td>
 							</tr>
 							<tr>
 								<td>📌</td>
 								<td><code>Pinned Items</code></td>
-								<td>UTILS, Custom Pinned Plugins[cite: 2]</td>
+								<td>UTILS, Custom Pinned Plugins</td>
 							</tr>
 						</tbody>
 					</table>
@@ -697,13 +695,12 @@
 			<section id="paradigms" class="doc-section">
 				<h2>4. The 5 Plugin Authoring Paradigms</h2>
 				<p>AstroBasics inspects your Python script upon discovery and mounts it using whichever pattern you
-					implement[cite: 2]:</p>
+					implement:</p>
 			
 				<h3 id="render-hook">Paradigm 1: Declarative UI Builder via <code>def render(ui, chart)</code></h3>
-				<p>The standard, recommended hook for interactive panels[cite: 2]. The host provides a
-					<code>SimplePluginUI</code> builder and the current <code>ChartContext</code>[cite: 2]. When time steps
-					or chart parameters change, the container is cleared and <code>render</code> runs automatically[cite:
-					2]:</p>
+				<p>The standard, recommended hook for interactive panels. The host provides a
+					<code>SimplePluginUI</code> builder and the current <code>ChartContext</code>. When time steps
+					or chart parameters change, the container is cleared and <code>render</code> runs automatically:</p>
 				<pre><code>import astro_engine
 			
 			PLUGIN_NAME = "Dignity & Placement Matrix"
@@ -853,7 +850,7 @@ def setup_menu(app, parent_menu):
 			<section id="planet-proxy" class="doc-section">
 				<h2>6. <code>PlanetProxy</code> & Degree Formatting</h2>
 				<p>Every celestial body returned by <code>chart.get_planet(...)</code> or direct properties like
-					<code>chart.mars</code> is a <code>PlanetProxy</code> object[cite: 3]:</p>
+					<code>chart.mars</code> is a <code>PlanetProxy</code> object:</p>
 			
 				<div class="table-responsive">
 					<table class="custom-table">
@@ -868,47 +865,47 @@ def setup_menu(app, parent_menu):
 							<tr>
 								<td><code>planet.name</code> / <code>planet.sym</code></td>
 								<td><code>str</code></td>
-								<td><code>"Mars"</code> / <code>"Ma"</code>[cite: 3]</td>
+								<td><code>"Mars"</code> / <code>"Ma"</code></td>
 							</tr>
 							<tr>
 								<td><code>planet.lon</code></td>
 								<td><code>AstroDegree</code></td>
-								<td>Absolute zodiac longitude (0.0° to 359.9999°)[cite: 3]</td>
+								<td>Absolute zodiac longitude (0.0° to 359.9999°)</td>
 							</tr>
 							<tr>
 								<td><code>planet.degree</code> / <code>planet.deg_in_sign</code></td>
 								<td><code>AstroDegree</code></td>
-								<td>Degree within occupied sign (0.0° to 29.9999°)[cite: 3]</td>
+								<td>Degree within occupied sign (0.0° to 29.9999°)</td>
 							</tr>
 							<tr>
 								<td><code>planet.dms</code> / <code>planet.dms_str</code></td>
 								<td><code>tuple</code> / <code>str</code></td>
-								<td><code>(14, 25, 36)</code> / <code>'14° 25\' 36"'</code>[cite: 3]</td>
+								<td><code>(14, 25, 36)</code> / <code>'14° 25\' 36"'</code></td>
 							</tr>
 							<tr>
 								<td><code>planet.sign_num</code> / <code>planet.sign_name</code></td>
 								<td><code>int</code> / <code>str</code></td>
-								<td><code>5</code> / <code>"Leo"</code> (1-indexed sign number)[cite: 3]</td>
+								<td><code>5</code> / <code>"Leo"</code> (1-indexed sign number)</td>
 							</tr>
 							<tr>
 								<td><code>planet.house</code></td>
 								<td><code>int</code></td>
-								<td>Occupied house number (1–12)[cite: 3]</td>
+								<td>Occupied house number (1–12)</td>
 							</tr>
 							<tr>
 								<td><code>planet.is_exalted</code> / <code>planet.is_debilitated</code></td>
 								<td><code>bool</code></td>
-								<td>Classical Parashari exaltation/debilitation flags[cite: 3]</td>
+								<td>Classical Parashari exaltation/debilitation flags</td>
 							</tr>
 							<tr>
 								<td><code>planet.is_retro</code> / <code>planet.is_combust</code></td>
 								<td><code>bool</code></td>
-								<td>Retrograde motion / Solar combustion checks[cite: 3]</td>
+								<td>Retrograde motion / Solar combustion checks</td>
 							</tr>
 							<tr>
 								<td><code>planet.nakshatra</code> / <code>planet.nakshatra_pada</code></td>
 								<td><code>str</code> / <code>int</code></td>
-								<td>Nakshatra name and Pada number (1–4)[cite: 3]</td>
+								<td>Nakshatra name and Pada number (1–4)</td>
 							</tr>
 						</tbody>
 					</table>
@@ -1016,7 +1013,7 @@ def setup_menu(app, parent_menu):
 				<h2>8. Practical Code Examples</h2>
 			
 				<h3>Example 1: Interactive Orb & Separation Meter (<code>def render</code>)</h3>
-				<p>Save as <code>./my_plugins/orb_meter.py</code>[cite: 2]:</p>
+				<p>Save as <code>./my_plugins/orb_meter.py</code>:</p>
 				<pre><code>import astro_engine
 			
 			PLUGIN_NAME = "Orb & Separation Inspector"
@@ -1066,7 +1063,7 @@ def setup_menu(app, parent_menu):
 			    ui.notify(f"Relationship: {first_planet.name} ↔ {second_planet.name}", f"Placement Pattern: {relationship_summary}\n\n{first_planet.name}: {first_planet.formatted_degree}\n{second_planet.name}: {second_planet.formatted_degree}")</code></pre>
 			
 				<h3>Example 2: Diagnostic Report Generator (<code>def evaluate</code>)</h3>
-				<p>Save as <code>./my_plugins/chart_diagnostic.py</code>[cite: 2]:</p>
+				<p>Save as <code>./my_plugins/chart_diagnostic.py</code>:</p>
 				<pre><code>PLUGIN_NAME = "Full Chart Diagnostic Engine"
 			PLUGIN_GROUP = "Analysis Engine"
 			PLUGIN_INDEX = 40
