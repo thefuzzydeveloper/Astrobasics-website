@@ -491,59 +491,58 @@
 					working plugin starting with literally <strong>one single line of Python code</strong>.</p>
 		
 				<h3>Step 1: Where to save your file</h3>
-				<p>Create a new text file named <code>my_tool.py</code> and save it in the <code>my_plugins</code>
-					folder next to your application executable:</p>
-				<pre><code>AstroBasics/
-		  ├── AstroBasics.exe
-		  └── my_plugins/
-		        └── my_tool.py   <-- Save your file here</code></pre>
+				<p>Create a new text file named <code>my_tool.py</code> and save it directly inside your local application directory's
+					<code>my_plugins</code> folder:</p>
+				<pre><code>C:\Users\USER_NAME\AppData\Local\AstroBasics\
+├── AstroBasics.exe
+└── my_plugins/
+	└── my_tool.py   <-- Save your file here</code></pre>
 		
-				<h3>Step 2: The absolute simplest 1-line plugin</h3>
+				<h3>Step 2: Simple 1-line plugin</h3>
 				<p>Open <code>my_tool.py</code> and type this single line:</p>
-				<pre><code>def render(ui, chart): ui.text("Hello World!")</code></pre>
-				<p>Save the file and switch to AstroBasics. Your plugin will appear in the sidebar with the text "Hello
-					World!".</p>
+				<pre><code>def render(ui, chart): ui.text("Hello AstroBasics!")</code></pre>
+				<p>Save the file and switch to AstroBasics. Your plugin will appear in the sidebar with the text "Hello AstroBasics! (Press refresh button at top right of menu bar if plugin does not reloads automatically)".</p>
 		
 				<h3>Step 3: Expanding line by line</h3>
 				<p>Now let us expand it line-by-line so you understand exactly what each line does:</p>
 		
 				<pre><code># Line 1: Import the astrological engine library
-		import astro_engine
-		
-		# Line 2: Name your plugin header box
-		PLUGIN_NAME = "My Planet Inspector"
-		
-		# Line 3: Choose which sidebar group it belongs to (e.g. "Strengths", "Analysis Engine", "UTILS")
-		PLUGIN_GROUP = "Analysis Engine"
-		
-		# Line 4: Set the priority number (lower numbers appear higher up in the list)
-		PLUGIN_INDEX = 10
-		
-		# Line 5: Define the render function.
-		# - 'ui' gives you easy methods to draw text, buttons, alerts, and tables.
-		# - 'chart' gives you instant access to all planetary coordinates and houses.
-		def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
-		    
-		    # Line 6: Add a heading to your plugin box
-		    ui.heading("Live Sun Position", level=2)
-		    
-		    # Line 7: Read the Sun's occupied zodiac sign and formatted degree
-		    sun_sign = chart.sun.sign_name
-		    sun_degree = chart.sun.dms_str
-		    
-		    # Line 8: Display the information as a clean analytical card
-		    ui.metric("Sun Placement", sun_degree, subtext=f"Placed in {sun_sign}")
-		    
-		    # Line 9: Add a conditional alert based on real astronomical data
-		    if chart.sun.is_exalted:
-		        ui.alert("The Sun is currently Exalted in Aries!", level="success")
-		    elif chart.sun.is_debilitated:
-		        ui.alert("The Sun is currently Debilitated in Libra.", level="warning")
-		    else:
-		        ui.alert(f"The Sun is in {sun_sign} in House {chart.sun.house}.", level="info")
-		        
-		    # Line 10: Add an interactive button that opens the Navamsha (D9) chart
-		    ui.button("Open D9 Navamsha Chart", on_click=lambda current_chart: current_chart.spawn_window("D9", "Navamsha View"), variant="primary")</code></pre>
+import astro_engine
+
+# Line 2: Name your plugin header box
+PLUGIN_NAME = "My Planet Inspector"
+
+# Line 3: Choose which sidebar group it belongs to (e.g. "Strengths", "Analysis Engine", "UTILS")
+PLUGIN_GROUP = "Analysis Engine"
+
+# Line 4: Set the priority number (lower numbers appear higher up in the list)
+PLUGIN_INDEX = 10
+
+# Line 5: Define the render function.
+# - 'ui' gives you easy methods to draw text, buttons, alerts, and tables.
+# - 'chart' gives you instant access to all planetary coordinates and houses.
+def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
+	
+	# Line 6: Add a heading to your plugin box
+	ui.heading("Live Sun Position", level=2)
+	
+	# Line 7: Read the Sun's occupied zodiac sign and formatted degree
+	sun_sign = chart.sun.sign_name
+	sun_degree = chart.sun.dms_str
+	
+	# Line 8: Display the information as a clean analytical card
+	ui.metric("Sun Placement", sun_degree, subtext=f"Placed in {sun_sign}")
+	
+	# Line 9: Add a conditional alert based on real astronomical data
+	if chart.sun.is_exalted:
+	ui.alert("The Sun is currently Exalted in Aries!", level="success")
+	elif chart.sun.is_debilitated:
+	ui.alert("The Sun is currently Debilitated in Libra.", level="warning")
+	else:
+	ui.alert(f"The Sun is in {sun_sign} in House {chart.sun.house}.", level="info")
+	
+	# Line 10: Add an interactive button that opens the Navamsha (D9) chart
+	ui.button("Open D9 Navamsha Chart", on_click=lambda current_chart: current_chart.spawn_window("D9", "Navamsha View"), variant="primary")</code></pre>
 		
 				<div class="callout">
 					<strong>❖ Live Auto-Reloading:</strong> Keep the AstroBasics app running on your screen while
@@ -554,7 +553,7 @@
 		
 			<!-- SECTION 1: DISCOVERY -->
 			<section id="discovery" class="doc-section">
-				<h2>1. How to Discover All APIs (Even Unmentioned Ones)</h2>
+				<h2>1. How to Discover All APIs</h2>
 				<p>You never have to guess what methods or properties exist on <code>chart</code>, <code>planet</code>,
 					or <code>ui</code>. You can discover everything dynamically right from inside Python.
 				</p>
@@ -563,35 +562,35 @@
 				<p>Add a temporary <code>print()</code> statement inside your <code>render</code> function to inspect
 					any object in your console:</p>
 				<pre><code>def render(ui, chart):
-		    # Print every available method on the chart context
-		    print("--- CHART METHODS ---")
-		    print(dir(chart))
-		    
-		    # Print every property on the Sun
-		    print("--- PLANET PROPERTIES ---")
-		    print(dir(chart.sun))
-		    
-		    # Print the raw Swiss Ephemeris data dictionary
-		    print("--- RAW PLANET DATA ---")
-		    print(chart.sun._data)</code></pre>
+	# Print every available method on the chart context
+	print("--- CHART METHODS ---")
+	print(dir(chart))
+	
+	# Print every property on the Sun
+	print("--- PLANET PROPERTIES ---")
+	print(dir(chart.sun))
+	
+	# Print the raw Swiss Ephemeris data dictionary
+	print("--- RAW PLANET DATA ---")
+	print(chart.sun._data)</code></pre>
+
+		<h3>Method B: Display all methods live inside the software UI</h3>
+		<p>If you are running the packaged executable without a terminal, you can render all available
+			properties into a scrollable table directly inside the application interface:</p>
+		<pre><code>def render(ui, chart):
+	ui.heading("API Explorer: chart.sun Properties", level=2)
+	
+	# Extract all public properties and their current live values
+	inspection_rows = []
+	for attribute_name in dir(chart.sun):
+	if not attribute_name.startswith("_"):  # Skip private Python internals
+		try:
+		attribute_value = str(getattr(chart.sun, attribute_name))
+		inspection_rows.append([attribute_name, attribute_value])
+		except Exception as error:
+		inspection_rows.append([attribute_name, f"Error: {error}"])
 		
-				<h3>Method B: Display all methods live inside the software UI</h3>
-				<p>If you are running the packaged executable without a terminal, you can render all available
-					properties into a scrollable table directly inside the application interface:</p>
-				<pre><code>def render(ui, chart):
-		    ui.heading("API Explorer: chart.sun Properties", level=2)
-		    
-		    # Extract all public properties and their current live values
-		    inspection_rows = []
-		    for attribute_name in dir(chart.sun):
-		        if not attribute_name.startswith("_"):  # Skip private Python internals
-		            try:
-		                attribute_value = str(getattr(chart.sun, attribute_name))
-		                inspection_rows.append([attribute_name, attribute_value])
-		            except Exception as error:
-		                inspection_rows.append([attribute_name, f"Error: {error}"])
-		                
-		    ui.table(headers=["Property Name", "Live Value"], rows=inspection_rows)</code></pre>
+	ui.table(headers=["Property Name", "Live Value"], rows=inspection_rows)</code></pre>
 			</section>
 		
 			<!-- SECTION 2: ARCHITECTURE -->
@@ -614,15 +613,13 @@
 						<tbody>
 							<tr>
 								<td><strong>User Plugins</strong></td>
-								<td><code>./my_plugins/</code></td>
-								<td>Primary path for custom user extensions. Created
-									next to the executable on startup.</td>
+								<td><code>C:\Users\USER_NAME\AppData\Local\AstroBasics\my_plugins\</code></td>
+								<td>Primary path for custom user extensions. Automatically created inside the AppData directory on startup.</td>
 							</tr>
 							<tr>
 								<td><strong>Core Modules</strong></td>
-								<td><code>./dynamic_settings_modules/</code></td>
-								<td>System package folder for baked-in modular
-									application tools.</td>
+								<td><code>C:\Users\USER_NAME\AppData\Local\AstroBasics\dynamic_settings_modules\</code></td>
+								<td>System package folder for baked-in modular application tools.</td>
 							</tr>
 						</tbody>
 					</table>
@@ -643,8 +640,8 @@
 				<p>Declare top-level module constants to configure your plugin's title, group classification, and sorting
 					priority:</p>
 				<pre><code>PLUGIN_NAME = "Classical Yoga Scanner"    # Title displayed on the container box
-			PLUGIN_GROUP = "Strengths"               # Category group for sidebar & rail filtering
-			PLUGIN_INDEX = 10                        # Sort priority (lower integers load first)</code></pre>
+PLUGIN_GROUP = "Strengths"               # Category group for sidebar & rail filtering
+PLUGIN_INDEX = 10                        # Sort priority (lower integers load first)</code></pre>
 			
 				<h3>Side Rail Category Bindings</h3>
 				<p>Clicking icons on the left-hand Side Rail Bar automatically filters the sidebar to display matching
@@ -703,37 +700,37 @@
 					or chart parameters change, the container is cleared and <code>render</code> runs automatically:</p>
 				<pre><code>import astro_engine
 			
-			PLUGIN_NAME = "Dignity & Placement Matrix"
-			PLUGIN_GROUP = "Strengths"
-			PLUGIN_INDEX = 15
-			
-			def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
-			    ui.heading("Planetary Dignity Summary", level=2)
-			    
-			    # 1. Analytical Metric Badges
-			    exalted_planets = [planet.name for planet in chart.planets.values() if planet.is_exalted]
-			    debilitated_planets = [planet.name for planet in chart.planets.values() if planet.is_debilitated]
-			    
-			    ui.metric("Exalted Planets", len(exalted_planets), subtext=", ".join(exalted_planets) if exalted_planets else "None", color="#16A34A")
-			    ui.metric("Debilitated Planets", len(debilitated_planets), subtext=", ".join(debilitated_planets) if debilitated_planets else "None", color="#DC2626")
-			    
-			    # 2. Status Alert Banner
-			    if chart.sun.is_combust:
-			        ui.alert(f"Warning: Sun is in close orb ({chart.sun.dms_str}) causing combustion.", level="warning")
-			    else:
-			        ui.alert("Solar combustion levels: Normal", level="success")
-			        
-			    # 3. Interactive Data Table
-			    table_rows = []
-			    for planet in chart.planets.values():
-			        table_rows.append([planet.name, planet.sign_name, planet.dms_str, f"House {planet.house}"])
-			        
-			    ui.table(headers=["Planet", "Sign", "Position", "Bhava"], rows=table_rows)
-			    
-			    # 4. Embedded Live Visual Chart
-			    ui.separator()
-			    ui.chart(div="D9", box_size=220)
-			    ui.button("Open Full D9 Modal", on_click=lambda active_chart: active_chart.spawn_window("D9", "Navamsha View"), variant="primary")</code></pre>
+PLUGIN_NAME = "Dignity & Placement Matrix"
+PLUGIN_GROUP = "Strengths"
+PLUGIN_INDEX = 15
+
+def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
+	ui.heading("Planetary Dignity Summary", level=2)
+	
+	# 1. Analytical Metric Badges
+	exalted_planets = [planet.name for planet in chart.planets.values() if planet.is_exalted]
+	debilitated_planets = [planet.name for planet in chart.planets.values() if planet.is_debilitated]
+	
+	ui.metric("Exalted Planets", len(exalted_planets), subtext=", ".join(exalted_planets) if exalted_planets else "None", color="#16A34A")
+	ui.metric("Debilitated Planets", len(debilitated_planets), subtext=", ".join(debilitated_planets) if debilitated_planets else "None", color="#DC2626")
+	
+	# 2. Status Alert Banner
+	if chart.sun.is_combust:
+	ui.alert(f"Warning: Sun is in close orb ({chart.sun.dms_str}) causing combustion.", level="warning")
+	else:
+	ui.alert("Solar combustion levels: Normal", level="success")
+	
+	# 3. Interactive Data Table
+	table_rows = []
+	for planet in chart.planets.values():
+	table_rows.append([planet.name, planet.sign_name, planet.dms_str, f"House {planet.house}"])
+	
+	ui.table(headers=["Planet", "Sign", "Position", "Bhava"], rows=table_rows)
+	
+	# 4. Embedded Live Visual Chart
+	ui.separator()
+	ui.chart(div="D9", box_size=220)
+	ui.button("Open Full D9 Modal", on_click=lambda active_chart: active_chart.spawn_window("D9", "Navamsha View"), variant="primary")</code></pre>
 
 				<h3 id="astro-plugin">Paradigm 2: Declarative <code>AstroPlugin</code> Decorators</h3>
 				<p>Zero-boilerplate pattern for automated diagnostics, condition badges, and action
@@ -914,11 +911,11 @@ def setup_menu(app, parent_menu):
 				<h3>Relational Separation & House Math</h3>
 				<pre><code>mars = chart.mars
 			
-			angular_distance = mars.distance_to("Jupiter")             # Shortest angular arc (0° to 180°)
-			forward_degrees  = mars.forward_distance_to("Venus")        # Forward zodiac count (0° to 360°)
-			house_from_moon  = mars.house_from("Moon")                 # House count starting from Moon
-			in_kendra        = mars.is_in_kendra_to("Moon")            # True if in 1st, 4th, 7th, or 10th from Moon
-			is_shadashtaka   = mars.is_in_shadashtaka("Saturn")        # True if in mutual 6/8 placement</code></pre>
+angular_distance = mars.distance_to("Jupiter")             # Shortest angular arc (0° to 180°)
+forward_degrees  = mars.forward_distance_to("Venus")        # Forward zodiac count (0° to 360°)
+house_from_moon  = mars.house_from("Moon")                 # House count starting from Moon
+in_kendra        = mars.is_in_kendra_to("Moon")            # True if in 1st, 4th, 7th, or 10th from Moon
+is_shadashtaka   = mars.is_in_shadashtaka("Saturn")        # True if in mutual 6/8 placement</code></pre>
 			</section>
 			
 			<!-- SECTION 7: UI BUILDER -->
@@ -1016,72 +1013,72 @@ def setup_menu(app, parent_menu):
 				<p>Save as <code>./my_plugins/orb_meter.py</code>:</p>
 				<pre><code>import astro_engine
 			
-			PLUGIN_NAME = "Orb & Separation Inspector"
-			PLUGIN_GROUP = "Analysis Engine"
-			PLUGIN_INDEX = 25
-			
-			def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
-			    ui.heading("Planetary Distance & Orb Meter", level=2)
-			    
-			    planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu", "Ascendant"]
-			    
-			    planet1_selector = ui.dropdown("Reference Body:", planet_names, default="Sun")
-			    planet2_selector = ui.dropdown("Target Body:", planet_names, default="Saturn")
-			    
-			    first_planet = chart.get_planet(planet1_selector.currentText())
-			    second_planet = chart.get_planet(planet2_selector.currentText())
-			    
-			    if first_planet and second_planet:
-			        angular_separation = first_planet.distance_to(second_planet)
-			        forward_separation = first_planet.forward_distance_to(second_planet)
-			        house_distance = first_planet.house_distance_to(second_planet)
-			        
-			        ui.metric("Shortest Angular Separation", angular_separation.dms_str, subtext=f"Absolute Arc: {float(angular_separation):.4f}°", color="#D97706")
-			        ui.metric("Zodiac House Count", f"{house_distance} Houses Away", subtext=f"Forward Distance: {float(forward_separation):.2f}°", color="#2563EB")
-			        
-			        if angular_separation <= 3.0:
-			            ui.alert("Critical Conjunction / Aspect: Exact Orb (< 3°00')", level="danger")
-			        elif angular_separation <= 8.0:
-			            ui.alert("Close Influence: Active Orb (< 8°00')", level="warning")
-			        else:
-			            ui.alert("Wide Separation: Outside immediate influence orbs.", level="info")
-			
-			    ui.separator()
-			    ui.button("Check Mutual Relationship", on_click=lambda active_chart: inspect_relationship(ui, first_planet, second_planet), variant="primary")
-			
-			def inspect_relationship(ui: astro_engine.SimplePluginUI, first_planet: astro_engine.PlanetProxy, second_planet: astro_engine.PlanetProxy):
-			    if not first_planet or not second_planet:
-			        return
-			        
-			    relationship_types = []
-			    if first_planet.is_in_kendra_to(second_planet): relationship_types.append("Kendra (1/4/7/10)")
-			    if first_planet.is_in_trine_to(second_planet):  relationship_types.append("Trikona (1/5/9)")
-			    if first_planet.is_in_shadashtaka(second_planet): relationship_types.append("Shadashtaka (6/8)")
-			    if first_planet.is_in_dwirdwadasa(second_planet): relationship_types.append("Dwirdwadasa (2/12)")
-			    
-			    relationship_summary = ", ".join(relationship_types) if relationship_types else "Neutral placement"
-			    ui.notify(f"Relationship: {first_planet.name} ↔ {second_planet.name}", f"Placement Pattern: {relationship_summary}\n\n{first_planet.name}: {first_planet.formatted_degree}\n{second_planet.name}: {second_planet.formatted_degree}")</code></pre>
+PLUGIN_NAME = "Orb & Separation Inspector"
+PLUGIN_GROUP = "Analysis Engine"
+PLUGIN_INDEX = 25
+
+def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
+	ui.heading("Planetary Distance & Orb Meter", level=2)
+	
+	planet_names = ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu", "Ascendant"]
+	
+	planet1_selector = ui.dropdown("Reference Body:", planet_names, default="Sun")
+	planet2_selector = ui.dropdown("Target Body:", planet_names, default="Saturn")
+	
+	first_planet = chart.get_planet(planet1_selector.currentText())
+	second_planet = chart.get_planet(planet2_selector.currentText())
+	
+	if first_planet and second_planet:
+	angular_separation = first_planet.distance_to(second_planet)
+	forward_separation = first_planet.forward_distance_to(second_planet)
+	house_distance = first_planet.house_distance_to(second_planet)
+	
+	ui.metric("Shortest Angular Separation", angular_separation.dms_str, subtext=f"Absolute Arc: {float(angular_separation):.4f}°", color="#D97706")
+	ui.metric("Zodiac House Count", f"{house_distance} Houses Away", subtext=f"Forward Distance: {float(forward_separation):.2f}°", color="#2563EB")
+	
+	if angular_separation <= 3.0:
+		ui.alert("Critical Conjunction / Aspect: Exact Orb (< 3°00')", level="danger")
+	elif angular_separation <= 8.0:
+		ui.alert("Close Influence: Active Orb (< 8°00')", level="warning")
+	else:
+		ui.alert("Wide Separation: Outside immediate influence orbs.", level="info")
+
+	ui.separator()
+	ui.button("Check Mutual Relationship", on_click=lambda active_chart: inspect_relationship(ui, first_planet, second_planet), variant="primary")
+
+def inspect_relationship(ui: astro_engine.SimplePluginUI, first_planet: astro_engine.PlanetProxy, second_planet: astro_engine.PlanetProxy):
+	if not first_planet or not second_planet:
+	return
+	
+	relationship_types = []
+	if first_planet.is_in_kendra_to(second_planet): relationship_types.append("Kendra (1/4/7/10)")
+	if first_planet.is_in_trine_to(second_planet):  relationship_types.append("Trikona (1/5/9)")
+	if first_planet.is_in_shadashtaka(second_planet): relationship_types.append("Shadashtaka (6/8)")
+	if first_planet.is_in_dwirdwadasa(second_planet): relationship_types.append("Dwirdwadasa (2/12)")
+	
+	relationship_summary = ", ".join(relationship_types) if relationship_types else "Neutral placement"
+	ui.notify(f"Relationship: {first_planet.name} ↔ {second_planet.name}", f"Placement Pattern: {relationship_summary}\n\n{first_planet.name}: {first_planet.formatted_degree}\n{second_planet.name}: {second_planet.formatted_degree}")</code></pre>
 			
 				<h3>Example 2: Diagnostic Report Generator (<code>def evaluate</code>)</h3>
 				<p>Save as <code>./my_plugins/chart_diagnostic.py</code>:</p>
 				<pre><code>PLUGIN_NAME = "Full Chart Diagnostic Engine"
-			PLUGIN_GROUP = "Analysis Engine"
-			PLUGIN_INDEX = 40
-			
-			def evaluate(chart: astro_engine.ChartContext) -> dict:
-			    combust_planets = [planet.name for planet in chart.planets.values() if planet.is_combust]
-			    retrograde_planets = [planet.name for planet in chart.planets.values() if planet.is_retro and planet.name not in ("Rahu", "Ketu")]
-			    vargottama_planets = [planet.name for planet in chart.planets.values() if planet.is_vargottama]
-			    
-			    return {
-			        "Ascendant (Lagna)": f"{chart.ascendant.sign_name} ({chart.ascendant.dms_str}) - {chart.ascendant.nakshatra} Pada {chart.ascendant.nakshatra_pada}",
-			        "Lagna Lord Placement": f"{chart.house_lord(1).name} placed in House {chart.house_lord(1).house} ({chart.house_lord(1).sign_name})",
-			        "Atmakaraka (AK)": f"{chart.ak.name} ({chart.ak.dms_str} in {chart.ak.sign_name})",
-			        "Darakaraka (DK)": f"{chart.dk.name} ({chart.dk.dms_str} in {chart.dk.sign_name})",
-			        "Retrograde Bodies": ", ".join(retrograde_planets) if retrograde_planets else "None",
-			        "Combust Bodies": ", ".join(combust_planets) if combust_planets else "None",
-			        "Vargottama Bodies": ", ".join(vargottama_planets) if vargottama_planets else "None",
-			        "Moon Nakshatra Lord": f"{chart.moon.nakshatra} (Ruled by {chart.moon.nakshatra_lord})"
+PLUGIN_GROUP = "Analysis Engine"
+PLUGIN_INDEX = 40
+
+def evaluate(chart: astro_engine.ChartContext) -> dict:
+	combust_planets = [planet.name for planet in chart.planets.values() if planet.is_combust]
+	retrograde_planets = [planet.name for planet in chart.planets.values() if planet.is_retro and planet.name not in ("Rahu", "Ketu")]
+	vargottama_planets = [planet.name for planet in chart.planets.values() if planet.is_vargottama]
+	
+	return {
+	"Ascendant (Lagna)": f"{chart.ascendant.sign_name} ({chart.ascendant.dms_str}) - {chart.ascendant.nakshatra} Pada {chart.ascendant.nakshatra_pada}",
+	"Lagna Lord Placement": f"{chart.house_lord(1).name} placed in House {chart.house_lord(1).house} ({chart.house_lord(1).sign_name})",
+	"Atmakaraka (AK)": f"{chart.ak.name} ({chart.ak.dms_str} in {chart.ak.sign_name})",
+	"Darakaraka (DK)": f"{chart.dk.name} ({chart.dk.dms_str} in {chart.dk.sign_name})",
+	"Retrograde Bodies": ", ".join(retrograde_planets) if retrograde_planets else "None",
+	"Combust Bodies": ", ".join(combust_planets) if combust_planets else "None",
+	"Vargottama Bodies": ", ".join(vargottama_planets) if vargottama_planets else "None",
+	"Moon Nakshatra Lord": f"{chart.moon.nakshatra} (Ruled by {chart.moon.nakshatra_lord})"
 			    }</code></pre>
 			</section>
 			
