@@ -7,7 +7,7 @@
 
 	<title>Plugin Developer Guide | AstroBasics Diamond Chart Pro</title>
 	<meta name="description"
-		content="Comprehensive developer documentation for creating custom dynamic plugins, mathematical analyzers, and UI modules for AstroBasics Diamond Chart Pro.">
+		content="Developer documentation for creating custom plugins, mathematical analyzers, and UI modules for AstroBasics Diamond Chart Pro.">
 	<meta name="author" content="AstroBasics">
 	<link rel="icon" type="image/x-icon"
 		href="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico">
@@ -67,6 +67,10 @@
 			--note-border: #A37A1E;
 		}
 
+		html {
+			scroll-behavior: smooth;
+		}
+
 		::selection {
 			background-color: var(--selection-bg);
 			color: var(--selection-color);
@@ -76,16 +80,17 @@
 			box-sizing: border-box;
 			margin: 0;
 			padding: 0;
-			transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+			transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 		}
 
 		body {
 			font-family: 'Noto Sans', sans-serif;
 			background-color: var(--bg-base);
 			color: var(--text-primary);
-			line-height: 1.8;
+			line-height: 1.75;
 			overflow-x: hidden;
 			position: relative;
+			width: 100%;
 		}
 
 		#bgCanvas {
@@ -107,6 +112,7 @@
 			letter-spacing: 0.5px;
 		}
 
+		/* Header Navigation */
 		header {
 			background-color: var(--bg-header);
 			border-bottom: 2px solid var(--border-color);
@@ -118,12 +124,12 @@
 		}
 
 		.nav-container {
-			max-width: 1200px;
+			max-width: 1240px;
 			margin: 0 auto;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			padding: 8px 16px;
+			padding: 8px 18px;
 			gap: 12px;
 		}
 
@@ -159,7 +165,6 @@
 			text-decoration: none;
 			font-weight: 600;
 			font-size: 0.85rem;
-			position: relative;
 		}
 
 		nav a:hover {
@@ -177,25 +182,11 @@
 			font-size: 0.85rem;
 		}
 
-		.btn-primary {
-			background: linear-gradient(135deg, var(--accent-saffron), var(--accent-gold));
-			color: #FFFFFF;
-			padding: 10px 22px;
-			border-radius: 6px;
-			text-decoration: none;
-			font-weight: 700;
-			border: 1px solid var(--border-color);
-			display: inline-flex;
-			align-items: center;
-			gap: 8px;
-			cursor: pointer;
-		}
-
 		.btn-secondary {
 			background: transparent;
 			border: 1px solid var(--border-color);
 			color: var(--text-primary);
-			padding: 9px 18px;
+			padding: 6px 14px;
 			border-radius: 6px;
 			text-decoration: none;
 			font-weight: 600;
@@ -203,39 +194,46 @@
 			align-items: center;
 		}
 
-		.golden-divider {
-			height: 2px;
-			background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-			margin: 40px 0;
-			border: none;
-		}
-
-		/* Layout Architecture */
-		.docs-container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 30px 20px 80px;
-			display: grid;
-			grid-template-columns: 260px 1fr;
-			gap: 36px;
-		}
-
-		.sidebar-sticky {
-			position: sticky;
-			top: 80px;
-			height: fit-content;
-			max-height: calc(100vh - 100px);
-			overflow-y: auto;
+		.btn-secondary:hover {
 			background: var(--bg-surface);
-			border: 1px solid var(--border-color);
+			color: var(--text-accent);
+		}
+
+		/* Grid & Responsive Container */
+		.docs-container {
+			max-width: 1240px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 18px 80px;
+			display: grid;
+			grid-template-columns: 280px minmax(0, 1fr);
+			gap: 32px;
+			align-items: start;
+		}
+
+		/* Sticky Sidebar Locking */
+		aside {
+			position: sticky;
+			top: 75px;
+			align-self: start;
+			max-height: calc(100vh - 95px);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.sidebar-card {
+			background: var(--bg-surface);
+			border: 1.5px solid var(--border-color);
 			border-radius: 8px;
 			padding: 16px;
 			box-shadow: var(--shadow);
+			overflow-y: auto;
+			max-height: inherit;
 		}
 
-		.sidebar-sticky h4 {
+		.sidebar-card h4 {
 			color: var(--text-accent);
-			font-size: 1rem;
+			font-size: 1.05rem;
 			margin-bottom: 12px;
 			border-bottom: 1px solid var(--border-subtle);
 			padding-bottom: 6px;
@@ -245,7 +243,7 @@
 			list-style: none;
 			display: flex;
 			flex-direction: column;
-			gap: 6px;
+			gap: 4px;
 		}
 
 		.toc-list a {
@@ -253,8 +251,9 @@
 			text-decoration: none;
 			font-size: 0.84rem;
 			display: block;
-			padding: 4px 8px;
+			padding: 5px 8px;
 			border-radius: 4px;
+			line-height: 1.4;
 		}
 
 		.toc-list a:hover {
@@ -262,33 +261,51 @@
 			color: var(--accent-gold);
 		}
 
+		.toc-list .toc-sub {
+			padding-left: 18px;
+			font-size: 0.8rem;
+			opacity: 0.9;
+		}
+
+		/* Main Content Column */
+		main {
+			min-width: 0;
+			max-width: 100%;
+			width: 100%;
+		}
+
 		.doc-section {
 			background: var(--bg-surface);
-			border: 1px solid var(--border-color);
+			border: 1.5px solid var(--border-color);
 			border-radius: 10px;
-			padding: 32px;
+			padding: 30px;
 			margin-bottom: 30px;
 			box-shadow: var(--shadow);
+			scroll-margin-top: 85px;
+			width: 100%;
+			overflow-wrap: break-word;
 		}
 
 		.doc-section h2 {
 			color: var(--text-accent);
-			font-size: 1.8rem;
-			margin-bottom: 16px;
+			font-size: 1.75rem;
+			margin-bottom: 14px;
 			border-bottom: 1px solid var(--border-subtle);
 			padding-bottom: 8px;
+			scroll-margin-top: 85px;
 		}
 
 		.doc-section h3 {
 			color: var(--accent-gold);
-			font-size: 1.3rem;
-			margin: 24px 0 10px;
+			font-size: 1.25rem;
+			margin: 22px 0 10px;
+			scroll-margin-top: 85px;
 		}
 
 		.doc-section p {
 			color: var(--text-secondary);
 			margin-bottom: 14px;
-			font-size: 0.96rem;
+			font-size: 0.95rem;
 		}
 
 		.doc-section ul,
@@ -296,22 +313,23 @@
 			color: var(--text-secondary);
 			margin-left: 20px;
 			margin-bottom: 16px;
-			font-size: 0.94rem;
+			font-size: 0.93rem;
 		}
 
 		.doc-section li {
 			margin-bottom: 6px;
 		}
 
-		/* Code Blocks & Typography */
+		/* Code Block Horizontal Isolation */
 		code {
 			font-family: 'JetBrains Mono', monospace;
 			background: var(--code-bg);
 			border: 1px solid var(--code-border);
 			color: var(--text-accent);
-			padding: 2px 6px;
+			padding: 2px 5px;
 			border-radius: 4px;
-			font-size: 0.85rem;
+			font-size: 0.84rem;
+			word-break: break-word;
 		}
 
 		pre {
@@ -319,9 +337,11 @@
 			border: 1px solid var(--code-border);
 			border-left: 4px solid var(--accent-gold);
 			border-radius: 6px;
-			padding: 16px 20px;
+			padding: 14px 18px;
 			overflow-x: auto;
-			margin: 16px 0 22px;
+			max-width: 100%;
+			width: 100%;
+			margin: 14px 0 20px;
 			box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
 		}
 
@@ -329,60 +349,78 @@
 			background: transparent;
 			border: none;
 			padding: 0;
-			font-size: 0.88rem;
+			font-size: 0.86rem;
 			color: var(--text-primary);
 			line-height: 1.6;
+			white-space: pre;
+			word-break: normal;
+		}
+
+		/* Tables */
+		.table-responsive {
+			width: 100%;
+			overflow-x: auto;
+			margin: 16px 0 20px;
+			border: 1px solid var(--border-subtle);
+			border-radius: 6px;
 		}
 
 		.custom-table {
 			width: 100%;
 			border-collapse: collapse;
-			margin: 16px 0 22px;
 			background: var(--bg-card);
-			border-radius: 6px;
-			overflow: hidden;
+			margin: 0;
 		}
 
 		.custom-table th,
 		.custom-table td {
 			border: 1px solid var(--border-subtle);
-			padding: 10px 14px;
+			padding: 10px 12px;
 			text-align: left;
-			font-size: 0.88rem;
+			font-size: 0.86rem;
 		}
 
 		.custom-table th {
 			background-color: var(--bg-surface);
 			color: var(--text-accent);
 			font-family: 'Rozha One', serif;
+			white-space: nowrap;
 		}
 
 		.callout {
 			background: var(--note-bg);
 			border-left: 4px solid var(--note-border);
-			padding: 14px 18px;
+			padding: 12px 16px;
 			border-radius: 4px;
-			margin: 18px 0;
-			font-size: 0.92rem;
+			margin: 16px 0;
+			font-size: 0.9rem;
 			color: var(--text-primary);
 		}
 
 		footer {
 			background-color: var(--bg-surface);
 			border-top: 2px solid var(--border-color);
-			padding: 30px 20px;
+			padding: 25px 20px;
 			text-align: center;
 			color: var(--text-secondary);
-			font-size: 0.88rem;
+			font-size: 0.85rem;
 		}
 
+		/* Viewport Media Queries */
 		@media (max-width: 900px) {
 			.docs-container {
 				grid-template-columns: 1fr;
+				padding: 20px 14px;
 			}
 
-			.sidebar-sticky {
-				display: none;
+			aside {
+				position: static;
+				max-height: none;
+				margin-bottom: 20px;
+			}
+
+			.doc-section {
+				padding: 20px 16px;
 			}
 		}
 	</style>
@@ -401,9 +439,9 @@
 			</a>
 			<nav>
 				<ul>
-					<li><a href="index.html">← Back to Main Suite</a></li>
+					<li><a href="index.html">← Back to Suite</a></li>
 					<li><a href="index.html#milan-spotlight">Kundali Milan</a></li>
-					<li><a href="portal.html">License Portal</a></li>
+					<li><a href="portal.html">Portal</a></li>
 				</ul>
 			</nav>
 			<div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
@@ -411,37 +449,37 @@
 					<span id="themeIcon">❖</span> Theme
 				</button>
 				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank"
-					class="btn-secondary" style="padding: 5px 12px; font-size: 0.82rem;">GitHub</a>
+					class="btn-secondary" style="padding: 5px 10px; font-size: 0.8rem;">GitHub</a>
 			</div>
 		</div>
 	</header>
 
-	<!-- Main Documentation Container -->
+	<!-- Documentation Architecture -->
 	<div class="docs-container">
 
-		<!-- Sticky Table of Contents -->
+		<!-- Sticky Sidebar Navigation -->
 		<aside>
-			<div class="sidebar-sticky">
-				<h4>Contents</h4>
+			<div class="sidebar-card">
+				<h4>Documentation</h4>
 				<ul class="toc-list">
 					<li><a href="#overview">1. Runtime Architecture</a></li>
-					<li><a href="#metadata">2. Metadata & Grouping</a></li>
-					<li><a href="#paradigms">3. The 5 Authoring Paradigms</a></li>
-					<li><a href="#render-hook">↳ `def render(ui, chart)`</a></li>
-					<li><a href="#astro-plugin">↳ `AstroPlugin` Decorator</a></li>
-					<li><a href="#evaluate-hook">↳ `def evaluate(chart)`</a></li>
-					<li><a href="#setup-ui">↳ `def setup_ui(...)`</a></li>
-					<li><a href="#setup-menu">↳ `def setup_menu(...)`</a></li>
-					<li><a href="#chart-context">4. `ChartContext` API</a></li>
-					<li><a href="#planet-proxy">5. `PlanetProxy` & Degrees</a></li>
-					<li><a href="#simple-ui">6. `SimplePluginUI` Toolkit</a></li>
+					<li><a href="#metadata">2. Metadata & Sorting</a></li>
+					<li><a href="#paradigms">3. Plugin Paradigms</a></li>
+					<li><a href="#render-hook" class="toc-sub">↳ def render(ui, chart)</a></li>
+					<li><a href="#astro-plugin" class="toc-sub">↳ AstroPlugin Decorators</a></li>
+					<li><a href="#evaluate-hook" class="toc-sub">↳ def evaluate(chart)</a></li>
+					<li><a href="#setup-ui" class="toc-sub">↳ def setup_ui(...)</a></li>
+					<li><a href="#setup-menu" class="toc-sub">↳ def setup_menu(...)</a></li>
+					<li><a href="#chart-context">4. ChartContext API</a></li>
+					<li><a href="#planet-proxy">5. PlanetProxy & DMS Math</a></li>
+					<li><a href="#simple-ui">6. SimplePluginUI Builder</a></li>
 					<li><a href="#examples">7. Practical Examples</a></li>
 					<li><a href="#checklist">8. Debugging Checklist</a></li>
 				</ul>
 			</div>
 		</aside>
 
-		<!-- Main Document Body -->
+		<!-- Content Column -->
 		<main>
 
 			<!-- SECTION 1: ARCHITECTURE -->
@@ -449,37 +487,40 @@
 				<h2>1. Plugin Architecture & Lifecycle</h2>
 				<p>AstroBasics Diamond Chart Pro features an embedded dynamic Python runtime. Scripts
 					dropped into either plugin directory are automatically compiled, mounted into
-					the sidebar, and made available inside the native interface without restarting.
-				</p>
+					the sidebar, and integrated into the host event loop without application
+					restarts.</p>
 
-				<table class="custom-table">
-					<thead>
-						<tr>
-							<th>Directory</th>
-							<th>Path</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><strong>User Plugins</strong></td>
-							<td><code>./my_plugins/</code></td>
-							<td>Primary folder for custom user scripts. Auto-created next to
-								the executable on startup.</td>
-						</tr>
-						<tr>
-							<td><strong>Core Modules</strong></td>
-							<td><code>./dynamic_settings_modules/</code></td>
-							<td>Baked-in modular engines distributed with the software.</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="table-responsive">
+					<table class="custom-table">
+						<thead>
+							<tr>
+								<th>Directory Type</th>
+								<th>Location</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>User Plugins</strong></td>
+								<td><code>./my_plugins/</code></td>
+								<td>Primary path for custom user extensions. Created
+									next to the executable on startup.</td>
+							</tr>
+							<tr>
+								<td><strong>Core Modules</strong></td>
+								<td><code>./dynamic_settings_modules/</code></td>
+								<td>System package folder for baked-in modular
+									application tools.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
 				<div class="callout">
 					<strong>❖ Hot-Reloading & File Watchers:</strong> Both folders are monitored via
 					<code>QFileSystemWatcher</code>. Modifying any <code>.py</code> file
-					automatically reloads and refreshes the UI within 500 milliseconds. You can also
-					trigger an immediate hard refresh via the 🔄 button in the top-right corner of
+					automatically reloads and refreshes the UI within 500 milliseconds. An immediate
+					hard reload can also be triggered via the 🔄 button in the top-right corner of
 					the menu bar.
 				</div>
 			</section>
@@ -487,65 +528,67 @@
 			<!-- SECTION 2: METADATA -->
 			<section id="metadata" class="doc-section">
 				<h2>2. Plugin Metadata & Navigation Hierarchy</h2>
-				<p>Declare top-level module constants to configure your plugin's title, group
-					classification, and sorting priority:</p>
-				<pre><code>PLUGIN_NAME = "Classical Yoga Scanner"    # Title displayed on the container box
+				<p>Declare top-level module constants to configure title, category grouping, and sort
+					order:</p>
+				<pre><code>PLUGIN_NAME = "Classical Yoga Scanner"    # Title displayed on container box
 PLUGIN_GROUP = "Strengths"               # Category group for sidebar & rail filtering
 PLUGIN_INDEX = 10                        # Sort priority (lower integers load first)</code></pre>
 
 				<h3>Side Rail Category Bindings</h3>
-				<p>Clicking icons on the left-hand Side Rail Bar automatically filters the sidebar to
-					display matching tools:</p>
-				<table class="custom-table">
-					<thead>
-						<tr>
-							<th>Rail Icon</th>
-							<th>Category Identifier</th>
-							<th>Default Group Targets</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>📍</td>
-							<td><code>location</code></td>
-							<td>Location, Date Time, Divisionals, Transit Constraints, BASIC
-								TOOLS</td>
-						</tr>
-						<tr>
-							<td>💪</td>
-							<td><code>strengths</code></td>
-							<td>Strengths, Yogas Visualizer, Detailed Report</td>
-						</tr>
-						<tr>
-							<td>🔮</td>
-							<td><code>tools</code></td>
-							<td>Kundali Milan, Horary Studio, Numerology, Muhurta, Dasha,
-								Medical</td>
-						</tr>
-						<tr>
-							<td>🧩</td>
-							<td><code>analysis</code></td>
-							<td>Analysis Engine, Custom Analysis Engine, Rectify Time,
-								RECTIFICATION</td>
-						</tr>
-						<tr>
-							<td>📌</td>
-							<td><code>Pinned Items</code></td>
-							<td>UTILS, Custom Pinned Plugins</td>
-						</tr>
-					</tbody>
-				</table>
+				<p>Clicking icons on the left-hand Side Rail Bar filters the sidebar to display matching
+					tools:</p>
+				<div class="table-responsive">
+					<table class="custom-table">
+						<thead>
+							<tr>
+								<th>Rail Icon</th>
+								<th>Category Identifier</th>
+								<th>Default Group Targets</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>📍</td>
+								<td><code>location</code></td>
+								<td>Location, Date Time, Divisional Charts, Transit
+									Constraints, BASIC TOOLS</td>
+							</tr>
+							<tr>
+								<td>💪</td>
+								<td><code>strengths</code></td>
+								<td>Strengths, Yogas Visualizer, Detailed Report</td>
+							</tr>
+							<tr>
+								<td>🔮</td>
+								<td><code>tools</code></td>
+								<td>Kundali Milan, Horary Studio, Numerology, Muhurta,
+									Dasha, Medical</td>
+							</tr>
+							<tr>
+								<td>🧩</td>
+								<td><code>analysis</code></td>
+								<td>Analysis Engine, Custom Analysis Engine, Rectify
+									Time, RECTIFICATION</td>
+							</tr>
+							<tr>
+								<td>📌</td>
+								<td><code>Pinned Items</code></td>
+								<td>UTILS, Custom Pinned Plugins</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</section>
 
 			<!-- SECTION 3: PARADIGMS -->
 			<section id="paradigms" class="doc-section">
-				<h2>3. The 5 Authoring Paradigms</h2>
-				<p>AstroBasics inspects your Python script upon discovery and mounts it using whichever
-					pattern you implement:</p>
+				<h2>3. The 5 Plugin Authoring Paradigms</h2>
+				<p>The application introspects your Python script and mounts it based on the functions
+					defined:</p>
 
 				<h3 id="render-hook">Paradigm 1: Declarative UI Builder via
 					<code>def render(ui, chart)</code></h3>
-				<p>The standard, recommended hook for interactive panels. The host provides a
+				<p>The standard hook for interactive panels. The host provides a
 					<code>SimplePluginUI</code> builder and the current <code>ChartContext</code>.
 					When time steps or chart parameters change, the container is cleared and
 					<code>render</code> runs automatically:</p>
@@ -565,7 +608,7 @@ def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
     ui.metric("Exalted Planets", len(exalted), subtext=", ".join(exalted) if exalted else "None", color="#16A34A")
     ui.metric("Debilitated Planets", len(debilitated), subtext=", ".join(debilitated) if debilitated else "None", color="#DC2626")
     
-    # 2. Conditional Status Alert
+    # 2. Status Alert Banner
     if chart.sun.is_combust:
         ui.alert(f"Warning: Sun is in close orb ({chart.sun.dms_str}) causing combustion.", level="warning")
     else:
@@ -575,7 +618,7 @@ def render(ui: astro_engine.SimplePluginUI, chart: astro_engine.ChartContext):
     rows = [[p.name, p.sign_name, p.dms_str, f"House {p.house}"] for p in chart.planets.values()]
     ui.table(headers=["Planet", "Sign", "Position", "Bhava"], rows=rows)
     
-    # 4. Embedded Live Chart Visual
+    # 4. Embedded Live Visual Chart
     ui.separator()
     ui.chart(div="D9", box_size=220)
     ui.button("Open Full D9 Modal", on_click=lambda c: c.spawn_window("D9", "Navamsha View"), variant="primary")</code></pre>
@@ -603,8 +646,7 @@ def launch_d10(chart: astro_engine.ChartContext):
 
 				<h3 id="evaluate-hook">Paradigm 3: Pure Functional Hook via
 					<code>def evaluate(chart)</code></h3>
-				<p>Ideal for calculations, rule scoring, and text generation without writing any UI
-					code:</p>
+				<p>Ideal for calculations, diagnostic reports, and data formatting without UI code:</p>
 				<pre><code>PLUGIN_NAME = "Diagnostic Reporter"
 PLUGIN_GROUP = "Analysis Engine"
 
@@ -618,8 +660,9 @@ def evaluate(chart: astro_engine.ChartContext) -> dict:
 				<h3 id="setup-ui">Paradigm 4: Polymorphic & Native PyQt6 (<code>def setup_ui</code>)
 				</h3>
 				<p>Supports signature introspection. If defined as <code>setup_ui(ui, chart)</code>, it
-					acts like <code>render</code>. If defined as <code>setup_ui(app, layout)</code>,
-					you receive the raw PyQt6 application instance and parent layout:</p>
+					functions as a declarative builder. If defined as
+					<code>setup_ui(app, layout)</code>, you receive direct access to PyQt6 widgets:
+				</p>
 				<pre><code>from PyQt6.QtWidgets import QPushButton, QLabel, QVBoxLayout
 import astro_engine
 
@@ -633,8 +676,8 @@ def setup_ui(app, layout: QVBoxLayout):
     layout.addWidget(btn)</code></pre>
 
 				<h3 id="setup-menu">Paradigm 5: Menu Bar Integration (<code>def setup_menu</code>)</h3>
-				<p>When the user relocates plugins to the top menu bar via <strong>Manage
-						Layout</strong>, this hook populates dropdown actions:</p>
+				<p>When plugins are placed in the top menu bar via <strong>Manage Layout</strong>, this
+					hook populates menu actions:</p>
 				<pre><code>from PyQt6.QtGui import QAction
 import astro_engine
 
@@ -649,8 +692,8 @@ def setup_menu(app, parent_menu):
 				<h2>4. <code>ChartContext</code> API Reference</h2>
 				<p>The <code>ChartContext</code> object provides access to all chart data:</p>
 
-				<h3>Direct Planetary Properties</h3>
-				<p>Retrieve any celestial body directly as a typed <code>PlanetProxy</code> object:</p>
+				<h3>Direct Planetary Accessors</h3>
+				<p>Access celestial bodies as typed <code>PlanetProxy</code> objects:</p>
 				<p><code>chart.sun</code>, <code>chart.moon</code>, <code>chart.mars</code>,
 					<code>chart.mercury</code>, <code>chart.jupiter</code>,
 					<code>chart.venus</code>, <code>chart.saturn</code>, <code>chart.rahu</code>,
@@ -682,8 +725,8 @@ def setup_menu(app, parent_menu):
 						aspects.</li>
 					<li><code>chart.distance_between("Sun", "Moon")</code>: Shortest angular
 						separation (0°–180°).</li>
-					<li><code>chart.get_dasha_sequence()</code>: Returns current active Vimshottari
-						lords.</li>
+					<li><code>chart.get_dasha_sequence()</code>: Returns active Vimshottari lords.
+					</li>
 					<li><code>chart.get_panchang()</code>: Returns dictionary of Tithi, Nakshatra,
 						Sunrise, Sunset.</li>
 					<li><code>chart.get_divisional_chart("D9")</code>: Computes isolated context for
@@ -697,64 +740,70 @@ def setup_menu(app, parent_menu):
 				<p>Every planet instance exposes coordinates, dignity flags, and angular calculations:
 				</p>
 
-				<table class="custom-table">
-					<thead>
-						<tr>
-							<th>Property</th>
-							<th>Type</th>
-							<th>Example / Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><code>p.name</code> / <code>p.sym</code></td>
-							<td><code>str</code></td>
-							<td><code>"Mars"</code> / <code>"Ma"</code></td>
-						</tr>
-						<tr>
-							<td><code>p.lon</code></td>
-							<td><code>AstroDegree</code></td>
-							<td>Absolute zodiac longitude (0.0° to 359.9999°)</td>
-						</tr>
-						<tr>
-							<td><code>p.degree</code> / <code>p.deg_in_sign</code></td>
-							<td><code>AstroDegree</code></td>
-							<td>Degree within sign (0.0° to 29.9999°)</td>
-						</tr>
-						<tr>
-							<td><code>p.dms</code> / <code>p.dms_str</code></td>
-							<td><code>tuple</code> / <code>str</code></td>
-							<td><code>(14, 25, 36)</code> / <code>'14° 25\' 36"'</code></td>
-						</tr>
-						<tr>
-							<td><code>p.sign_num</code> / <code>p.sign_name</code></td>
-							<td><code>int</code> / <code>str</code></td>
-							<td><code>5</code> / <code>"Leo"</code> (1-indexed)</td>
-						</tr>
-						<tr>
-							<td><code>p.house</code></td>
-							<td><code>int</code></td>
-							<td>Occupied house number (1–12)</td>
-						</tr>
-						<tr>
-							<td><code>p.is_exalted</code> / <code>p.is_debilitated</code>
-							</td>
-							<td><code>bool</code></td>
-							<td>Classical Parashari dignities</td>
-						</tr>
-						<tr>
-							<td><code>p.is_retro</code> / <code>p.is_combust</code></td>
-							<td><code>bool</code></td>
-							<td>Retrograde motion / Solar combustion checks</td>
-						</tr>
-						<tr>
-							<td><code>p.nakshatra</code> / <code>p.nakshatra_pada</code>
-							</td>
-							<td><code>str</code> / <code>int</code></td>
-							<td>Nakshatra name and Pada (1–4)</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="table-responsive">
+					<table class="custom-table">
+						<thead>
+							<tr>
+								<th>Property</th>
+								<th>Type</th>
+								<th>Example / Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>p.name</code> / <code>p.sym</code></td>
+								<td><code>str</code></td>
+								<td><code>"Mars"</code> / <code>"Ma"</code></td>
+							</tr>
+							<tr>
+								<td><code>p.lon</code></td>
+								<td><code>AstroDegree</code></td>
+								<td>Absolute zodiac longitude (0.0° to 359.9999°)</td>
+							</tr>
+							<tr>
+								<td><code>p.degree</code> / <code>p.deg_in_sign</code>
+								</td>
+								<td><code>AstroDegree</code></td>
+								<td>Degree within sign (0.0° to 29.9999°)</td>
+							</tr>
+							<tr>
+								<td><code>p.dms</code> / <code>p.dms_str</code></td>
+								<td><code>tuple</code> / <code>str</code></td>
+								<td><code>(14, 25, 36)</code> /
+									<code>'14° 25\' 36"'</code></td>
+							</tr>
+							<tr>
+								<td><code>p.sign_num</code> / <code>p.sign_name</code>
+								</td>
+								<td><code>int</code> / <code>str</code></td>
+								<td><code>5</code> / <code>"Leo"</code> (1-indexed)</td>
+							</tr>
+							<tr>
+								<td><code>p.house</code></td>
+								<td><code>int</code></td>
+								<td>Occupied house number (1–12)</td>
+							</tr>
+							<tr>
+								<td><code>p.is_exalted</code> /
+									<code>p.is_debilitated</code></td>
+								<td><code>bool</code></td>
+								<td>Classical Parashari dignities</td>
+							</tr>
+							<tr>
+								<td><code>p.is_retro</code> / <code>p.is_combust</code>
+								</td>
+								<td><code>bool</code></td>
+								<td>Retrograde motion / Solar combustion checks</td>
+							</tr>
+							<tr>
+								<td><code>p.nakshatra</code> /
+									<code>p.nakshatra_pada</code></td>
+								<td><code>str</code> / <code>int</code></td>
+								<td>Nakshatra name and Pada (1–4)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 
 				<h3>Relational Separation & House Math</h3>
 				<pre><code>p = chart.mars
@@ -772,74 +821,85 @@ is_6_8 = p.is_in_shadashtaka("Saturn")         # True if in mutual 6/8 placement
 				<p>The declarative UI builder creates responsive, theme-adaptive widgets without direct
 					PyQt6 imports:</p>
 
-				<table class="custom-table">
-					<thead>
-						<tr>
-							<th>Method</th>
-							<th>Parameters & Usage</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><code>ui.heading(text, level=2)</code></td>
-							<td>Renders responsive section header (level 1, 2, or 3).</td>
-						</tr>
-						<tr>
-							<td><code>ui.text(text, bold, italic, color)</code></td>
-							<td>Renders word-wrapped styled text block.</td>
-						</tr>
-						<tr>
-							<td><code>ui.alert(message, level)</code></td>
-							<td>Status banner. Levels: <code>"info"</code>,
-								<code>"success"</code>, <code>"warning"</code>,
-								<code>"danger"</code>.</td>
-						</tr>
-						<tr>
-							<td><code>ui.metric(label, value, subtext, color)</code></td>
-							<td>Renders high-visibility analytical KPI badge.</td>
-						</tr>
-						<tr>
-							<td><code>ui.progress_bar(label, value, max_val)</code></td>
-							<td>Displays progress or degree completion bar.</td>
-						</tr>
-						<tr>
-							<td><code>ui.table(headers, rows)</code></td>
-							<td>Structured scrollable data table with auto-translated
-								columns.</td>
-						</tr>
-						<tr>
-							<td><code>ui.tabs(tab_dict)</code></td>
-							<td>Multi-tab view mapping tab names to builder callbacks.</td>
-						</tr>
-						<tr>
-							<td><code>ui.button(label, on_click, variant)</code></td>
-							<td>Button with callback. Variants: <code>"default"</code>,
-								<code>"primary"</code>, <code>"danger"</code>,
-								<code>"success"</code>.</td>
-						</tr>
-						<tr>
-							<td><code>ui.dropdown(label, options, on_select)</code></td>
-							<td>Combobox select dropdown.</td>
-						</tr>
-						<tr>
-							<td><code>ui.input_number(label, min, max, default)</code></td>
-							<td>Integer or decimal spinbox control.</td>
-						</tr>
-						<tr>
-							<td><code>ui.slider(label, min, max, default)</code></td>
-							<td>Horizontal slider with live numeric readout.</td>
-						</tr>
-						<tr>
-							<td><code>ui.chart(div, box_size)</code></td>
-							<td>Embeds a live North Indian Diamond Chart widget inside the
-								panel.</td>
-						</tr>
-						<tr>
-							<td><code>ui.open_chart(div, title, modal)</code></td>
-							<td>Spawns a pop-up chart dialog window.</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="table-responsive">
+					<table class="custom-table">
+						<thead>
+							<tr>
+								<th>Method</th>
+								<th>Parameters & Usage</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>ui.heading(text, level=2)</code></td>
+								<td>Renders responsive section header (level 1, 2, or
+									3).</td>
+							</tr>
+							<tr>
+								<td><code>ui.text(text, bold, italic, color)</code></td>
+								<td>Renders word-wrapped styled text block.</td>
+							</tr>
+							<tr>
+								<td><code>ui.alert(message, level)</code></td>
+								<td>Status banner. Levels: <code>"info"</code>,
+									<code>"success"</code>, <code>"warning"</code>,
+									<code>"danger"</code>.</td>
+							</tr>
+							<tr>
+								<td><code>ui.metric(label, value, subtext, color)</code>
+								</td>
+								<td>Renders high-visibility analytical KPI badge.</td>
+							</tr>
+							<tr>
+								<td><code>ui.progress_bar(label, value, max_val)</code>
+								</td>
+								<td>Displays progress or degree completion bar.</td>
+							</tr>
+							<tr>
+								<td><code>ui.table(headers, rows)</code></td>
+								<td>Structured scrollable data table with
+									auto-translated columns.</td>
+							</tr>
+							<tr>
+								<td><code>ui.tabs(tab_dict)</code></td>
+								<td>Multi-tab view mapping tab names to builder
+									callbacks.</td>
+							</tr>
+							<tr>
+								<td><code>ui.button(label, on_click, variant)</code>
+								</td>
+								<td>Button with callback. Variants:
+									<code>"default"</code>, <code>"primary"</code>,
+									<code>"danger"</code>, <code>"success"</code>.
+								</td>
+							</tr>
+							<tr>
+								<td><code>ui.dropdown(label, options, on_select)</code>
+								</td>
+								<td>Combobox select dropdown.</td>
+							</tr>
+							<tr>
+								<td><code>ui.input_number(label, min, max, default)</code>
+								</td>
+								<td>Integer or decimal spinbox control.</td>
+							</tr>
+							<tr>
+								<td><code>ui.slider(label, min, max, default)</code>
+								</td>
+								<td>Horizontal slider with live numeric readout.</td>
+							</tr>
+							<tr>
+								<td><code>ui.chart(div, box_size)</code></td>
+								<td>Embeds a live North Indian Diamond Chart widget
+									inside the panel.</td>
+							</tr>
+							<tr>
+								<td><code>ui.open_chart(div, title, modal)</code></td>
+								<td>Spawns a pop-up chart dialog window.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</section>
 
 			<!-- SECTION 7: PRACTICAL EXAMPLES -->
@@ -930,14 +990,14 @@ def evaluate(chart):
 						<code>p.deg_in_sign</code> for 0°–30° sign positions and
 						<code>p.lon</code> for 0°–360° absolute zodiac math.</li>
 					<li><strong>String Output:</strong> Use <code>p.dms_str</code> (e.g.
-						<code>14° 25' 36"</code>) for clean, formatted text output.</li>
+						<code>14° 25' 36"</code>) for formatted text output.</li>
 					<li><strong>Divisional Scope:</strong> Obtain isolated varga calculations via
 						<code>chart.get_divisional_chart("D9")</code> to avoid mutating base D1
-						natal coordinates.</li>
-					<li><strong>Localization:</strong> Always pass plain English string literals
-						into <code>SimplePluginUI</code> methods (e.g.
-						<code>ui.heading("Overview")</code>); the application's runtime
-						translation layer matches and translates them dynamically.</li>
+						coordinates.</li>
+					<li><strong>Localization:</strong> Pass plain English string literals into
+						<code>SimplePluginUI</code> methods (e.g.
+						<code>ui.heading("Overview")</code>); the runtime translation layer
+						matches and translates them dynamically.</li>
 				</ul>
 			</section>
 		</main>
