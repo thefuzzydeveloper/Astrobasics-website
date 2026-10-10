@@ -5,9 +5,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>End User License Agreement (EULA) & Data Policy | AstroBasics</title>
+	<title>End User License Agreement (EULA) | AstroBasics</title>
 	<meta name="description"
-		content="End User License Agreement (EULA), Terms of Use, and Telemetry Data Collection Disclosure for AstroBasics Diamond Chart Pro across Windows and Android.">
+		content="End User License Agreement and Terms of Service governing the use of AstroBasics Diamond Chart Pro software across Windows and Android platforms.">
 	<meta name="author" content="AstroBasics">
 	<link rel="icon" type="image/x-icon"
 		href="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico">
@@ -33,8 +33,6 @@
 			--accent-gold: #DAA520;
 			--accent-red: #C0392B;
 			--accent-green: #27AE60;
-			--code-bg: #0C0614;
-			--code-border: rgba(218, 165, 32, 0.3);
 			--selection-bg: #E65100;
 			--selection-color: #FFFFFF;
 			--shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
@@ -57,8 +55,6 @@
 			--accent-gold: #B8860B;
 			--accent-red: #A82424;
 			--accent-green: #1E8449;
-			--code-bg: #E3D4BC;
-			--code-border: rgba(163, 122, 30, 0.4);
 			--selection-bg: #FFD700;
 			--selection-color: #000000;
 			--shadow: 0 8px 25px rgba(90, 72, 62, 0.15);
@@ -87,7 +83,7 @@
 			font-family: 'Noto Sans', sans-serif;
 			background-color: var(--bg-base);
 			color: var(--text-primary);
-			line-height: 1.75;
+			line-height: 1.8;
 			overflow-x: hidden;
 			position: relative;
 			width: 100%;
@@ -103,12 +99,15 @@
 			pointer-events: none;
 		}
 
-		h1, h2, h3, h4, .brand-title {
+		h1,
+		h2,
+		h3,
+		h4,
+		.brand-title {
 			font-family: 'Rozha One', 'Yatra One', serif;
 			letter-spacing: 0.5px;
 		}
 
-		/* Header Navigation */
 		header {
 			background-color: var(--bg-header);
 			border-bottom: 2px solid var(--border-color);
@@ -195,7 +194,6 @@
 			color: var(--text-accent);
 		}
 
-		/* Docs & Layout Grid */
 		.docs-container {
 			max-width: 1240px;
 			width: 100%;
@@ -266,7 +264,7 @@
 			background: var(--bg-surface);
 			border: 1.5px solid var(--border-color);
 			border-radius: 10px;
-			padding: 30px;
+			padding: 32px;
 			margin-bottom: 30px;
 			box-shadow: var(--shadow);
 			scroll-margin-top: 85px;
@@ -276,8 +274,8 @@
 
 		.doc-section h2 {
 			color: var(--text-accent);
-			font-size: 1.75rem;
-			margin-bottom: 14px;
+			font-size: 1.7rem;
+			margin-bottom: 16px;
 			border-bottom: 1px solid var(--border-subtle);
 			padding-bottom: 8px;
 			scroll-margin-top: 85px;
@@ -285,8 +283,8 @@
 
 		.doc-section h3 {
 			color: var(--accent-gold);
-			font-size: 1.25rem;
-			margin: 22px 0 10px;
+			font-size: 1.2rem;
+			margin: 24px 0 10px;
 			scroll-margin-top: 85px;
 		}
 
@@ -294,105 +292,35 @@
 			color: var(--text-secondary);
 			margin-bottom: 14px;
 			font-size: 0.95rem;
+			text-align: justify;
 		}
 
-		.doc-section ul, .doc-section ol {
+		.doc-section ul,
+		.doc-section ol {
 			color: var(--text-secondary);
-			margin-left: 20px;
+			margin-left: 24px;
 			margin-bottom: 16px;
-			font-size: 0.93rem;
+			font-size: 0.94rem;
 		}
 
 		.doc-section li {
 			margin-bottom: 8px;
 		}
 
-		code {
-			font-family: 'JetBrains Mono', monospace;
-			background: var(--code-bg);
-			border: 1px solid var(--code-border);
-			color: var(--text-accent);
-			padding: 2px 5px;
-			border-radius: 4px;
-			font-size: 0.84rem;
-		}
-
-		pre {
-			background: var(--code-bg);
-			border: 1px solid var(--code-border);
-			border-left: 4px solid var(--accent-gold);
-			border-radius: 6px;
-			padding: 14px 18px;
-			overflow-x: auto;
-			max-width: 100%;
-			margin: 14px 0 20px;
-		}
-
-		pre code {
-			background: transparent;
-			border: none;
-			padding: 0;
-			color: var(--text-primary);
-			white-space: pre;
-		}
-
-		.table-responsive {
-			width: 100%;
-			overflow-x: auto;
-			margin: 16px 0 20px;
-			border: 1px solid var(--border-subtle);
-			border-radius: 6px;
-		}
-
-		.custom-table {
-			width: 100%;
-			border-collapse: collapse;
-			background: var(--bg-card);
-		}
-
-		.custom-table th, .custom-table td {
-			border: 1px solid var(--border-subtle);
-			padding: 10px 14px;
-			text-align: left;
-			font-size: 0.88rem;
-		}
-
-		.custom-table th {
-			background-color: var(--bg-surface);
-			color: var(--text-accent);
-			font-family: 'Rozha One', serif;
-			white-space: nowrap;
-		}
-
-		.callout {
+		.legal-callout {
 			background: var(--note-bg);
 			border-left: 4px solid var(--note-border);
-			padding: 14px 18px;
+			padding: 16px 20px;
 			border-radius: 4px;
-			margin: 18px 0;
-			font-size: 0.92rem;
+			margin: 20px 0;
+			font-size: 0.94rem;
 			color: var(--text-primary);
 		}
 
-		.badge-platform {
-			display: inline-block;
-			padding: 2px 8px;
-			border-radius: 4px;
-			font-size: 0.75rem;
+		.legal-caps {
 			font-weight: 700;
-			margin-right: 6px;
-		}
-
-		.badge-windows {
-			background: rgba(37, 99, 235, 0.2);
-			color: #60A5FA;
-			border: 1px solid #2563EB;
-		}
-
-		.badge-android {
-			background: rgba(16, 185, 129, 0.2);
-			color: #34D399;
-			border: 1px solid #10B981;
+			letter-spacing: 0.3px;
+			color: var(--text-primary);
 		}
 
 		footer {
@@ -457,23 +385,25 @@
 	</header>
 
 	<div class="docs-container">
-		<!-- Sidebar Table of Contents -->
+		<!-- Navigation Sidebar -->
 		<aside>
 			<div class="sidebar-card">
-				<h4>Agreement Sections</h4>
+				<h4>Table of Contents</h4>
 				<ul class="toc-list">
-					<li><a href="#preamble">Preamble & Acceptance</a></li>
-					<li><a href="#grant">1. Grant of License</a></li>
-					<li><a href="#restrictions">2. Non-Commercial & Anti-Fraud</a></li>
-					<li><a href="#local-data">3. Local Data Privacy Guarantee</a></li>
-					<li><a href="#telemetry">4. Diagnostic Telemetry Policy</a></li>
-					<li><a href="#matrix">5. Data Collection Matrix</a></li>
-					<li><a href="#opt-out">6. Opt-Out Instructions</a></li>
+					<li><a href="#preamble">Preamble & Agreement</a></li>
+					<li><a href="#definitions">1. Definitions</a></li>
+					<li><a href="#license-grant">2. Grant of License</a></li>
+					<li><a href="#restrictions">3. Restrictions & Prohibitions</a></li>
+					<li><a href="#local-data">4. Local Data Covenant</a></li>
+					<li><a href="#telemetry-policy">5. Diagnostic Operations</a></li>
+					<li><a href="#opt-out-rights">6. Right to Opt-Out</a></li>
 					<li><a href="#third-party">7. Third-Party Services</a></li>
-					<li><a href="#ownership">8. Intellectual Property</a></li>
-					<li><a href="#disclaimer">9. Disclaimers & Accuracy</a></li>
-					<li><a href="#liability">10. Limitation of Liability</a></li>
-					<li><a href="#termination">11. Termination & Contact</a></li>
+					<li><a href="#intellectual-property">8. Intellectual Property</a></li>
+					<li><a href="#warranty-disclaimer">9. Warranty Disclaimer</a></li>
+					<li><a href="#liability-limitation">10. Limitation of Liability</a></li>
+					<li><a href="#indemnification">11. Indemnification</a></li>
+					<li><a href="#termination">12. Term & Termination</a></li>
+					<li><a href="#general-provisions">13. Governing Law & General</a></li>
 				</ul>
 			</div>
 		</aside>
@@ -482,185 +412,310 @@
 			<!-- Section: Preamble -->
 			<section id="preamble" class="doc-section">
 				<h2>End User License Agreement (EULA)</h2>
-				<p><strong>Effective Date:</strong> Last updated for Release 2.0 / 2026 Distribution</p>
-				<p><strong>Applies to:</strong> AstroBasics Diamond Chart Pro for <strong>Windows</strong> (<code>AstroBasics.exe</code>) and <strong>Android</strong> (<code>AstroBasics.apk</code>).</p>
+				<p><strong>Effective Date:</strong> October 2026</p>
+				<p><strong>Covered Deployments:</strong> AstroBasics Diamond Chart Pro executable
+					distributions, including Microsoft Windows Desktop distributions, Android
+					Application Packages (APK), and associated documentation.</p>
 
-				<div class="callout">
-					<strong>IMPORTANT — READ CAREFULLY BEFORE INSTALLING OR RUNNING:</strong><br>
-					By installing, copying, accessing, or otherwise using AstroBasics Diamond Chart Pro (the "Software"), you agree to be bound by the terms of this End User License Agreement ("Agreement"). If you do not agree to the terms of this Agreement, do not install, copy, access, or use the Software.
+				<div class="legal-callout">
+					<span class="legal-caps">PLEASE READ THIS AGREEMENT CAREFULLY.</span><br>
+					THIS END USER LICENSE AGREEMENT ("AGREEMENT") CONSTITUTES A BINDING LEGAL
+					CONTRACT BETWEEN YOU (EITHER AN INDIVIDUAL OR A SINGLE LEGAL ENTITY, HEREINAFTER
+					"USER" OR "YOU") AND THE DEVELOPER OF ASTROBASICS DIAMOND CHART PRO ("DEVELOPER"
+					OR "LICENSOR"). BY CLICKING "ACCEPT," INSTALLING, DOWNLOADING, ACCESSING, OR
+					OTHERWISE USING THE SOFTWARE, YOU EXPRESSLY AGREE TO BE BOUND BY ALL TERMS AND
+					CONDITIONS CONTAINED HEREIN. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT,
+					YOU ARE NOT AUTHORIZED TO INSTALL, COPY, OR USE THE SOFTWARE, AND YOU MUST
+					PROMPTLY DELETE ALL COPIES IN YOUR POSSESSION.
 				</div>
 			</section>
 
-			<!-- Section 1 -->
-			<section id="grant" class="doc-section">
-				<h2>1. Grant of License</h2>
-				<p>The Software is licensed, not sold. Subject to your strict compliance with this Agreement, the Developer grants you a personal, revocable, non-exclusive, non-transferable, and non-sublicensable license to install and execute the Software on personal computers and mobile devices under your direct control, solely for personal, educational, scholarly, and non-commercial purposes.</p>
-				<p>This license applies uniformly across all supported binary editions, including the Windows Desktop distribution and the Android mobile APK package.</p>
+			<!-- Section 1: Definitions -->
+			<section id="definitions" class="doc-section">
+				<h2>1. Definitions</h2>
+				<ol>
+					<li><strong>"Software"</strong> means the executable computer programs, mobile
+						applications, source scripts, libraries, interfaces, graphic assets,
+						algorithmic rule engines, and associated digital documentation
+						comprising AstroBasics Diamond Chart Pro across all supported operating
+						systems.</li>
+					<li><strong>"Astrological Data"</strong> means all natal chart records,
+						planetary degree matrices, divisional computations, personal birth
+						dates, birth times, geographical birth coordinates, names of
+						individuals, chart notes, relationship synastry files, and custom yoga
+						evaluation parameters compiled or processed by the User within the
+						Software.</li>
+					<li><strong>"Diagnostic Telemetry"</strong> means non-personal, pseudonymous
+						operational data relating to the execution state of the Software,
+						including machine-generated cryptographic session identifiers, operating
+						system platforms and major versions, active software compilation
+						releases, and operational lifecycle status events.</li>
+					<li><strong>"Third-Party Components"</strong> means software libraries,
+						ephemeris data tables, public mapping protocols, or external services
+						integrated into or queried by the Software, including the Swiss
+						Ephemeris astronomical computation engine and OpenStreetMap geocoding
+						endpoints.</li>
+				</ol>
 			</section>
 
-			<!-- Section 2 -->
+			<!-- Section 2: License Grant -->
+			<section id="license-grant" class="doc-section">
+				<h2>2. Grant of Limited License</h2>
+				<p>Subject to the strict and continuous terms, conditions, and restrictions set forth in
+					this Agreement, Licensor hereby grants to the User a personal, limited,
+					non-exclusive, non-transferable, revocable, and non-sublicensable license to
+					install, execute, and utilize the Software solely in machine-readable binary
+					form, on personal computers, mobile handsets, or compatible digital hardware
+					owned or lawfully controlled by the User.</p>
+				<p>This license is granted exclusively for personal, private scholarly, educational,
+					non-commercial research, and informational evaluation. No commercial
+					exploitation rights, ownership interests, or title in the underlying
+					intellectual property are conveyed to the User under this Agreement.</p>
+			</section>
+
+			<!-- Section 3: Restrictions -->
 			<section id="restrictions" class="doc-section">
-				<h2>2. Restrictions on Commercial Use & Anti-Fraud</h2>
-				<p>You expressly agree to the following operational restrictions:</p>
+				<h2>3. Restrictions on Use & Commercial Prohibitions</h2>
+				<p>Except as expressly authorized under applicable mandatory law, the User shall not,
+					directly or indirectly, under any circumstance:</p>
 				<ul>
-					<li><strong>No Commercial Monetization:</strong> You may not sell, rent, lease, sublicense, distribute, host, repackage, or commercially exploit the Software, its source code, or any modified build thereof.</li>
-					<li><strong>Integrity and Fraud Prevention:</strong> You may not use the Software or any of its generated reports (such as PDF Kundali reports, compatibility printouts, or Dasha forecasts) to deceive, mislead, or commit fraud against third parties.</li>
-					<li><strong>Consultancy Qualification:</strong> You may not use the Software to provide paid commercial astrological consulting services unless you possess independent, prior knowledge of classical Vedic astrology. (A certificate or formal credential alone does not constitute verified knowledge).</li>
-					<li><strong>No Proprietary Embedding:</strong> You may not bundle or incorporate the Software, its computational engines, or its compiled dependencies into any commercial product, API gateway, software-as-a-service (SaaS) platform, or enterprise environment without prior explicit written agreement from the Developer.</li>
+					<li><strong>Commercial Exploitation:</strong> Sell, resell, rent, lease,
+						sublicense, distribute, assign, host, commercialize, or provide
+						time-sharing, application service provider (ASP), or
+						software-as-a-service (SaaS) access to the Software or any derivation
+						thereof.</li>
+					<li><strong>Reverse Engineering:</strong> Decompile, reverse engineer,
+						disassemble, decrypt, extract, or attempt to derive the underlying
+						source code, algorithms, data structures, or trade secrets of compiled
+						modules, licensing protectors, or cryptographic verification procedures.
+					</li>
+					<li><strong>Circumvention & Tampering:</strong> Modify, adapt, tamper with,
+						bypass, or create unauthorized emulations of update verification
+						mechanisms, digital signatures, or integrity manifests governing the
+						Software's release pipeline.</li>
+					<li><strong>Unlawful & Fraudulent Use:</strong> Utilize the Software, or any
+						astrological calculations, compatibility indices, or textual outputs
+						generated thereby, to perpetrate fraud, extortion, intentional
+						misrepresentation, financial deception, or harmful exploitation of third
+						parties.</li>
+					<li><strong>Unqualified Commercial Consulting:</strong> Market, sell, or provide
+						commercial astrological advisory services utilizing outputs of the
+						Software without possessing independent, prior competence and scholarly
+						expertise in classical Vedic astrological methodology. Possession or
+						production of automated software outputs does not confer professional
+						standing or authorized certification.</li>
 				</ul>
 			</section>
 
-			<!-- Section 3 -->
+			<!-- Section 4: Local Data Covenant -->
 			<section id="local-data" class="doc-section">
-				<h2>3. 100% Local Data Privacy Guarantee</h2>
-				<p>The Developer provides an unconditional guarantee regarding your astrological and personal client data:</p>
-
-				<div class="callout" style="border-left-color: var(--accent-green); background: rgba(39, 174, 96, 0.08);">
-					<strong style="color: var(--accent-green);">✓ Zero Upload of Astrological Data:</strong><br>
-					All natal chart calculations, birth dates, birth times, birth coordinates, person names, horary questions, synastry sessions, and custom rules are computed and stored <strong>100% locally on your device</strong>. No chart data is ever transmitted, inspected, or synced to any remote server or cloud database.
+				<h2>4. Local Data Sovereignty & Confidentiality Covenant</h2>
+				<p>Licensor establishes an absolute contractual covenant regarding the sovereignty and
+					strict confinement of User Astrological Data:</p>
+				<div class="legal-callout" style="border-left-color: var(--accent-green);">
+					<strong style="color: var(--accent-green);">CONTRACTUAL LOCAL STORAGE
+						GUARANTEE:</strong><br>
+					All Astrological Data compiled, stored, or calculated within the
+					Software—including names, birth parameters, geographical coordinates,
+					interpretation notes, and saved profile vaults—remains strictly and exclusively
+					stored within the local filesystem of the User's host device. The Software does
+					not transmit, ingest, duplicate, sync, or mirror Astrological Data to any
+					centralized server, cloud storage provider, or third-party database controlled
+					by Licensor.
 				</div>
+				<p>User-generated astrological files remain under the exclusive custody, ownership, and
+					responsibility of the User. Licensor disclaims all access, monitoring
+					capability, or administrative recovery mechanisms over local data repositories
+					created by the User.</p>
+			</section>
 
+			<!-- Section 5: Telemetry Policy -->
+			<section id="telemetry-policy" class="doc-section">
+				<h2>5. Diagnostic Operations & Update Integrity</h2>
+				<p>To verify distribution integrity, detect build regressions, distribute security
+					patches, and monitor stability across heterogeneous hardware environments, the
+					Software incorporates limited diagnostic routines that communicate with
+					Licensor's release infrastructure over encrypted HTTPS connections.</p>
+				<h3>Scope of Diagnostic Ingestion</h3>
+				<p>The operational data processed by Licensor's release infrastructure is strictly
+					confined to non-personal parameters, including:</p>
 				<ul>
-					<li><strong>Saved Charts:</strong> All saved <code>.astrobasic</code>, <code>.milan</code>, and <code>.json</code> chart files remain strictly on your local disk or device storage.</li>
-					<li><strong>OS Credential Vault:</strong> On desktop systems, master passwords and security keys are encrypted using hardware-backed operating system credential vaults.</li>
-					<li><strong>Safe Updates:</strong> Application updates (whether via Windows binary patches or Android live OTA packages) will never overwrite, inspect, or delete your existing <code>saves/</code>, <code>autosave/</code>, or local configuration files.</li>
+					<li>A pseudonymous, one-way cryptographic hardware hash serving as a
+						non-reversible machine identifier;</li>
+					<li>The operating system platform designation and major release revision (e.g.,
+						Windows or Android);</li>
+					<li>The active compilation and version identifier of the running Software
+						package;</li>
+					<li>Temporal execution markers denoting startup initialization, periodic
+						operational presence, and process termination; and</li>
+					<li>User-submitted numeric selection indices transmitted solely when the User
+						voluntarily participates in feature polling dialogs.</li>
 				</ul>
+				<p>Licensor warrants that Diagnostic Telemetry contains no personally identifying
+					information (PII), names, email addresses, geographical coordinates, local file
+					contents, or chart records.</p>
 			</section>
 
-			<!-- Section 4 -->
-			<section id="telemetry" class="doc-section">
-				<h2>4. Diagnostic Telemetry & Updates Policy</h2>
-				<p>To verify installation integrity, deliver bug fixes, prevent distribution tampering, and diagnose deployment issues, the Software is configured by default to exchange minimal, non-personal diagnostic telemetry with the Developer's secure update endpoint (Google Apps Script infrastructure over HTTPS).</p>
-				<p>This operational data contains <strong>zero personally identifiable information (PII)</strong> and is strictly separated from your astrological files.</p>
-
-				<h3>When Diagnostics Are Transmitted</h3>
+			<!-- Section 6: Opt-Out Rights -->
+			<section id="opt-out-rights" class="doc-section">
+				<h2>6. Right to Opt-Out & Autonomous Processing</h2>
+				<p>The User maintains an unrestricted statutory and contractual right to object to,
+					disable, and opt out of Diagnostic Telemetry at any time without forfeiture of
+					offline computational features.</p>
+				<p>Upon the User exercising the opt-out mechanism provided within the Software's
+					configuration or setup interfaces:</p>
 				<ul>
-					<li><strong>Application Launch (<code>ping</code>):</strong> Notifies the release infrastructure that an active installation is alive.</li>
-					<li><strong>Periodic Heartbeat (<code>ping</code>):</strong> Transmitted once every 5 minutes while the application is active in the foreground.</li>
-					<li><strong>Update Checks & Installs (<code>update_check</code> / <code>android_update</code>):</strong> Transmitted when querying GitHub manifests for security and feature patches.</li>
-					<li><strong>Application Shutdown (<code>app_closed</code>):</strong> Notifies the status registry when the app process is cleanly closed or sent to the background.</li>
+					<li>All outbound diagnostic network transmissions, heartbeat beacons, and status
+						registrations are immediately and completely suppressed;</li>
+					<li>No background network sockets or tracking sessions shall be initiated by the
+						telemetry module; and</li>
+					<li>Core astronomical calculations, chart rendering, divisional analysis, print
+						functions, and offline data storage shall continue to execute without
+						impairment.</li>
 				</ul>
+				<p>Over-the-Air (OTA) software update channels may operate independently from diagnostic
+					presence telemetry, ensuring that the User's choice to withhold telemetry does
+					not compromise access to essential computational patches.</p>
 			</section>
 
-			<!-- Section 5 -->
-			<section id="matrix" class="doc-section">
-				<h2>5. Data Collection Matrix (Windows vs. Android)</h2>
-				<p>Full transparency of every diagnostic field gathered across platforms:</p>
-
-				<div class="table-responsive">
-					<table class="custom-table">
-						<thead>
-							<tr>
-								<th>Telemetry Field</th>
-								<th>Windows Desktop Edition</th>
-								<th>Android Mobile Edition</th>
-								<th>Purpose & Nature</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><strong>Machine Identifier</strong></td>
-								<td><code>DEV-XXXXXXXXXXXXXXXX</code><br><span style="font-size:0.75rem; color:var(--text-secondary);">One-way SHA-256 hash of system parameters</span></td>
-								<td><code>AND-XXXXXXXXXXXXXXXX</code><br><span style="font-size:0.75rem; color:var(--text-secondary);">Hardware-bound device ID (Settings.Secure.ANDROID_ID)</span></td>
-								<td>Prevents duplicate device counting; completely pseudo-anonymous and cannot identify your real identity.</td>
-							</tr>
-							<tr>
-								<td><strong>Operating System</strong></td>
-								<td>Platform: <code>Windows</code><br>Version: <code>10</code>, <code>11</code></td>
-								<td>Platform: <code>Android</code><br>Version: <code>14</code>, <code>13</code>, etc.</td>
-								<td>Ensures compatible native library binaries and Swisseph WASM compatibility.</td>
-							</tr>
-							<tr>
-								<td><strong>App Version</strong></td>
-								<td>Release string (e.g. <code>v2.0.0</code>)</td>
-								<td>Release string (e.g. <code>v2.0.0</code>)</td>
-								<td>Verifies whether the installation requires OTA delta patches.</td>
-							</tr>
-							<tr>
-								<td><strong>Status Action</strong></td>
-								<td><code>ping</code>, <code>update_check</code>, <code>app_closed</code></td>
-								<td><code>ping</code>, <code>update_check</code>, <code>android_update</code>, <code>app_closed</code></td>
-								<td>Maintains fleet health statistics and active session state.</td>
-							</tr>
-							<tr>
-								<td><strong>Timestamp</strong></td>
-								<td>ISO-8601 UTC timestamp</td>
-								<td>ISO-8601 UTC timestamp</td>
-								<td>Event sequencing and timeout tracking.</td>
-							</tr>
-							<tr>
-								<td><strong>Personal Data</strong></td>
-								<td><strong style="color:var(--accent-green);">NONE</strong></td>
-								<td><strong style="color:var(--accent-green);">NONE</strong></td>
-								<td>No names, birth dates, charts, IP logs, or files are ever sent.</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</section>
-
-			<!-- Section 6 -->
-			<section id="opt-out" class="doc-section">
-				<h2>6. How to Opt Out of Telemetry</h2>
-				<p>You have the absolute right to revoke telemetry transmissions at any time. Because presence telemetry is integrated with automated release checking, opting out turns off both background diagnostic pings and automated update checks:</p>
-
-				<h3><span class="badge-platform badge-windows">Windows</span> Desktop Opt-Out Steps</h3>
-				<ol>
-					<li>Open <strong>AstroBasics Diamond Chart Pro</strong> on your PC.</li>
-					<li>In the left sidebar, navigate to the <strong>Updater</strong> section (or click <strong>Updates</strong> in the top menu bar).</li>
-					<li>Uncheck <strong>"Check for updates automatically on startup"</strong> (or uncheck <em>"Auto-Check on Startup"</em> in the menu).</li>
-					<li>Confirm the prompt. This writes <code>"auto_update": false</code> to <code>updater_config.json</code>, immediately blocking all outbound telemetry network sockets.</li>
-				</ol>
-
-				<h3><span class="badge-platform badge-android">Android</span> Mobile Opt-Out Steps</h3>
-				<ol>
-					<li>Open <strong>AstroBasics</strong> on your Android device.</li>
-					<li>Open the navigation drawer (☰) and tap <strong>⚙️ Open All Settings</strong> at the bottom.</li>
-					<li>Switch to the <strong>⚙️ App Settings</strong> tab.</li>
-					<li>Under <strong>"Automatic Updates & Telemetry"</strong>, tap the button to switch it from <em>Enabled (✓)</em> to <strong>Disabled (✕)</strong>.</li>
-					<li>Confirm the opt-out dialog. This sets <code>astrobasics_telemetry_opt_out</code> in persistent local storage, instantly halting all telemetry pings, heartbeats, and OTA requests.</li>
-				</ol>
-			</section>
-
-			<!-- Section 7 -->
+			<!-- Section 7: Third-Party Services -->
 			<section id="third-party" class="doc-section">
-				<h2>7. Third-Party Services & Network Calls</h2>
-				<p>The Software operates virtually 100% offline, opening outbound network sockets strictly for:</p>
+				<h2>7. Third-Party Integrations & External Queries</h2>
+				<p>The Software interfaces with specific third-party protocols to perform supplementary
+					utility tasks:</p>
 				<ul>
-					<li><strong>Location Search (Geocoding):</strong> When you type a city name (e.g. "Varanasi") and press Search, only the entered city name string is sent to the public <strong>OpenStreetMap (Nominatim)</strong> API to retrieve latitude, longitude, and timezone coordinates. No chart or birth data is ever attached.</li>
-					<li><strong>Cryptographic Release Manifests:</strong> Secure update checks query GitHub over HTTPS to verify digitally signed Ed25519 manifests before downloading any package.</li>
-					<li><strong>Optional Community Polls:</strong> When you voluntarily submit a vote on upcoming software features, only your selected option index is transmitted.</li>
+					<li><strong>Geographic Resolvers:</strong> Location name searches transmit
+						exclusively the entered textual search query to public geocoding
+						services (such as OpenStreetMap Nominatim) to resolve latitude,
+						longitude, and timezone offsets. Such queries contain no natal chart
+						data or User identification.</li>
+					<li><strong>Astronomical Computation:</strong> Planetary ephemerides are derived
+						in whole or in part using the Swiss Ephemeris under licensed terms.
+						Swiss Ephemeris is a proprietary product of Astrodienst AG and is
+						subject to separate computational licensing standards.</li>
 				</ul>
+				<p>Licensor makes no warranties and assumes no liability regarding the continuous
+					availability, legal compliance, or algorithmic accuracy of external third-party
+					network providers.</p>
 			</section>
 
-			<!-- Section 8 -->
-			<section id="ownership" class="doc-section">
-				<h2>8. Intellectual Property & Ownership</h2>
-				<p>The Software—including its underlying Python and TypeScript source code, compiled binaries, Swiss Ephemeris integrations, interface designs, icons, logos, and custom rule algorithms—remains the exclusive intellectual property of the Developer. This Agreement grants you only limited user privileges and transfers no title, trademark, or ownership interest.</p>
+			<!-- Section 8: Intellectual Property -->
+			<section id="intellectual-property" class="doc-section">
+				<h2>8. Intellectual Property Rights & Ownership</h2>
+				<p>The User acknowledges and agrees that the Software, including its structure,
+					organization, algorithmic formulations, compiled binaries, graphic interfaces,
+					branding, icons, and accompanying documentation, constitutes proprietary
+					intellectual property and confidential trade secrets of Licensor, protected
+					under national copyright statutes, international intellectual property treaties,
+					and trade secret laws.</p>
+				<p>All rights, titles, and interests not expressly granted to the User in this Agreement
+					are unconditionally reserved by Licensor. The User shall not acquire any
+					proprietary interest, express or implied, in the Software.</p>
 			</section>
 
-			<!-- Section 9 -->
-			<section id="disclaimer" class="doc-section">
-				<h2>9. Disclaimer of Warranties & Astrological Nature</h2>
-				<div class="callout" style="border-left-color: var(--accent-red); background: rgba(192, 57, 43, 0.08);">
-					<strong style="color: var(--accent-red);">DISCLAIMER OF WARRANTIES:</strong><br>
-					THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+			<!-- Section 9: Warranty Disclaimer -->
+			<section id="warranty-disclaimer" class="doc-section">
+				<h2>9. Disclaimer of Warranties</h2>
+				<div class="legal-callout" style="border-left-color: var(--accent-red);">
+					<span class="legal-caps">EXCLUSION OF ALL WARRANTIES:</span><br>
+					TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, THE SOFTWARE IS PROVIDED
+					STRICTLY ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITH ALL FAULTS, DEFECTS, AND
+					ERRORS. LICENSOR EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER
+					EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION THE
+					IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE,
+					QUIET ENJOYMENT, SYSTEM INTEGRATION, AND NON-INFRINGEMENT.
 				</div>
-				<p>Astrology is inherently an interpretative, exploratory discipline. The Developer makes no guarantees regarding the absolute correctness, real-world predictability, or completeness of results generated by the Software. Calculations and interpretations are provided strictly for educational, consultation, and research exploration.</p>
+				<p>WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, LICENSOR MAKES NO WARRANTY OR
+					REPRESENTATION THAT: (A) THE SOFTWARE WILL MEET THE USER'S REQUIREMENTS; (B)
+					OPERATION WILL BE UNINTERRUPTED, BUG-FREE, OR SECURE; (C) ASTRONOMICAL
+					COMPUTATIONS WILL BE FREE FROM MATHEMATICAL DEVIATION; OR (D) ASTROLOGICAL
+					OUTPUTS, PREDICTIVE CORRELATIONS, SYNASTRY INDICES, OR REMEDIAL SUGGESTIONS
+					POSSESS SCIENTIFIC CERTAINTY, FACTUAL TRUTH, OR EMPIRICAL VERIFIABILITY.</p>
+				<p>ASTROLOGY IS INHERENTLY AN INTERPRETATIVE, EXPLORATORY, AND TRADITIONAL DISCIPLINE.
+					THE SOFTWARE IS PROVIDED SOLELY AS A HEURISTIC CALCULATION AID. THE USER BEARS
+					ENTIRE RESPONSIBILITY FOR ALL INTERPRETATIONS, CONCLUSIONS, DECISIONS, OR
+					CONSULTATIONS DERIVED FROM ITS OUTPUTS.</p>
 			</section>
 
-			<!-- Section 10 -->
-			<section id="liability" class="doc-section">
+			<!-- Section 10: Liability Limitation -->
+			<section id="liability-limitation" class="doc-section">
 				<h2>10. Limitation of Liability</h2>
-				<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING, BUT NOT LIMITED TO, LOSS OF DATA, LOSS OF PROFITS, DISRUPTED CONSULTATIONS, OR PERSONAL DECISIONS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+				<div class="legal-callout" style="border-left-color: var(--accent-red);">
+					<span class="legal-caps">AGGREGATE LIABILITY CAP:</span><br>
+					TO THE FULLEST EXTENT PERMITTED BY APPLICABLE JURISDICTIONAL LAW, IN NO EVENT
+					SHALL LICENSOR, ITS CONTRIBUTORS, SUPPLIERS, OR DISTRIBUTORS BE LIABLE TO THE
+					USER OR ANY THIRD PARTY FOR ANY SPECIAL, INCIDENTAL, INDIRECT, PUNITIVE,
+					EXEMPLARY, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION,
+					DAMAGES FOR LOSS OF BUSINESS PROFITS, COMMERCIAL DISRUPTION, LOSS OF SAVED CHART
+					DATA, INACCURATE MARITAL MATCHMAKING ASSESSMENTS, REPUTATIONAL INJURY, OR
+					PERSONAL DECISIONS MADE IN RELIANCE UPON ASTROLOGICAL OUTPUTS), ARISING OUT OF
+					THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED
+					OF THE POSSIBILITY OF SUCH DAMAGES.
+				</div>
+				<p>IN NO EVENT SHALL LICENSOR'S TOTAL AGGREGATE LIABILITY ARISING UNDER OR RELATED TO
+					THIS AGREEMENT, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT
+					LIABILITY, OR OTHERWISE, EXCEED THE ACTUAL MONETARY AMOUNT PAID BY THE USER FOR
+					THE SOFTWARE LICENSE, OR FIVE UNITED STATES DOLLARS ($5.00 USD), WHICHEVER IS
+					LESS.</p>
 			</section>
 
-			<!-- Section 11 -->
+			<!-- Section 11: Indemnification -->
+			<section id="indemnification" class="doc-section">
+				<h2>11. Indemnification</h2>
+				<p>The User agrees to defend, indemnify, and hold harmless Licensor, its affiliates,
+					agents, contributors, and licensors from and against any and all claims,
+					liabilities, damages, losses, costs, and expenses (including reasonable
+					attorneys' fees) arising out of or related to: (a) the User's violation of this
+					Agreement; (b) the User's negligence, willful misconduct, or unauthorized use of
+					the Software; (c) any commercial astrological consultation provided by the User
+					to third parties; or (d) any third-party claims alleging fraud,
+					misrepresentation, or injury arising from the User's deployment or dissemination
+					of software-generated charts.</p>
+			</section>
+
+			<!-- Section 12: Term & Termination -->
 			<section id="termination" class="doc-section">
-				<h2>11. Termination & Developer Contact</h2>
-				<p>This Agreement remains in effect until terminated. Your rights under this license terminate automatically without notice if you fail to comply with any of its terms. Upon termination, you must cease all use and uninstall all copies of the Software from your Windows and Android devices.</p>
-				<p>For inquiries, security reports, or custom licensing, please open an issue or reach out via the official repository:</p>
-				<p><a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank" rel="noopener" style="color: var(--accent-gold); font-weight: bold;">https://github.com/thefuzzydeveloper/Astrobasics-dist</a></p>
+				<h2>12. Term & Termination</h2>
+				<p>This Agreement takes effect upon the User's initial installation, download,
+					execution, or use of the Software and remains in full legal force until
+					terminated.</p>
+				<p>The User may terminate this Agreement at any time by ceasing all use and destroying,
+					deleting, and purging all copies of the Software in their possession or control.
+				</p>
+				<p>Licensor reserves the right to terminate this Agreement immediately and without prior
+					notice if the User breaches any term, condition, or restriction set forth
+					herein. Upon termination, all license rights granted to the User shall instantly
+					terminate, and the User must immediately uninstall and destroy all copies of the
+					Software.</p>
+				<p>Sections 3, 4, 8, 9, 10, 11, and 13 shall survive the expiration or termination of
+					this Agreement for any reason.</p>
+			</section>
+
+			<!-- Section 13: General Provisions -->
+			<section id="general-provisions" class="doc-section">
+				<h2>13. Governing Law & General Provisions</h2>
+				<ol>
+					<li><strong>Severability:</strong> If any provision of this Agreement is held by
+						an adjudicative body of competent jurisdiction to be invalid, illegal,
+						or unenforceable, such provision shall be severed or reformed to the
+						minimum extent necessary to achieve its original intent, and the
+						remaining provisions shall remain in full force and effect.</li>
+					<li><strong>Entire Agreement:</strong> This Agreement constitutes the complete,
+						final, and exclusive agreement between the parties concerning the
+						Software, superseding all prior or contemporaneous oral or written
+						proposals, agreements, representations, or understandings.</li>
+					<li><strong>No Waiver:</strong> The failure of Licensor to exercise or enforce
+						any right or provision of this Agreement shall not constitute a waiver
+						of such right or provision in that or any subsequent instance.</li>
+					<li><strong>Governing Law & Forum:</strong> This Agreement shall be governed by,
+						construed, and enforced in accordance with the laws governing
+						computational intellectual property licensing, excluding its principles
+						of conflicts of law. The United Nations Convention on Contracts for the
+						International Sale of Goods shall not apply.</li>
+					<li><strong>Language:</strong> In the event this Agreement is translated into
+						other languages, the English-language version shall remain the
+						definitive, legally governing document in all disputes.</li>
+				</ol>
 			</section>
 		</main>
 	</div>
@@ -669,11 +724,12 @@
 	<footer>
 		<p>AstroBasics Diamond Chart Pro — Classical Vedic Astrology Suite for Windows & Android</p>
 		<p style="margin-top: 6px; font-size: 0.8rem;">
-			<a href="index.html">Main Suite</a> | 
-			<a href="plugins.html">Plugin Guide</a> | 
-			<a href="portal.html">License Portal</a> | 
-			<a href="eula.html" style="color: var(--accent-gold);">EULA & Terms</a> | 
-			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank" rel="noopener">GitHub</a>
+			<a href="index.html">Main Suite</a> |
+			<a href="plugins.html">Plugin Guide</a> |
+			<a href="portal.html">License Portal</a> |
+			<a href="eula.html" style="color: var(--accent-gold);">EULA & Legal Terms</a> |
+			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank"
+				rel="noopener">GitHub</a>
 		</p>
 	</footer>
 
