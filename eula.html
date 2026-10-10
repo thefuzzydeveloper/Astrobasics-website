@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>End User License Agreement (EULA) & Data Policy | AstroBasics</title>
+	<meta name="description"
+		content="End User License Agreement (EULA), Terms of Use, and Telemetry Data Collection Disclosure for AstroBasics Diamond Chart Pro across Windows and Android.">
+	<meta name="author" content="AstroBasics">
+	<link rel="icon" type="image/x-icon"
+		href="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;600;700&display=swap"
+		rel="stylesheet">
+
+	<style>
+		:root[data-theme="dark"] {
+			--bg-base: #07030A;
+			--bg-surface: #12071B;
+			--bg-card: #1A0D26;
+			--bg-header: rgba(7, 3, 10, 0.94);
+			--border-color: #C59B27;
+			--border-subtle: rgba(197, 155, 39, 0.25);
+			--text-primary: #F4EFEA;
+			--text-secondary: #C8BDD6;
+			--text-accent: #FFE885;
+			--accent-saffron: #E65100;
+			--accent-gold: #DAA520;
+			--accent-red: #C0392B;
+			--accent-green: #27AE60;
+			--code-bg: #0C0614;
+			--code-border: rgba(218, 165, 32, 0.3);
+			--selection-bg: #E65100;
+			--selection-color: #FFFFFF;
+			--shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+			--glow: 0 0 22px rgba(218, 165, 32, 0.3);
+			--note-bg: rgba(218, 165, 32, 0.08);
+			--note-border: #DAA520;
+		}
+
+		:root[data-theme="light"] {
+			--bg-base: #FAF5E8;
+			--bg-surface: #F2E8D5;
+			--bg-card: #EADBC5;
+			--bg-header: rgba(250, 245, 232, 0.94);
+			--border-color: #A37A1E;
+			--border-subtle: rgba(163, 122, 30, 0.3);
+			--text-primary: #2C1A14;
+			--text-secondary: #5A483E;
+			--text-accent: #7A1C1C;
+			--accent-saffron: #B83A00;
+			--accent-gold: #B8860B;
+			--accent-red: #A82424;
+			--accent-green: #1E8449;
+			--code-bg: #E3D4BC;
+			--code-border: rgba(163, 122, 30, 0.4);
+			--selection-bg: #FFD700;
+			--selection-color: #000000;
+			--shadow: 0 8px 25px rgba(90, 72, 62, 0.15);
+			--glow: 0 0 18px rgba(163, 122, 30, 0.2);
+			--note-bg: rgba(163, 122, 30, 0.08);
+			--note-border: #A37A1E;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		::selection {
+			background-color: var(--selection-bg);
+			color: var(--selection-color);
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+		}
+
+		body {
+			font-family: 'Noto Sans', sans-serif;
+			background-color: var(--bg-base);
+			color: var(--text-primary);
+			line-height: 1.75;
+			overflow-x: hidden;
+			position: relative;
+			width: 100%;
+		}
+
+		#bgCanvas {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: -1;
+			pointer-events: none;
+		}
+
+		h1, h2, h3, h4, .brand-title {
+			font-family: 'Rozha One', 'Yatra One', serif;
+			letter-spacing: 0.5px;
+		}
+
+		/* Header Navigation */
+		header {
+			background-color: var(--bg-header);
+			border-bottom: 2px solid var(--border-color);
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+			box-shadow: var(--shadow);
+			backdrop-filter: blur(12px);
+		}
+
+		.nav-container {
+			max-width: 1240px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 8px 18px;
+			gap: 12px;
+		}
+
+		.brand-logo {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			text-decoration: none;
+			flex-shrink: 0;
+		}
+
+		.brand-logo img {
+			width: 32px;
+			height: 32px;
+			border-radius: 6px;
+			border: 1px solid var(--border-color);
+		}
+
+		.brand-title {
+			font-size: 1.25rem;
+			color: var(--text-accent);
+		}
+
+		nav ul {
+			display: flex;
+			list-style: none;
+			gap: 16px;
+			align-items: center;
+		}
+
+		nav a {
+			color: var(--text-primary);
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.85rem;
+		}
+
+		nav a:hover {
+			color: var(--accent-gold);
+		}
+
+		.theme-toggle-btn {
+			background: var(--bg-surface);
+			border: 1px solid var(--border-color);
+			color: var(--text-primary);
+			padding: 6px 12px;
+			border-radius: 20px;
+			cursor: pointer;
+			font-weight: 600;
+			font-size: 0.85rem;
+		}
+
+		.btn-secondary {
+			background: transparent;
+			border: 1px solid var(--border-color);
+			color: var(--text-primary);
+			padding: 6px 14px;
+			border-radius: 6px;
+			text-decoration: none;
+			font-weight: 600;
+			display: inline-flex;
+			align-items: center;
+		}
+
+		.btn-secondary:hover {
+			background: var(--bg-surface);
+			color: var(--text-accent);
+		}
+
+		/* Docs & Layout Grid */
+		.docs-container {
+			max-width: 1240px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px 18px 80px;
+			display: grid;
+			grid-template-columns: 280px minmax(0, 1fr);
+			gap: 32px;
+			align-items: start;
+		}
+
+		aside {
+			position: sticky;
+			top: 75px;
+			align-self: start;
+			max-height: calc(100vh - 95px);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.sidebar-card {
+			background: var(--bg-surface);
+			border: 1.5px solid var(--border-color);
+			border-radius: 8px;
+			padding: 16px;
+			box-shadow: var(--shadow);
+			overflow-y: auto;
+			max-height: inherit;
+		}
+
+		.sidebar-card h4 {
+			color: var(--text-accent);
+			font-size: 1.05rem;
+			margin-bottom: 12px;
+			border-bottom: 1px solid var(--border-subtle);
+			padding-bottom: 6px;
+		}
+
+		.toc-list {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
+
+		.toc-list a {
+			color: var(--text-secondary);
+			text-decoration: none;
+			font-size: 0.84rem;
+			display: block;
+			padding: 5px 8px;
+			border-radius: 4px;
+			line-height: 1.4;
+		}
+
+		.toc-list a:hover {
+			background: var(--bg-card);
+			color: var(--accent-gold);
+		}
+
+		main {
+			min-width: 0;
+			max-width: 100%;
+			width: 100%;
+		}
+
+		.doc-section {
+			background: var(--bg-surface);
+			border: 1.5px solid var(--border-color);
+			border-radius: 10px;
+			padding: 30px;
+			margin-bottom: 30px;
+			box-shadow: var(--shadow);
+			scroll-margin-top: 85px;
+			width: 100%;
+			overflow-wrap: break-word;
+		}
+
+		.doc-section h2 {
+			color: var(--text-accent);
+			font-size: 1.75rem;
+			margin-bottom: 14px;
+			border-bottom: 1px solid var(--border-subtle);
+			padding-bottom: 8px;
+			scroll-margin-top: 85px;
+		}
+
+		.doc-section h3 {
+			color: var(--accent-gold);
+			font-size: 1.25rem;
+			margin: 22px 0 10px;
+			scroll-margin-top: 85px;
+		}
+
+		.doc-section p {
+			color: var(--text-secondary);
+			margin-bottom: 14px;
+			font-size: 0.95rem;
+		}
+
+		.doc-section ul, .doc-section ol {
+			color: var(--text-secondary);
+			margin-left: 20px;
+			margin-bottom: 16px;
+			font-size: 0.93rem;
+		}
+
+		.doc-section li {
+			margin-bottom: 8px;
+		}
+
+		code {
+			font-family: 'JetBrains Mono', monospace;
+			background: var(--code-bg);
+			border: 1px solid var(--code-border);
+			color: var(--text-accent);
+			padding: 2px 5px;
+			border-radius: 4px;
+			font-size: 0.84rem;
+		}
+
+		pre {
+			background: var(--code-bg);
+			border: 1px solid var(--code-border);
+			border-left: 4px solid var(--accent-gold);
+			border-radius: 6px;
+			padding: 14px 18px;
+			overflow-x: auto;
+			max-width: 100%;
+			margin: 14px 0 20px;
+		}
+
+		pre code {
+			background: transparent;
+			border: none;
+			padding: 0;
+			color: var(--text-primary);
+			white-space: pre;
+		}
+
+		.table-responsive {
+			width: 100%;
+			overflow-x: auto;
+			margin: 16px 0 20px;
+			border: 1px solid var(--border-subtle);
+			border-radius: 6px;
+		}
+
+		.custom-table {
+			width: 100%;
+			border-collapse: collapse;
+			background: var(--bg-card);
+		}
+
+		.custom-table th, .custom-table td {
+			border: 1px solid var(--border-subtle);
+			padding: 10px 14px;
+			text-align: left;
+			font-size: 0.88rem;
+		}
+
+		.custom-table th {
+			background-color: var(--bg-surface);
+			color: var(--text-accent);
+			font-family: 'Rozha One', serif;
+			white-space: nowrap;
+		}
+
+		.callout {
+			background: var(--note-bg);
+			border-left: 4px solid var(--note-border);
+			padding: 14px 18px;
+			border-radius: 4px;
+			margin: 18px 0;
+			font-size: 0.92rem;
+			color: var(--text-primary);
+		}
+
+		.badge-platform {
+			display: inline-block;
+			padding: 2px 8px;
+			border-radius: 4px;
+			font-size: 0.75rem;
+			font-weight: 700;
+			margin-right: 6px;
+		}
+
+		.badge-windows {
+			background: rgba(37, 99, 235, 0.2);
+			color: #60A5FA;
+			border: 1px solid #2563EB;
+		}
+
+		.badge-android {
+			background: rgba(16, 185, 129, 0.2);
+			color: #34D399;
+			border: 1px solid #10B981;
+		}
+
+		footer {
+			background-color: var(--bg-surface);
+			border-top: 2px solid var(--border-color);
+			padding: 25px 20px;
+			text-align: center;
+			color: var(--text-secondary);
+			font-size: 0.85rem;
+		}
+
+		footer a {
+			color: var(--text-accent);
+			text-decoration: none;
+		}
+
+		footer a:hover {
+			text-decoration: underline;
+		}
+
+		@media (max-width: 900px) {
+			.docs-container {
+				grid-template-columns: 1fr;
+				padding: 20px 14px;
+			}
+
+			aside {
+				position: static;
+				max-height: none;
+				margin-bottom: 20px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="bgCanvas"></canvas>
+
+	<!-- Header -->
+	<header>
+		<div class="nav-container">
+			<a href="index.html" class="brand-logo">
+				<img src="https://raw.githubusercontent.com/thefuzzydeveloper/Astrobasics-dist/main/icon.ico"
+					alt="AstroBasics Logo">
+				<span class="brand-title">AstroBasics</span>
+			</a>
+			<nav>
+				<ul>
+					<li><a href="index.html">← Back to Suite</a></li>
+					<li><a href="plugins.html">🔌 Plugins</a></li>
+					<li><a href="portal.html">🔑 Portal</a></li>
+				</ul>
+			</nav>
+			<div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+				<button class="theme-toggle-btn" id="themeToggle" onclick="toggleThemeManual()">
+					<span id="themeIcon">❖</span> Theme
+				</button>
+				<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank"
+					class="btn-secondary" style="padding: 5px 10px; font-size: 0.8rem;">GitHub</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="docs-container">
+		<!-- Sidebar Table of Contents -->
+		<aside>
+			<div class="sidebar-card">
+				<h4>Agreement Sections</h4>
+				<ul class="toc-list">
+					<li><a href="#preamble">Preamble & Acceptance</a></li>
+					<li><a href="#grant">1. Grant of License</a></li>
+					<li><a href="#restrictions">2. Non-Commercial & Anti-Fraud</a></li>
+					<li><a href="#local-data">3. Local Data Privacy Guarantee</a></li>
+					<li><a href="#telemetry">4. Diagnostic Telemetry Policy</a></li>
+					<li><a href="#matrix">5. Data Collection Matrix</a></li>
+					<li><a href="#opt-out">6. Opt-Out Instructions</a></li>
+					<li><a href="#third-party">7. Third-Party Services</a></li>
+					<li><a href="#ownership">8. Intellectual Property</a></li>
+					<li><a href="#disclaimer">9. Disclaimers & Accuracy</a></li>
+					<li><a href="#liability">10. Limitation of Liability</a></li>
+					<li><a href="#termination">11. Termination & Contact</a></li>
+				</ul>
+			</div>
+		</aside>
+
+		<main>
+			<!-- Section: Preamble -->
+			<section id="preamble" class="doc-section">
+				<h2>End User License Agreement (EULA)</h2>
+				<p><strong>Effective Date:</strong> Last updated for Release 2.0 / 2026 Distribution</p>
+				<p><strong>Applies to:</strong> AstroBasics Diamond Chart Pro for <strong>Windows</strong> (<code>AstroBasics.exe</code>) and <strong>Android</strong> (<code>AstroBasics.apk</code>).</p>
+
+				<div class="callout">
+					<strong>IMPORTANT — READ CAREFULLY BEFORE INSTALLING OR RUNNING:</strong><br>
+					By installing, copying, accessing, or otherwise using AstroBasics Diamond Chart Pro (the "Software"), you agree to be bound by the terms of this End User License Agreement ("Agreement"). If you do not agree to the terms of this Agreement, do not install, copy, access, or use the Software.
+				</div>
+			</section>
+
+			<!-- Section 1 -->
+			<section id="grant" class="doc-section">
+				<h2>1. Grant of License</h2>
+				<p>The Software is licensed, not sold. Subject to your strict compliance with this Agreement, the Developer grants you a personal, revocable, non-exclusive, non-transferable, and non-sublicensable license to install and execute the Software on personal computers and mobile devices under your direct control, solely for personal, educational, scholarly, and non-commercial purposes.</p>
+				<p>This license applies uniformly across all supported binary editions, including the Windows Desktop distribution and the Android mobile APK package.</p>
+			</section>
+
+			<!-- Section 2 -->
+			<section id="restrictions" class="doc-section">
+				<h2>2. Restrictions on Commercial Use & Anti-Fraud</h2>
+				<p>You expressly agree to the following operational restrictions:</p>
+				<ul>
+					<li><strong>No Commercial Monetization:</strong> You may not sell, rent, lease, sublicense, distribute, host, repackage, or commercially exploit the Software, its source code, or any modified build thereof.</li>
+					<li><strong>Integrity and Fraud Prevention:</strong> You may not use the Software or any of its generated reports (such as PDF Kundali reports, compatibility printouts, or Dasha forecasts) to deceive, mislead, or commit fraud against third parties.</li>
+					<li><strong>Consultancy Qualification:</strong> You may not use the Software to provide paid commercial astrological consulting services unless you possess independent, prior knowledge of classical Vedic astrology. (A certificate or formal credential alone does not constitute verified knowledge).</li>
+					<li><strong>No Proprietary Embedding:</strong> You may not bundle or incorporate the Software, its computational engines, or its compiled dependencies into any commercial product, API gateway, software-as-a-service (SaaS) platform, or enterprise environment without prior explicit written agreement from the Developer.</li>
+				</ul>
+			</section>
+
+			<!-- Section 3 -->
+			<section id="local-data" class="doc-section">
+				<h2>3. 100% Local Data Privacy Guarantee</h2>
+				<p>The Developer provides an unconditional guarantee regarding your astrological and personal client data:</p>
+
+				<div class="callout" style="border-left-color: var(--accent-green); background: rgba(39, 174, 96, 0.08);">
+					<strong style="color: var(--accent-green);">✓ Zero Upload of Astrological Data:</strong><br>
+					All natal chart calculations, birth dates, birth times, birth coordinates, person names, horary questions, synastry sessions, and custom rules are computed and stored <strong>100% locally on your device</strong>. No chart data is ever transmitted, inspected, or synced to any remote server or cloud database.
+				</div>
+
+				<ul>
+					<li><strong>Saved Charts:</strong> All saved <code>.astrobasic</code>, <code>.milan</code>, and <code>.json</code> chart files remain strictly on your local disk or device storage.</li>
+					<li><strong>OS Credential Vault:</strong> On desktop systems, master passwords and security keys are encrypted using hardware-backed operating system credential vaults.</li>
+					<li><strong>Safe Updates:</strong> Application updates (whether via Windows binary patches or Android live OTA packages) will never overwrite, inspect, or delete your existing <code>saves/</code>, <code>autosave/</code>, or local configuration files.</li>
+				</ul>
+			</section>
+
+			<!-- Section 4 -->
+			<section id="telemetry" class="doc-section">
+				<h2>4. Diagnostic Telemetry & Updates Policy</h2>
+				<p>To verify installation integrity, deliver bug fixes, prevent distribution tampering, and diagnose deployment issues, the Software is configured by default to exchange minimal, non-personal diagnostic telemetry with the Developer's secure update endpoint (Google Apps Script infrastructure over HTTPS).</p>
+				<p>This operational data contains <strong>zero personally identifiable information (PII)</strong> and is strictly separated from your astrological files.</p>
+
+				<h3>When Diagnostics Are Transmitted</h3>
+				<ul>
+					<li><strong>Application Launch (<code>ping</code>):</strong> Notifies the release infrastructure that an active installation is alive.</li>
+					<li><strong>Periodic Heartbeat (<code>ping</code>):</strong> Transmitted once every 5 minutes while the application is active in the foreground.</li>
+					<li><strong>Update Checks & Installs (<code>update_check</code> / <code>android_update</code>):</strong> Transmitted when querying GitHub manifests for security and feature patches.</li>
+					<li><strong>Application Shutdown (<code>app_closed</code>):</strong> Notifies the status registry when the app process is cleanly closed or sent to the background.</li>
+				</ul>
+			</section>
+
+			<!-- Section 5 -->
+			<section id="matrix" class="doc-section">
+				<h2>5. Data Collection Matrix (Windows vs. Android)</h2>
+				<p>Full transparency of every diagnostic field gathered across platforms:</p>
+
+				<div class="table-responsive">
+					<table class="custom-table">
+						<thead>
+							<tr>
+								<th>Telemetry Field</th>
+								<th>Windows Desktop Edition</th>
+								<th>Android Mobile Edition</th>
+								<th>Purpose & Nature</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Machine Identifier</strong></td>
+								<td><code>DEV-XXXXXXXXXXXXXXXX</code><br><span style="font-size:0.75rem; color:var(--text-secondary);">One-way SHA-256 hash of system parameters</span></td>
+								<td><code>AND-XXXXXXXXXXXXXXXX</code><br><span style="font-size:0.75rem; color:var(--text-secondary);">Hardware-bound device ID (Settings.Secure.ANDROID_ID)</span></td>
+								<td>Prevents duplicate device counting; completely pseudo-anonymous and cannot identify your real identity.</td>
+							</tr>
+							<tr>
+								<td><strong>Operating System</strong></td>
+								<td>Platform: <code>Windows</code><br>Version: <code>10</code>, <code>11</code></td>
+								<td>Platform: <code>Android</code><br>Version: <code>14</code>, <code>13</code>, etc.</td>
+								<td>Ensures compatible native library binaries and Swisseph WASM compatibility.</td>
+							</tr>
+							<tr>
+								<td><strong>App Version</strong></td>
+								<td>Release string (e.g. <code>v2.0.0</code>)</td>
+								<td>Release string (e.g. <code>v2.0.0</code>)</td>
+								<td>Verifies whether the installation requires OTA delta patches.</td>
+							</tr>
+							<tr>
+								<td><strong>Status Action</strong></td>
+								<td><code>ping</code>, <code>update_check</code>, <code>app_closed</code></td>
+								<td><code>ping</code>, <code>update_check</code>, <code>android_update</code>, <code>app_closed</code></td>
+								<td>Maintains fleet health statistics and active session state.</td>
+							</tr>
+							<tr>
+								<td><strong>Timestamp</strong></td>
+								<td>ISO-8601 UTC timestamp</td>
+								<td>ISO-8601 UTC timestamp</td>
+								<td>Event sequencing and timeout tracking.</td>
+							</tr>
+							<tr>
+								<td><strong>Personal Data</strong></td>
+								<td><strong style="color:var(--accent-green);">NONE</strong></td>
+								<td><strong style="color:var(--accent-green);">NONE</strong></td>
+								<td>No names, birth dates, charts, IP logs, or files are ever sent.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- Section 6 -->
+			<section id="opt-out" class="doc-section">
+				<h2>6. How to Opt Out of Telemetry</h2>
+				<p>You have the absolute right to revoke telemetry transmissions at any time. Because presence telemetry is integrated with automated release checking, opting out turns off both background diagnostic pings and automated update checks:</p>
+
+				<h3><span class="badge-platform badge-windows">Windows</span> Desktop Opt-Out Steps</h3>
+				<ol>
+					<li>Open <strong>AstroBasics Diamond Chart Pro</strong> on your PC.</li>
+					<li>In the left sidebar, navigate to the <strong>Updater</strong> section (or click <strong>Updates</strong> in the top menu bar).</li>
+					<li>Uncheck <strong>"Check for updates automatically on startup"</strong> (or uncheck <em>"Auto-Check on Startup"</em> in the menu).</li>
+					<li>Confirm the prompt. This writes <code>"auto_update": false</code> to <code>updater_config.json</code>, immediately blocking all outbound telemetry network sockets.</li>
+				</ol>
+
+				<h3><span class="badge-platform badge-android">Android</span> Mobile Opt-Out Steps</h3>
+				<ol>
+					<li>Open <strong>AstroBasics</strong> on your Android device.</li>
+					<li>Open the navigation drawer (☰) and tap <strong>⚙️ Open All Settings</strong> at the bottom.</li>
+					<li>Switch to the <strong>⚙️ App Settings</strong> tab.</li>
+					<li>Under <strong>"Automatic Updates & Telemetry"</strong>, tap the button to switch it from <em>Enabled (✓)</em> to <strong>Disabled (✕)</strong>.</li>
+					<li>Confirm the opt-out dialog. This sets <code>astrobasics_telemetry_opt_out</code> in persistent local storage, instantly halting all telemetry pings, heartbeats, and OTA requests.</li>
+				</ol>
+			</section>
+
+			<!-- Section 7 -->
+			<section id="third-party" class="doc-section">
+				<h2>7. Third-Party Services & Network Calls</h2>
+				<p>The Software operates virtually 100% offline, opening outbound network sockets strictly for:</p>
+				<ul>
+					<li><strong>Location Search (Geocoding):</strong> When you type a city name (e.g. "Varanasi") and press Search, only the entered city name string is sent to the public <strong>OpenStreetMap (Nominatim)</strong> API to retrieve latitude, longitude, and timezone coordinates. No chart or birth data is ever attached.</li>
+					<li><strong>Cryptographic Release Manifests:</strong> Secure update checks query GitHub over HTTPS to verify digitally signed Ed25519 manifests before downloading any package.</li>
+					<li><strong>Optional Community Polls:</strong> When you voluntarily submit a vote on upcoming software features, only your selected option index is transmitted.</li>
+				</ul>
+			</section>
+
+			<!-- Section 8 -->
+			<section id="ownership" class="doc-section">
+				<h2>8. Intellectual Property & Ownership</h2>
+				<p>The Software—including its underlying Python and TypeScript source code, compiled binaries, Swiss Ephemeris integrations, interface designs, icons, logos, and custom rule algorithms—remains the exclusive intellectual property of the Developer. This Agreement grants you only limited user privileges and transfers no title, trademark, or ownership interest.</p>
+			</section>
+
+			<!-- Section 9 -->
+			<section id="disclaimer" class="doc-section">
+				<h2>9. Disclaimer of Warranties & Astrological Nature</h2>
+				<div class="callout" style="border-left-color: var(--accent-red); background: rgba(192, 57, 43, 0.08);">
+					<strong style="color: var(--accent-red);">DISCLAIMER OF WARRANTIES:</strong><br>
+					THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+				</div>
+				<p>Astrology is inherently an interpretative, exploratory discipline. The Developer makes no guarantees regarding the absolute correctness, real-world predictability, or completeness of results generated by the Software. Calculations and interpretations are provided strictly for educational, consultation, and research exploration.</p>
+			</section>
+
+			<!-- Section 10 -->
+			<section id="liability" class="doc-section">
+				<h2>10. Limitation of Liability</h2>
+				<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING, BUT NOT LIMITED TO, LOSS OF DATA, LOSS OF PROFITS, DISRUPTED CONSULTATIONS, OR PERSONAL DECISIONS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+			</section>
+
+			<!-- Section 11 -->
+			<section id="termination" class="doc-section">
+				<h2>11. Termination & Developer Contact</h2>
+				<p>This Agreement remains in effect until terminated. Your rights under this license terminate automatically without notice if you fail to comply with any of its terms. Upon termination, you must cease all use and uninstall all copies of the Software from your Windows and Android devices.</p>
+				<p>For inquiries, security reports, or custom licensing, please open an issue or reach out via the official repository:</p>
+				<p><a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank" rel="noopener" style="color: var(--accent-gold); font-weight: bold;">https://github.com/thefuzzydeveloper/Astrobasics-dist</a></p>
+			</section>
+		</main>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<p>AstroBasics Diamond Chart Pro — Classical Vedic Astrology Suite for Windows & Android</p>
+		<p style="margin-top: 6px; font-size: 0.8rem;">
+			<a href="index.html">Main Suite</a> | 
+			<a href="plugins.html">Plugin Guide</a> | 
+			<a href="portal.html">License Portal</a> | 
+			<a href="eula.html" style="color: var(--accent-gold);">EULA & Terms</a> | 
+			<a href="https://github.com/thefuzzydeveloper/Astrobasics-dist" target="_blank" rel="noopener">GitHub</a>
+		</p>
+	</footer>
+
+	<!-- Scripts -->
+	<script>
+		const canvas = document.getElementById('bgCanvas');
+		const ctx = canvas.getContext('2d');
+		let width, height;
+		let particles = [];
+		const PARTICLE_COUNT = 24;
+
+		function resizeCanvas() {
+			width = canvas.width = window.innerWidth;
+			height = canvas.height = window.innerHeight;
+		}
+		window.addEventListener('resize', resizeCanvas);
+		resizeCanvas();
+
+		class Particle {
+			constructor() { this.reset(); }
+			reset() {
+				this.x = Math.random() * width;
+				this.y = Math.random() * height;
+				this.size = Math.random() * 2 + 0.8;
+				this.speedX = (Math.random() - 0.5) * 0.2;
+				this.speedY = -Math.random() * 0.3 - 0.1;
+				this.alpha = Math.random() * 0.5 + 0.15;
+			}
+			update() {
+				this.x += this.speedX;
+				this.y += this.speedY;
+				if (this.y < 0 || this.x < 0 || this.x > width) {
+					this.y = height + 10;
+					this.x = Math.random() * width;
+				}
+			}
+			draw(theme) {
+				ctx.fillStyle = theme === 'dark' ? `rgba(218, 165, 32, ${this.alpha})` : `rgba(163, 122, 30, ${this.alpha})`;
+				ctx.beginPath();
+				ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+				ctx.fill();
+			}
+		}
+
+		for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+		let lastTime = 0;
+		const fpsInterval = 1000 / 30;
+
+		function renderParticles(time) {
+			requestAnimationFrame(renderParticles);
+			const delta = time - lastTime;
+			if (delta < fpsInterval) return;
+			lastTime = time - (delta % fpsInterval);
+
+			ctx.clearRect(0, 0, width, height);
+			const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+			for (let i = 0; i < particles.length; i++) {
+				particles[i].update();
+				particles[i].draw(theme);
+			}
+		}
+		requestAnimationFrame(renderParticles);
+
+		function toggleThemeManual() {
+			const html = document.documentElement;
+			const currentTheme = html.getAttribute('data-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+			html.setAttribute('data-theme', newTheme);
+			localStorage.setItem('astrobasics_theme', newTheme);
+		}
+
+		(function initTheme() {
+			const savedTheme = localStorage.getItem('astrobasics_theme');
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-theme', savedTheme);
+			} else {
+				const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				document.documentElement.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+			}
+		})();
+	</script>
+</body>
+
+</html>
