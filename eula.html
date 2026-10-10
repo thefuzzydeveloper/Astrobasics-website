@@ -394,16 +394,16 @@
 					<li><a href="#definitions">1. Definitions</a></li>
 					<li><a href="#license-grant">2. Grant of License</a></li>
 					<li><a href="#restrictions">3. Restrictions & Prohibitions</a></li>
-					<li><a href="#local-data">4. Local Data Covenant</a></li>
-					<li><a href="#telemetry-policy">5. Diagnostic Operations</a></li>
-					<li><a href="#opt-out-rights">6. Right to Opt-Out</a></li>
-					<li><a href="#third-party">7. Third-Party Services</a></li>
-					<li><a href="#intellectual-property">8. Intellectual Property</a></li>
-					<li><a href="#warranty-disclaimer">9. Warranty Disclaimer</a></li>
-					<li><a href="#liability-limitation">10. Limitation of Liability</a></li>
-					<li><a href="#indemnification">11. Indemnification</a></li>
-					<li><a href="#termination">12. Term & Termination</a></li>
-					<li><a href="#general-provisions">13. Governing Law & General</a></li>
+					<li><a href="#zero-collection">4. Zero Data Collection & Local Covenant</a></li>
+					<li><a href="#third-party-requests">5. Functional Network Requests & Updates</a>
+					</li>
+					<li><a href="#user-custody">6. User Custody & Data Management</a></li>
+					<li><a href="#intellectual-property">7. Intellectual Property</a></li>
+					<li><a href="#warranty-disclaimer">8. Warranty Disclaimer</a></li>
+					<li><a href="#liability-limitation">9. Limitation of Liability</a></li>
+					<li><a href="#indemnification">10. Indemnification</a></li>
+					<li><a href="#termination">11. Term & Termination</a></li>
+					<li><a href="#general-provisions">12. Governing Law & General</a></li>
 				</ul>
 			</div>
 		</aside>
@@ -435,26 +435,22 @@
 				<h2>1. Definitions</h2>
 				<ol>
 					<li><strong>"Software"</strong> means the executable computer programs, mobile
-						applications, source scripts, libraries, interfaces, graphic assets,
-						algorithmic rule engines, and associated digital documentation
-						comprising AstroBasics Diamond Chart Pro across all supported operating
-						systems.</li>
-					<li><strong>"Astrological Data"</strong> means all natal chart records,
-						planetary degree matrices, divisional computations, personal birth
-						dates, birth times, geographical birth coordinates, names of
-						individuals, chart notes, relationship synastry files, and custom yoga
-						evaluation parameters compiled or processed by the User within the
-						Software.</li>
-					<li><strong>"Diagnostic Telemetry"</strong> means non-personal, pseudonymous
-						operational data relating to the execution state of the Software,
-						including machine-generated cryptographic session identifiers, operating
-						system platforms and major versions, active software compilation
-						releases, and operational lifecycle status events.</li>
-					<li><strong>"Third-Party Components"</strong> means software libraries,
-						ephemeris data tables, public mapping protocols, or external services
-						integrated into or queried by the Software, including the Swiss
-						Ephemeris astronomical computation engine and OpenStreetMap geocoding
-						endpoints.</li>
+						applications, offline algorithmic rule engines, local script assets,
+						interfaces, and associated digital documentation comprising AstroBasics
+						Diamond Chart Pro across all supported operating systems[cite: 3].</li>
+					<li><strong>"User Astrological Data"</strong> means all natal chart records,
+						planetary degree matrices, divisional computations, birth timestamps,
+						geographical coordinates, individual names, custom yoga parameters,
+						notes, and local chart files (`.astrobasic`) created, loaded, or
+						exported within the Software[cite: 1, 3].</li>
+					<li><strong>"Third-Party Services"</strong> means external network endpoints
+						queried strictly on-demand by the Software for essential real-time
+						utilities, namely public geocoding services (OpenStreetMap Nominatim)
+						and geographic timezone resolvers (Open-Meteo)[cite: 1, 3].</li>
+					<li><strong>"Update Infrastructure"</strong> means the remote static release
+						repository (hosted on GitHub) utilized solely to verify build signatures
+						and download monotonic Over-The-Air (OTA) application packages[cite: 1].
+					</li>
 				</ol>
 			</section>
 
@@ -466,180 +462,162 @@
 					non-exclusive, non-transferable, revocable, and non-sublicensable license to
 					install, execute, and utilize the Software solely in machine-readable binary
 					form, on personal computers, mobile handsets, or compatible digital hardware
-					owned or lawfully controlled by the User.</p>
+					owned or lawfully controlled by the User[cite: 3].</p>
 				<p>This license is granted exclusively for personal, private scholarly, educational,
-					non-commercial research, and informational evaluation. No commercial
+					non-commercial research, and informational evaluation[cite: 3]. No commercial
 					exploitation rights, ownership interests, or title in the underlying
-					intellectual property are conveyed to the User under this Agreement.</p>
+					intellectual property are conveyed to the User under this Agreement[cite: 3].
+				</p>
 			</section>
 
 			<!-- Section 3: Restrictions -->
 			<section id="restrictions" class="doc-section">
 				<h2>3. Restrictions on Use & Commercial Prohibitions</h2>
 				<p>Except as expressly authorized under applicable mandatory law, the User shall not,
-					directly or indirectly, under any circumstance:</p>
+					directly or indirectly, under any circumstance[cite: 3]:</p>
 				<ul>
 					<li><strong>Commercial Exploitation:</strong> Sell, resell, rent, lease,
 						sublicense, distribute, assign, host, commercialize, or provide
 						time-sharing, application service provider (ASP), or
 						software-as-a-service (SaaS) access to the Software or any derivation
-						thereof.</li>
+						thereof[cite: 3].</li>
 					<li><strong>Reverse Engineering:</strong> Decompile, reverse engineer,
 						disassemble, decrypt, extract, or attempt to derive the underlying
 						source code, algorithms, data structures, or trade secrets of compiled
-						modules, licensing protectors, or cryptographic verification procedures.
-					</li>
+						modules, licensing protectors, or cryptographic verification
+						procedures[cite: 3].</li>
 					<li><strong>Circumvention & Tampering:</strong> Modify, adapt, tamper with,
 						bypass, or create unauthorized emulations of update verification
 						mechanisms, digital signatures, or integrity manifests governing the
-						Software's release pipeline.</li>
+						Software's release pipeline[cite: 1, 3].</li>
 					<li><strong>Unlawful & Fraudulent Use:</strong> Utilize the Software, or any
 						astrological calculations, compatibility indices, or textual outputs
 						generated thereby, to perpetrate fraud, extortion, intentional
 						misrepresentation, financial deception, or harmful exploitation of third
-						parties.</li>
-					<li><strong>Unqualified Commercial Consulting:</strong> Market, sell, or provide
-						commercial astrological advisory services utilizing outputs of the
-						Software without possessing independent, prior competence and scholarly
-						expertise in classical Vedic astrological methodology. Possession or
-						production of automated software outputs does not confer professional
-						standing or authorized certification.</li>
+						parties[cite: 3].</li>
+					<li><strong>Misrepresentation of Outputs:</strong> Present automated software
+						outputs, predictive timelines, compatibility scores, or planetary
+						evaluations as verified empirical scientific facts, medical diagnoses,
+						legal declarations, or financial guarantees[cite: 3].</li>
 				</ul>
 			</section>
 
-			<!-- Section 4: Local Data Covenant -->
-			<section id="local-data" class="doc-section">
-				<h2>4. Local Data Sovereignty & Confidentiality Covenant</h2>
-				<p>Licensor establishes an absolute contractual covenant regarding the sovereignty and
-					strict confinement of User Astrological Data:</p>
+			<!-- Section 4: Zero Collection & Local Covenant -->
+			<section id="zero-collection" class="doc-section">
+				<h2>4. Zero Data Collection & Local Data Sovereignty Covenant</h2>
+				<p>Licensor establishes an absolute contractual covenant regarding the complete absence
+					of tracking and the strict confinement of User Astrological Data[cite: 3]:</p>
 				<div class="legal-callout" style="border-left-color: var(--accent-green);">
-					<strong style="color: var(--accent-green);">CONTRACTUAL LOCAL STORAGE
-						GUARANTEE:</strong><br>
-					All Astrological Data compiled, stored, or calculated within the
-					Software—including names, birth parameters, geographical coordinates,
-					interpretation notes, and saved profile vaults—remains strictly and exclusively
-					stored within the local filesystem of the User's host device. The Software does
-					not transmit, ingest, duplicate, sync, or mirror Astrological Data to any
-					centralized server, cloud storage provider, or third-party database controlled
-					by Licensor.
+					<strong style="color: var(--accent-green);">ABSOLUTE LOCAL STORAGE &
+						ZERO-COLLECTION GUARANTEE:</strong><br>
+					All User Astrological Data—including names, birth dates, birth times,
+					geographical coordinates, interpretation notes, and saved chart vaults—remains
+					strictly and exclusively stored within the local filesystem and browser storage
+					of the User's host device[cite: 1, 3]. The Software does not collect, log,
+					aggregate, duplicate, or transmit personal data or astrological profiles to any
+					remote database, central server, analytics provider, or infrastructure
+					controlled by Licensor[cite: 1, 3].
 				</div>
-				<p>User-generated astrological files remain under the exclusive custody, ownership, and
-					responsibility of the User. Licensor disclaims all access, monitoring
-					capability, or administrative recovery mechanisms over local data repositories
-					created by the User.</p>
+				<p>The Software operates entirely on an offline-first basis[cite: 1]. Astronomical
+					ephemeris calculations, chart plotting, and divisional varga analyses are
+					performed directly on the User's hardware using a local WebAssembly instance of
+					the Swiss Ephemeris engine[cite: 1]. No calculation payloads are transmitted
+					across network interfaces[cite: 1].</p>
 			</section>
 
-			<!-- Section 5: Telemetry Policy -->
-			<section id="telemetry-policy" class="doc-section">
-				<h2>5. Diagnostic Operations & Update Integrity</h2>
-				<p>To verify distribution integrity, detect build regressions, distribute security
-					patches, and monitor stability across heterogeneous hardware environments, the
-					Software incorporates limited diagnostic routines that communicate with
-					Licensor's release infrastructure over encrypted HTTPS connections.</p>
-				<h3>Scope of Diagnostic Ingestion</h3>
-				<p>The operational data processed by Licensor's release infrastructure is strictly
-					confined to non-personal parameters, including:</p>
+			<!-- Section 5: Functional Network Requests & Updates -->
+			<section id="third-party-requests" class="doc-section">
+				<h2>5. Functional Network Requests & Update Integrity</h2>
+				<p>The Software contains no tracking pixels, analytics modules, hardware fingerprinting,
+					machine identifiers, or behavioral telemetry[cite: 1, 3]. Outbound network
+					connections occur solely for the following explicit, user-initiated or
+					security-essential operations[cite: 1]:</p>
 				<ul>
-					<li>A pseudonymous, one-way cryptographic hardware hash serving as a
-						non-reversible machine identifier;</li>
-					<li>The operating system platform designation and major release revision (e.g.,
-						Windows or Android);</li>
-					<li>The active compilation and version identifier of the running Software
-						package;</li>
-					<li>Temporal execution markers denoting startup initialization, periodic
-						operational presence, and process termination; and</li>
-					<li>User-submitted numeric selection indices transmitted solely when the User
-						voluntarily participates in feature polling dialogs.</li>
+					<li><strong>Geographic Location Geocoding:</strong> When the User searches for a
+						birth location in the input fields, the search query is transmitted
+						exclusively to the OpenStreetMap Nominatim API
+						(`nominatim.openstreetmap.org`) to resolve corresponding latitude and
+						longitude coordinates[cite: 1, 3]. No personal identity or chart details
+						are attached to these lookup queries[cite: 1, 3].</li>
+					<li><strong>Automatic Timezone Offset Resolution:</strong> To verify accurate
+						local time offsets, coordinate queries are transmitted to the Open-Meteo
+						API (`api.open-meteo.com`)[cite: 1]. These requests contain strictly
+						coordinates and timezone queries[cite: 1].</li>
+					<li><strong>Cryptographic Update Checks:</strong> On native platforms, the
+						Software connects over HTTPS to a static GitHub repository manifest to
+						check whether a newer application release exists[cite: 1]. If an update
+						is detected, the Software verifies the cryptographic digital signature
+						and SHA-256 checksum of the bundle prior to installation[cite: 1]. No
+						user telemetry, profile information, or usage statistics are transmitted
+						during update checks[cite: 1].</li>
 				</ul>
-				<p>Licensor warrants that Diagnostic Telemetry contains no personally identifying
-					information (PII), names, email addresses, geographical coordinates, local file
-					contents, or chart records.</p>
 			</section>
 
-			<!-- Section 6: Opt-Out Rights -->
-			<section id="opt-out-rights" class="doc-section">
-				<h2>6. Right to Opt-Out & Autonomous Processing</h2>
-				<p>The User maintains an unrestricted statutory and contractual right to object to,
-					disable, and opt out of Diagnostic Telemetry at any time without forfeiture of
-					offline computational features.</p>
-				<p>Upon the User exercising the opt-out mechanism provided within the Software's
-					configuration or setup interfaces:</p>
+			<!-- Section 6: User Custody & Data Management -->
+			<section id="user-custody" class="doc-section">
+				<h2>6. User Custody & Data Responsibility</h2>
+				<p>Because all chart databases and configurations reside solely on the User's device,
+					the User retains complete custody, ownership, and responsibility over all
+					generated data[cite: 1, 3]:</p>
 				<ul>
-					<li>All outbound diagnostic network transmissions, heartbeat beacons, and status
-						registrations are immediately and completely suppressed;</li>
-					<li>No background network sockets or tracking sessions shall be initiated by the
-						telemetry module; and</li>
-					<li>Core astronomical calculations, chart rendering, divisional analysis, print
-						functions, and offline data storage shall continue to execute without
-						impairment.</li>
+					<li><strong>No Cloud Recovery:</strong> Licensor does not operate user accounts,
+						cloud backups, or remote synchronization servers[cite: 1, 3]. Licensor
+						possesses no technical capability to recover, restore, or reconstruct
+						lost, deleted, or corrupted chart vaults[cite: 3].</li>
+					<li><strong>Local Export & Archival:</strong> The User is solely responsible for
+						exporting and securing backups of their chart vaults (`.astrobasic`),
+						PDF documents, and image exports through the provided device storage
+						options[cite: 1].</li>
+					<li><strong>File Sharing:</strong> Chart sharing and export functions utilize
+						standard operating system sharing dialogs or direct file downloads[cite:
+						1]. Shared files are handled directly by the recipient applications
+						chosen by the User[cite: 1].</li>
 				</ul>
-				<p>Over-the-Air (OTA) software update channels may operate independently from diagnostic
-					presence telemetry, ensuring that the User's choice to withhold telemetry does
-					not compromise access to essential computational patches.</p>
 			</section>
 
-			<!-- Section 7: Third-Party Services -->
-			<section id="third-party" class="doc-section">
-				<h2>7. Third-Party Integrations & External Queries</h2>
-				<p>The Software interfaces with specific third-party protocols to perform supplementary
-					utility tasks:</p>
-				<ul>
-					<li><strong>Geographic Resolvers:</strong> Location name searches transmit
-						exclusively the entered textual search query to public geocoding
-						services (such as OpenStreetMap Nominatim) to resolve latitude,
-						longitude, and timezone offsets. Such queries contain no natal chart
-						data or User identification.</li>
-					<li><strong>Astronomical Computation:</strong> Planetary ephemerides are derived
-						in whole or in part using the Swiss Ephemeris under licensed terms.
-						Swiss Ephemeris is a proprietary product of Astrodienst AG and is
-						subject to separate computational licensing standards.</li>
-				</ul>
-				<p>Licensor makes no warranties and assumes no liability regarding the continuous
-					availability, legal compliance, or algorithmic accuracy of external third-party
-					network providers.</p>
-			</section>
-
-			<!-- Section 8: Intellectual Property -->
+			<!-- Section 7: Intellectual Property -->
 			<section id="intellectual-property" class="doc-section">
-				<h2>8. Intellectual Property Rights & Ownership</h2>
+				<h2>7. Intellectual Property Rights & Ownership</h2>
 				<p>The User acknowledges and agrees that the Software, including its structure,
 					organization, algorithmic formulations, compiled binaries, graphic interfaces,
 					branding, icons, and accompanying documentation, constitutes proprietary
 					intellectual property and confidential trade secrets of Licensor, protected
 					under national copyright statutes, international intellectual property treaties,
-					and trade secret laws.</p>
-				<p>All rights, titles, and interests not expressly granted to the User in this Agreement
-					are unconditionally reserved by Licensor. The User shall not acquire any
-					proprietary interest, express or implied, in the Software.</p>
+					and trade secret laws[cite: 3].</p>
+				<p>All planetary ephemeris algorithms incorporated via the Swiss Ephemeris are subject
+					to the intellectual property rights and licensing terms of Astrodienst AG[cite:
+					3]. All rights, titles, and interests not expressly granted to the User in this
+					Agreement are unconditionally reserved by Licensor[cite: 3].</p>
 			</section>
 
-			<!-- Section 9: Warranty Disclaimer -->
+			<!-- Section 8: Warranty Disclaimer -->
 			<section id="warranty-disclaimer" class="doc-section">
-				<h2>9. Disclaimer of Warranties</h2>
+				<h2>8. Disclaimer of Warranties</h2>
 				<div class="legal-callout" style="border-left-color: var(--accent-red);">
 					<span class="legal-caps">EXCLUSION OF ALL WARRANTIES:</span><br>
 					TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, THE SOFTWARE IS PROVIDED
 					STRICTLY ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITH ALL FAULTS, DEFECTS, AND
-					ERRORS. LICENSOR EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER
-					EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION THE
-					IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE,
-					QUIET ENJOYMENT, SYSTEM INTEGRATION, AND NON-INFRINGEMENT.
+					ERRORS[cite: 3]. LICENSOR EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND,
+					WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION
+					THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+					TITLE, QUIET ENJOYMENT, SYSTEM INTEGRATION, AND NON-INFRINGEMENT[cite: 3].
 				</div>
 				<p>WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, LICENSOR MAKES NO WARRANTY OR
 					REPRESENTATION THAT: (A) THE SOFTWARE WILL MEET THE USER'S REQUIREMENTS; (B)
 					OPERATION WILL BE UNINTERRUPTED, BUG-FREE, OR SECURE; (C) ASTRONOMICAL
 					COMPUTATIONS WILL BE FREE FROM MATHEMATICAL DEVIATION; OR (D) ASTROLOGICAL
 					OUTPUTS, PREDICTIVE CORRELATIONS, SYNASTRY INDICES, OR REMEDIAL SUGGESTIONS
-					POSSESS SCIENTIFIC CERTAINTY, FACTUAL TRUTH, OR EMPIRICAL VERIFIABILITY.</p>
-				<p>ASTROLOGY IS INHERENTLY AN INTERPRETATIVE, EXPLORATORY, AND TRADITIONAL DISCIPLINE.
-					THE SOFTWARE IS PROVIDED SOLELY AS A HEURISTIC CALCULATION AID. THE USER BEARS
-					ENTIRE RESPONSIBILITY FOR ALL INTERPRETATIONS, CONCLUSIONS, DECISIONS, OR
-					CONSULTATIONS DERIVED FROM ITS OUTPUTS.</p>
+					POSSESS SCIENTIFIC CERTAINTY, FACTUAL TRUTH, OR EMPIRICAL VERIFIABILITY[cite:
+					3].</p>
+				<p>ASTROLOGY IS INHERENTLY AN INTERPRETATIVE, EXPLORATORY, AND TRADITIONAL
+					DISCIPLINE[cite: 3]. THE SOFTWARE IS PROVIDED SOLELY AS A HEURISTIC CALCULATION
+					AID[cite: 3]. THE USER BEARS ENTIRE RESPONSIBILITY FOR ALL INTERPRETATIONS,
+					CONCLUSIONS, DECISIONS, OR CONSULTATIONS DERIVED FROM ITS OUTPUTS[cite: 3].</p>
 			</section>
 
-			<!-- Section 10: Liability Limitation -->
+			<!-- Section 9: Liability Limitation -->
 			<section id="liability-limitation" class="doc-section">
-				<h2>10. Limitation of Liability</h2>
+				<h2>9. Limitation of Liability</h2>
 				<div class="legal-callout" style="border-left-color: var(--accent-red);">
 					<span class="legal-caps">AGGREGATE LIABILITY CAP:</span><br>
 					TO THE FULLEST EXTENT PERMITTED BY APPLICABLE JURISDICTIONAL LAW, IN NO EVENT
@@ -650,18 +628,18 @@
 					DATA, INACCURATE MARITAL MATCHMAKING ASSESSMENTS, REPUTATIONAL INJURY, OR
 					PERSONAL DECISIONS MADE IN RELIANCE UPON ASTROLOGICAL OUTPUTS), ARISING OUT OF
 					THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF LICENSOR HAS BEEN ADVISED
-					OF THE POSSIBILITY OF SUCH DAMAGES.
+					OF THE POSSIBILITY OF SUCH DAMAGES[cite: 3].
 				</div>
 				<p>IN NO EVENT SHALL LICENSOR'S TOTAL AGGREGATE LIABILITY ARISING UNDER OR RELATED TO
 					THIS AGREEMENT, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT
 					LIABILITY, OR OTHERWISE, EXCEED THE ACTUAL MONETARY AMOUNT PAID BY THE USER FOR
 					THE SOFTWARE LICENSE, OR FIVE UNITED STATES DOLLARS ($5.00 USD), WHICHEVER IS
-					LESS.</p>
+					LESS[cite: 3].</p>
 			</section>
 
-			<!-- Section 11: Indemnification -->
+			<!-- Section 10: Indemnification -->
 			<section id="indemnification" class="doc-section">
-				<h2>11. Indemnification</h2>
+				<h2>10. Indemnification</h2>
 				<p>The User agrees to defend, indemnify, and hold harmless Licensor, its affiliates,
 					agents, contributors, and licensors from and against any and all claims,
 					liabilities, damages, losses, costs, and expenses (including reasonable
@@ -670,51 +648,53 @@
 					the Software; (c) any commercial astrological consultation provided by the User
 					to third parties; or (d) any third-party claims alleging fraud,
 					misrepresentation, or injury arising from the User's deployment or dissemination
-					of software-generated charts.</p>
+					of software-generated charts[cite: 3].</p>
 			</section>
 
-			<!-- Section 12: Term & Termination -->
+			<!-- Section 11: Term & Termination -->
 			<section id="termination" class="doc-section">
-				<h2>12. Term & Termination</h2>
+				<h2>11. Term & Termination</h2>
 				<p>This Agreement takes effect upon the User's initial installation, download,
 					execution, or use of the Software and remains in full legal force until
-					terminated.</p>
+					terminated[cite: 3].</p>
 				<p>The User may terminate this Agreement at any time by ceasing all use and destroying,
-					deleting, and purging all copies of the Software in their possession or control.
-				</p>
+					deleting, and purging all copies of the Software in their possession or
+					control[cite: 3].</p>
 				<p>Licensor reserves the right to terminate this Agreement immediately and without prior
 					notice if the User breaches any term, condition, or restriction set forth
-					herein. Upon termination, all license rights granted to the User shall instantly
-					terminate, and the User must immediately uninstall and destroy all copies of the
-					Software.</p>
-				<p>Sections 3, 4, 8, 9, 10, 11, and 13 shall survive the expiration or termination of
-					this Agreement for any reason.</p>
+					herein[cite: 3]. Upon termination, all license rights granted to the User shall
+					instantly terminate, and the User must immediately uninstall and destroy all
+					copies of the Software[cite: 3].</p>
+				<p>Sections 3, 4, 6, 7, 8, 9, 10, and 12 shall survive the expiration or termination of
+					this Agreement for any reason[cite: 3].</p>
 			</section>
 
-			<!-- Section 13: General Provisions -->
+			<!-- Section 12: General Provisions -->
 			<section id="general-provisions" class="doc-section">
-				<h2>13. Governing Law & General Provisions</h2>
+				<h2>12. Governing Law & General Provisions</h2>
 				<ol>
 					<li><strong>Severability:</strong> If any provision of this Agreement is held by
 						an adjudicative body of competent jurisdiction to be invalid, illegal,
 						or unenforceable, such provision shall be severed or reformed to the
 						minimum extent necessary to achieve its original intent, and the
-						remaining provisions shall remain in full force and effect.</li>
+						remaining provisions shall remain in full force and effect[cite: 3].
+					</li>
 					<li><strong>Entire Agreement:</strong> This Agreement constitutes the complete,
 						final, and exclusive agreement between the parties concerning the
 						Software, superseding all prior or contemporaneous oral or written
-						proposals, agreements, representations, or understandings.</li>
+						proposals, agreements, representations, or understandings[cite: 3].</li>
 					<li><strong>No Waiver:</strong> The failure of Licensor to exercise or enforce
 						any right or provision of this Agreement shall not constitute a waiver
-						of such right or provision in that or any subsequent instance.</li>
+						of such right or provision in that or any subsequent instance[cite: 3].
+					</li>
 					<li><strong>Governing Law & Forum:</strong> This Agreement shall be governed by,
 						construed, and enforced in accordance with the laws governing
 						computational intellectual property licensing, excluding its principles
-						of conflicts of law. The United Nations Convention on Contracts for the
-						International Sale of Goods shall not apply.</li>
+						of conflicts of law[cite: 3]. The United Nations Convention on Contracts
+						for the International Sale of Goods shall not apply[cite: 3].</li>
 					<li><strong>Language:</strong> In the event this Agreement is translated into
 						other languages, the English-language version shall remain the
-						definitive, legally governing document in all disputes.</li>
+						definitive, legally governing document in all disputes[cite: 3].</li>
 				</ol>
 			</section>
 		</main>
