@@ -766,19 +766,19 @@ def evaluate(chart: astro_engine.ChartContext) -> dict:
         "Active Dasha Sequence": " -> ".join(chart.get_dasha_sequence())
     }</code></pre>
 
-				<h3 id="setup-ui">Paradigm 4: Polymorphic & Native PyQt6 (<code>def setup_ui</code>)
+				<h3 id="setup-ui">Paradigm 4: Polymorphic & Native PySide6 (<code>def setup_ui</code>)
 				</h3>
 				<p>Supports signature introspection. If defined as <code>setup_ui(ui, chart)</code>, it
 					functions as a declarative builder. If defined as
-					<code>setup_ui(app, layout)</code>, you receive direct access to PyQt6 widgets:
+					<code>setup_ui(app, layout)</code>, you receive direct access to PySide6 widgets:
 				</p>
-				<pre><code>from PyQt6.QtWidgets import QPushButton, QLabel, QVBoxLayout
+				<pre><code>from PySide6.QtWidgets import QPushButton, QLabel, QVBoxLayout
 import astro_engine
 
 PLUGIN_NAME = "Native Qt Control"
 
 def setup_ui(app, layout: QVBoxLayout):
-    lbl = QLabel("Native PyQt6 Controller Active")
+    lbl = QLabel("Native PySide6 Controller Active")
     btn = QPushButton("Calculate Panchang")
     btn.clicked.connect(lambda: lbl.setText(str(astro_engine.get_active_chart("D1").get_panchang())))
     layout.addWidget(lbl)
@@ -787,7 +787,7 @@ def setup_ui(app, layout: QVBoxLayout):
 				<h3 id="setup-menu">Paradigm 5: Menu Bar Integration (<code>def setup_menu</code>)</h3>
 				<p>When plugins are placed in the top menu bar via <strong>Manage Layout</strong>, this
 					hook populates menu actions:</p>
-				<pre><code>from PyQt6.QtGui import QAction
+				<pre><code>from PySide6.QtGui import QAction
 import astro_engine
 
 def setup_menu(app, parent_menu):
@@ -922,7 +922,7 @@ is_shadashtaka   = mars.is_in_shadashtaka("Saturn")        # True if in mutual 6
 			<section id="simple-ui" class="doc-section">
 				<h2>7. <code>SimplePluginUI</code> Declarative Toolkit</h2>
 				<p>The declarative UI builder creates responsive, theme-adaptive widgets without direct
-					PyQt6 imports:</p>
+					PySide6 imports:</p>
 
 				<div class="table-responsive">
 					<table class="custom-table">
